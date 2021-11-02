@@ -27,10 +27,9 @@
                 <p class="text-gray-700">Mau masak apa kita hari ini?</p>
             </section>
             <section class="login-form-container fixed inset-0 flex items-center justify-center hidden">
-                <div class="login-form-wrapper bg-white rounded py-6 px-8 w-1/2 relative">
+                <div class="login-form-wrapper bg-white rounded-lg py-6 px-8 w-1/2 relative">
                     <button class="btn-close"><i class='bx bx-x absolute top-3 right-3 text-2xl'></i></button>
                     <h3 class="text-2xl font-bold text-center mb-4">Login</h3>
-                    <!-- FORM LOGIN -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
             
@@ -57,7 +56,6 @@
                                     {{ __('Forgot your password?') }}
                                 </a>
                             @endif
-            
                             <x-jet-button class="ml-4">
                                 {{ __('Log in') }}
                             </x-jet-button>
@@ -66,13 +64,12 @@
                 </div>
             </section>
             <section class="signup-form-container fixed inset-0 flex items-center justify-center hidden">
-                <div class="signup-form-wrapper bg-white rounded py-6 px-8 w-1/2 relative">
+                <div class="signup-form-wrapper bg-white rounded-lg py-6 px-8 w-1/2 relative">
                     <button class="btn-close"><i class='bx bx-x absolute top-3 right-3 text-2xl'></i></button>
                     <h3 class="text-2xl font-bold text-center mb-4">Signup</h3>
                     <!-- FORM SIGNUP -->
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-            
                         <div>
                             <x-jet-label for="name" value="{{ __('Name') }}" />
                             <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -123,9 +120,9 @@
                 </div>
             </section>
         </article>
-        <article>
-            <input type="search">
-        </article>
+        <div class="flex my-10">
+            <input class="flex-1 rounded-lg" type="search" placeholder="Mau cari siapa kita hari ini?">
+        </div>
     </main>
     <script src="{{ asset('js/home.js') }}"></script> 
 </body>
