@@ -9,8 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
-<body>
-    <header class="px-4 py-2 flex shadow sticky top-0 items-center justify-between">
+<body class="px-12">
+    <header class="py-2 flex sticky top-0 items-center justify-between">
         <a href="#" class="flex items-center gap-2">
             <img src="{{ asset('logo.svg') }}" alt="Logo" class="w-7"> 
             <h1 class="text-xl font-bold">Masyuk</h1>
@@ -20,10 +20,10 @@
             <button class="btn-login bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Login</button>
         </nav>
     </header>
-    <main class="px-12 py-4">
+    <main class="py-4">
         <article>
             <section>
-                <h2 class="text-3xl font-bold">Selamat Datang!</h2>
+                <h2 class="text-5xl font-bold">Selamat Datang!</h2>
                 <p class="text-gray-700">Mau masak apa kita hari ini?</p>
             </section>
             <section class="login-form-container fixed inset-0 flex items-center justify-center hidden">
@@ -31,15 +31,36 @@
                     <button class="btn-close"><i class='bx bx-x absolute top-3 right-3 text-2xl'></i></button>
                     <h3 class="text-2xl font-bold text-center mb-4">Login</h3>
                     <!-- FORM LOGIN -->
-                    <form class="flex flex-col" action="" method="POST">
-                        <label for="loginEmail" class="text-sm">Email / Username</label>
-                        <input type="text" name="email" id="loginEmail" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan email / username">
-                        <label for="loginPassword" class="text-sm">Password</label>
-                        <input type="text" name="password" id="loginPassword" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan password">
-                        <div class="action flex flex-col items-center gap-3">
-                            <a href="#" class="text-xs">Lupa password?</a>
-                            <button type="submit" class="bg-gray-400 px-10 py-2 text-sm rounded hover:bg-gray-500 mb-2">Login</button>
-                            <button class="text-xs btn-signup">Belum terdaftar? Daftar sekarang!</button>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+            
+                        <div>
+                            <x-jet-label for="email" value="{{ __('Email') }}" />
+                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                        </div>
+            
+                        <div class="mt-4">
+                            <x-jet-label for="password" value="{{ __('Password') }}" />
+                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                        </div>
+            
+                        <div class="block mt-4">
+                            <label for="remember_me" class="flex items-center">
+                                <x-jet-checkbox id="remember_me" name="remember" />
+                                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            </label>
+                        </div>
+            
+                        <div class="flex items-center justify-end mt-4">
+                            @if (Route::has('password.request'))
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
+                            @endif
+            
+                            <x-jet-button class="ml-4">
+                                {{ __('Log in') }}
+                            </x-jet-button>
                         </div>
                     </form>
                 </div>
@@ -49,21 +70,54 @@
                     <button class="btn-close"><i class='bx bx-x absolute top-3 right-3 text-2xl'></i></button>
                     <h3 class="text-2xl font-bold text-center mb-4">Signup</h3>
                     <!-- FORM SIGNUP -->
-                    <form class="flex flex-col" action="" method="POST">
-                        <label for="username" class="text-sm">Username</label>
-                        <input type="text" name="username" id="username" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan username">
-                        <label for="signupEmail" class="text-sm">Email</label>
-                        <input type="email" name="email" id="signupEmail" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan email">
-                        <label for="signupPassword" class="text-sm">Password</label>
-                        <input type="password" name="password" id="signupPassword" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan password">
-                        <label for="confirmPassword" class="text-sm">Confirm Password</label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" class="px-3 py-2 outline-none text-sm focus:border-blue-500 mb-4 mt-1" placeholder="Masukkan konfirmasi password">
-                        <div class="action flex flex-col items-center gap-3">
-                            <div>
-                                <input type="checkbox" name="syarat" id="syarat">
-                                <label class="text-xs" for="syarat">Saya setuju dengan persyaratan pengguna aplikasi Masyuk</label>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+            
+                        <div>
+                            <x-jet-label for="name" value="{{ __('Name') }}" />
+                            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                        </div>
+            
+                        <div class="mt-4">
+                            <x-jet-label for="email" value="{{ __('Email') }}" />
+                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                        </div>
+            
+                        <div class="mt-4">
+                            <x-jet-label for="password" value="{{ __('Password') }}" />
+                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                        </div>
+            
+                        <div class="mt-4">
+                            <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                            <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                        </div>
+            
+                        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                            <div class="mt-4">
+                                <x-jet-label for="terms">
+                                    <div class="flex items-center">
+                                        <x-jet-checkbox name="terms" id="terms"/>
+            
+                                        <div class="ml-2">
+                                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                            ]) !!}
+                                        </div>
+                                    </div>
+                                </x-jet-label>
                             </div>
-                            <button type="submit" class="bg-gray-400 px-10 py-2 text-sm rounded hover:bg-gray-500">Signup</button>
+                        @endif
+            
+                        <div class="flex items-center justify-end mt-4">
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                {{ __('Already registered?') }}
+                            </a>
+            
+                            <x-jet-button class="ml-4">
+                                {{ __('Register') }}
+                            </x-jet-button>
                         </div>
                     </form>
                 </div>
