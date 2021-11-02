@@ -132,6 +132,7 @@
         <div class="flex my-10">
             <input class="flex-1 rounded-lg" type="search" placeholder="Mau cari siapa kita hari ini?">
         </div>
+        <x-home-carousel />
     </main>
     <script src="{{ asset('js/home.js') }}"></script> 
 </body>

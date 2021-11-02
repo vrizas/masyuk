@@ -44,11 +44,48 @@ signupFormWrapper.addEventListener('click', event => {
     event.stopPropagation();
 });
 
-document.querySelector('.login-form-container .btn-signup').addEventListener('click', event => {
-    loginFormContainer.classList.add('hidden');
-    signupFormContainer.classList.toggle('hidden');
-    event.stopPropagation();
-    event.preventDefault();
+// document.querySelector('.login-form-container .btn-signup').addEventListener('click', event => {
+//     loginFormContainer.classList.add('hidden');
+//     signupFormContainer.classList.toggle('hidden');
+//     event.stopPropagation();
+//     event.preventDefault();
+// });
+
+const carouselItems = document.querySelectorAll('.carousel .item');
+const carouselButtons = document.querySelectorAll('.btn-carousel');
+
+let selector = 0;
+
+for(let i = 0; i < carouselItems.length; i++) {
+    if(i != 0) 
+    carouselItems[i].classList.add('hidden');
+}
+
+carouselButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        if(button.classList.contains('next')) {
+                selector++;
+            if(selector > carouselItems.length - 1) {
+                selector = 0;
+                carouselItems[carouselItems.length - 1].classList.add('hidden');
+                carouselItems[selector].classList.remove('hidden');
+            } else {
+                carouselItems[selector - 1].classList.add('hidden');
+                carouselItems[selector].classList.remove('hidden');
+                
+            }
+        } else {
+            selector--;
+            if(selector < 0) {
+                selector = carouselItems.length - 1;
+                carouselItems[0].classList.add('hidden');
+                carouselItems[selector].classList.remove('hidden');
+            } else {
+                carouselItems[selector + 1].classList.add('hidden');
+                carouselItems[selector].classList.remove('hidden');
+            }
+        }
+    });
 });
 
 
