@@ -16,8 +16,17 @@
             <h1 class="text-xl font-bold">Masyuk</h1>
         </a>
         <nav class="flex gap-3 h-1/2">
-            <button class="btn-signup bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Signup</button>
-            <button class="btn-login bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Login</button>
+            @if (!Auth::check())
+                <div>
+                    <button class="btn-signup bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Signup</button>
+                    <button class="btn-login bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Login</button>
+                </div>
+            @else
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn-logout bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Logout</button>
+                </form>
+            @endif
         </nav>
     </header>
     <main class="py-4">
