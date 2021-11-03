@@ -9,10 +9,9 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
-<body class="px-12">
+<body class="container mx-auto">
     <header class="py-2 flex sticky top-0 items-center justify-between">
         <a href="#" class="flex items-center gap-2">
-            <img src="{{ asset('logo.svg') }}" alt="Logo" class="w-7"> 
             <h1 class="text-xl font-bold">Masyuk</h1>
         </a>
         <nav class="flex gap-3 h-1/2">
@@ -24,7 +23,7 @@
             @else
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="btn-logout bg-gray-400 px-4 py-2 text-sm rounded hover:bg-gray-500">Logout</button>
+                    <button type="submit" class="btn btn-primary">Logout</button>
                 </form>
             @endif
         </nav>
@@ -38,16 +37,17 @@
             {{-- Form Login --}}
             <div id="login" class="modal">
                 <div class="modal-box w-1/2 bg-gray-100">
+                    <h2>Login</h2>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div>
                             <x-jet-label for="email" value="{{ __('Email') }}" />
-                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                            <x-jet-input id="email" class="input w-full bg-gray-200" type="email" name="email" :value="old('email')" required autofocus />
                         </div>
             
                         <div class="mt-4">
                             <x-jet-label for="password" value="{{ __('Password') }}" />
-                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                            <x-jet-input id="password" class="input w-full bg-gray-200" type="password" name="password" required autocomplete="current-password" />
                         </div>
             
                         <div class="block mt-4">
@@ -82,22 +82,22 @@
                         @csrf
                         <div>
                             <x-jet-label for="name" value="{{ __('Name') }}" />
-                            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                            <x-jet-input id="name" class="input w-full bg-gray-200" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         </div>
             
                         <div class="mt-4">
                             <x-jet-label for="email" value="{{ __('Email') }}" />
-                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                            <x-jet-input id="email" class="input w-full bg-gray-200" type="email" name="email" :value="old('email')" required />
                         </div>
             
                         <div class="mt-4">
                             <x-jet-label for="password" value="{{ __('Password') }}" />
-                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                            <x-jet-input id="password" class="input w-full bg-gray-200" type="password" name="password" required autocomplete="new-password" />
                         </div>
             
                         <div class="mt-4">
                             <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                            <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                            <x-jet-input id="password_confirmation" class="input w-full bg-gray-200" type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
             
                         @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -191,16 +191,23 @@
                 </div>
             </section>
         </article>
-        <div class="flex my-10">
-            <input class="flex-1 rounded-lg" type="search" placeholder="Mau cari siapa kita hari ini?">
+        <div class="flex mt-4 mb-4">
+            <input class="input w-full bg-gray-200" type="search" placeholder="Mau cari siapa kita hari ini?">
         </div>
         <x-home-carousel />
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="flex mt-4 items-center justify-between">
+            <h2 class="font-bold">Aneka Resep</h2>
+            <a class="text-sm" href="#">Lihat Semua</a>
+        </div>
+
+        <div class="flex gap-4 mt-4">
             @foreach ($reseps as $resep)
                 <x-resep-card :resep="$resep" />
             @endforeach
         </div>
+
+        
     </main>
     <script src="{{ asset('js/home.js') }}"></script> 
 </body>
