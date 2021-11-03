@@ -4,10 +4,23 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.login-form-container, .signup-form-container {
-    background-color: rgba(0, 0, 0, .5);
+a.btn-signup {
+    color: #2094f3;
 }
 
-.login-form-container input, .signup-form-container input {
-    border-bottom: 1px solid gray;
+.checkbox-remember {
+    border-radius: 30%;
+}
+
+.checkbox-remember:focus {
+    --tw-ring-shadow: none;
+}
+
+.btn-rh {
+    min-height: 0;
+    height: fit-content;
+}
+
+.resep-card .item {
+    width: 23%;
 }

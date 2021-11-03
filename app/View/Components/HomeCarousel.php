@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class HomeCarousel extends Component
 {
+    public $reseps;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($reseps)
     {
-        //
+        $this->reseps = $reseps;
     }
 
     /**

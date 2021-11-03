@@ -10,20 +10,18 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 <body class="container mx-auto">
-    <header class="py-2 flex sticky top-0 items-center justify-between">
+    <header class="py-2 flex top-0 items-center justify-between">
         <a href="#" class="flex items-center gap-2">
             <h1 class="text-xl font-bold">Masyuk</h1>
         </a>
-        <nav class="flex gap-3 h-1/2">
+        <nav class="flex gap-4">
             @if (!Auth::check())
-                <div>
-                    <a href="#login" class="btn btn-primary">Login</a> 
-                    <a href="#signup" class="btn btn-primary">Signup</a> 
-                </div>
+                <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20">Login</a> 
+                <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20">Signup</a> 
             @else
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Logout</button>
+                    <button type="submit" class="btn btn-primary btn-rh py-2.5 w-20">Logout</button>
                 </form>
             @endif
         </nav>
@@ -35,53 +33,52 @@
                 <p class="text-gray-700">Mau masak apa kita hari ini?</p>
             </section>
             {{-- Form Login --}}
-            <div id="login" class="modal">
-                <div class="modal-box w-1/2 bg-gray-100">
-                    <h2>Login</h2>
+            <section id="login" class="modal">
+                <div class="modal-box w-1/2 bg-gray-100 relative">
+                    <h2 class="font-bold text-2xl text-center mb-6">Login</h2>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div>
                             <x-jet-label for="email" value="{{ __('Email') }}" />
-                            <x-jet-input id="email" class="input w-full bg-gray-200" type="email" name="email" :value="old('email')" required autofocus />
+                            <x-jet-input id="email" class="input w-full bg-gray-50" type="email" name="email" :value="old('email')" required autofocus />
                         </div>
             
                         <div class="mt-4">
                             <x-jet-label for="password" value="{{ __('Password') }}" />
-                            <x-jet-input id="password" class="input w-full bg-gray-200" type="password" name="password" required autocomplete="current-password" />
+                            <x-jet-input id="password" class="input w-full bg-gray-50" type="password" name="password" required autocomplete="current-password" />
                         </div>
             
                         <div class="block mt-4">
                             <label for="remember_me" class="flex items-center">
-                                <x-jet-checkbox id="remember_me" name="remember" />
+                                <input type="checkbox"  id="remember_me" name="remember" class="checkbox w-4 h-4 checkbox-remember">
                                 <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                             </label>
                         </div>
             
-                        <div class="flex items-center justify-end mt-4">
+                        <div class="flex flex-col items-center justify-center mt-4 gap-4">
                             @if (Route::has('password.request'))
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                    {{ __('Forgot your password?') }}
+                                <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                    {{ __('Lupa password?') }}
                                 </a>
                             @endif
-                            <x-jet-button class="ml-4">
+                            <button class="ml-4 btn btn-primary w-1/2">
                                 {{ __('Log in') }}
-                            </x-jet-button>
+                            </button>
+                            <p class="text-sm">Belum terdaftar? <a href="#signup" class="btn-signup">Daftar sekarang!</a></p>
                         </div>
                     </form>
-                  <div class="modal-action">
-                    <a href="#" class="btn btn-primary">Accept</a> 
-                    <a href="#" class="btn">Close</a>
-                  </div>
+                    <a href="#" class="absolute top-3 right-3 text-2xl"><i class='bx bx-x'></i></a>
                 </div>
-            </div>
+            </section>
 
             {{-- Sign Up --}}
             <div id="signup" class="modal">
                 <div class="modal-box w-1/2 bg-gray-100">
+                    <h2 class="font-bold text-2xl text-center mb-6">Signup</h2>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div>
-                            <x-jet-label for="name" value="{{ __('Name') }}" />
+                            <x-jet-label for="name" value="{{ __('Username') }}" />
                             <x-jet-input id="name" class="input w-full bg-gray-200" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         </div>
             
@@ -99,7 +96,7 @@
                             <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                             <x-jet-input id="password_confirmation" class="input w-full bg-gray-200" type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
-            
+                        
                         @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                             <div class="mt-4">
                                 <x-jet-label for="terms">
@@ -117,20 +114,17 @@
                             </div>
                         @endif
             
-                        <div class="flex items-center justify-end mt-4">
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                                {{ __('Already registered?') }}
+                        <div class="flex flex-col items-center justify-center mt-4 gap-4">
+                            <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                {{ __('Telah terdaftar?') }}
                             </a>
             
-                            <x-jet-button class="ml-4">
-                                {{ __('Register') }}
-                            </x-jet-button>
+                            <button class="ml-4 btn btn-primary w-1/2">
+                                {{ __('Signup') }}
+                            </button>
                         </div>
                     </form>
-                  <div class="modal-action">
-                    <a href="#" class="btn btn-primary">Accept</a> 
-                    <a href="#" class="btn">Close</a>
-                  </div>
+                    <a href="#" class="absolute top-3 right-3 text-2xl"><i class='bx bx-x'></i></a>
                 </div>
             </div>
 
@@ -191,21 +185,25 @@
                 </div>
             </section>
         </article>
-        <div class="flex mt-4 mb-4">
-            <input class="input w-full bg-gray-200" type="search" placeholder="Mau cari siapa kita hari ini?">
-        </div>
-        <x-home-carousel />
-
-        <div class="flex mt-4 items-center justify-between">
-            <h2 class="font-bold">Aneka Resep</h2>
-            <a class="text-sm" href="#">Lihat Semua</a>
-        </div>
-
-        <div class="flex gap-4 mt-4">
-            @foreach ($reseps as $resep)
-                <x-resep-card :resep="$resep" />
-            @endforeach
-        </div>
+        <article class="mt-4 mb-4">
+            <input class="input w-full bg-gray-50" type="search" placeholder="Mau cari siapa kita hari ini?">
+        </article>
+        <x-home-carousel :reseps="$reseps"/>
+        <article>
+            <section class="flex mt-4 items-center justify-between">
+                <h2 class="font-bold text-2xl">Aneka Resep</h2>
+                <a class="text-sm" href="#">Lihat Semua</a>
+            </section>
+            <section class="resep-card flex mt-4 flex-wrap gap-8">
+                @foreach ($reseps as $resep)
+                    <x-resep-card :resep="$resep" />
+                @endforeach
+                @foreach ($reseps as $resep)
+                    <x-resep-card :resep="$resep" />
+                @endforeach
+            </section>
+        </article>
+        
 
         
     </main>
