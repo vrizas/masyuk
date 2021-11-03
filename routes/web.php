@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResepController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -29,9 +30,7 @@ use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
+Route::get('/', [ResepController::class, 'getResepHome']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

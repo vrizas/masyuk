@@ -44,12 +44,6 @@ signupFormWrapper.addEventListener('click', event => {
     event.stopPropagation();
 });
 
-// document.querySelector('.login-form-container .btn-signup').addEventListener('click', event => {
-//     loginFormContainer.classList.add('hidden');
-//     signupFormContainer.classList.toggle('hidden');
-//     event.stopPropagation();
-//     event.preventDefault();
-// });
 
 const carouselItems = document.querySelectorAll('.carousel .item');
 const carouselButtons = document.querySelectorAll('.btn-carousel');

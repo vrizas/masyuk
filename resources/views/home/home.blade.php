@@ -133,6 +133,12 @@
             <input class="flex-1 rounded-lg" type="search" placeholder="Mau cari siapa kita hari ini?">
         </div>
         <x-home-carousel />
+
+        <div class="grid grid-cols-2 gap-4">
+            @foreach ($reseps as $resep)
+                <x-resep-card :resep="$resep" />
+            @endforeach
+        </div>
     </main>
     <script src="{{ asset('js/home.js') }}"></script> 
 </body>
