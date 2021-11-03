@@ -1,25 +1,25 @@
-const btnLogin = document.querySelector('header nav .btn-login');
-const loginFormContainer = document.querySelector('.login-form-container');
-const loginFormWrapper = document.querySelector('.login-form-wrapper');
-const btnCloseLoginForm = document.querySelector('.login-form-container .btn-close');
+// const btnLogin = document.querySelector('header nav .btn-login');
+// const loginFormContainer = document.querySelector('.login-form-container');
+// const loginFormWrapper = document.querySelector('.login-form-wrapper');
+// const btnCloseLoginForm = document.querySelector('.login-form-container .btn-close');
 
-btnLogin.addEventListener('click', () => {
-    loginFormContainer.classList.toggle('hidden');
-});
+// btnLogin.addEventListener('click', () => {
+//     loginFormContainer.classList.toggle('hidden');
+// });
 
-btnCloseLoginForm.addEventListener('click', event => {
-    loginFormContainer.classList.add('hidden');
-    event.stopPropagation();
-});
+// btnCloseLoginForm.addEventListener('click', event => {
+//     loginFormContainer.classList.add('hidden');
+//     event.stopPropagation();
+// });
 
-loginFormContainer.addEventListener('click', () => {
-    loginFormContainer.classList.add('hidden');
-});
+// loginFormContainer.addEventListener('click', () => {
+//     loginFormContainer.classList.add('hidden');
+// });
 
-loginFormWrapper.addEventListener('click', event => {
-    loginFormContainer.classList.remove('hidden');
-    event.stopPropagation();
-});
+// loginFormWrapper.addEventListener('click', event => {
+//     loginFormContainer.classList.remove('hidden');
+//     event.stopPropagation();
+// });
 
 const btnSignup = document.querySelector('header nav .btn-signup');
 const signupFormContainer = document.querySelector('.signup-form-container');
@@ -44,12 +44,6 @@ signupFormWrapper.addEventListener('click', event => {
     event.stopPropagation();
 });
 
-// document.querySelector('.login-form-container .btn-signup').addEventListener('click', event => {
-//     loginFormContainer.classList.add('hidden');
-//     signupFormContainer.classList.toggle('hidden');
-//     event.stopPropagation();
-//     event.preventDefault();
-// });
 
 const carouselItems = document.querySelectorAll('.carousel .item');
 const carouselButtons = document.querySelectorAll('.btn-carousel');
