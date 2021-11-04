@@ -8,6 +8,7 @@ class Member extends Component
 {
     public function render()
     {
+        
         return view('livewire.admin.member');
     }
 }
