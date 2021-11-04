@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ResepController::class, 'getResepHome']);
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 
 Auth::routes();

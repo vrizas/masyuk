@@ -1,0 +1,18 @@
+nav li button.active::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.table-zebra tbody tr td.btn-plus-wrapper {
+    background-color: transparent;
+}
+
+.loading-wrapper {
+    background-color: rgba(0,0,0,.5);
+}
