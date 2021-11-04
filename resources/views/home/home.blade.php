@@ -21,7 +21,7 @@
             @else
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="btn btn-primary btn-rh py-2.5 w-20">Logout</button>
+                    <button type="submit" class="btn btn-warning btn-rh py-2.5 w-20">Logout</button>
                 </form>
             @endif
         </nav>
