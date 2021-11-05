@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bahan extends Model
+class ResepStep extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-    public function reseps()
+    public function resep() 
     {
-        return $this->belongsToMany(Resep::class, 'bahans_reseps');
+        $this->belongsTo(Resep::class);
     }
 }

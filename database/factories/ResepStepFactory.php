@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BahanFactory extends Factory
+class ResepStepFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +14,9 @@ class BahanFactory extends Factory
     public function definition()
     {
         return [
-            'nama' => $this->faker->word(),
-            'kalori' => 100,
-            'baseQuantity' => 100,
-            'unit' => $this->faker->word(),
+            'resep_id' => rand(1, 20),
+            'nomor_step' => rand(1, 5),
+            'description' => $this->faker->sentence(20),
         ];
     }
 }
