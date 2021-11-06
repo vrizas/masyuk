@@ -36,7 +36,7 @@
         @if($selectorBahan == true)
         <livewire:admin.bahan-masakan />
         @elseif($selectorMember == true) 
-        <livewire:admin.member /> 
+        <livewire:admin.daftar-member /> 
         @elseif($selectorEditProfile == true) 
         <livewire:admin.edit-profile /> 
         @endif

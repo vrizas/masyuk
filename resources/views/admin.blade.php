@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="bumblebee">
+<html lang="en" data-theme="mytheme">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,11 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
+
 <body>
+    
     <livewire:admin.index />
     @livewireScripts
 </body>
+
 </html>

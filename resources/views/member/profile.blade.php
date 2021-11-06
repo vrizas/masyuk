@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 
+
 <body class="container mx-auto">
     <main class="py-8">
         {{-- Atas --}}
@@ -74,7 +75,6 @@
         </section>
 
     </main>
-
 </body>
 
 </html>

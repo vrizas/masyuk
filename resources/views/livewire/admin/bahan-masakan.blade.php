@@ -10,6 +10,18 @@
         <button class="btn btn-xs">»</button>
     </div>
     <div class="overflow-x-auto mt-4">
+        @error('nama')
+            <span>{{ $message }}</span>
+        @enderror
+        @error('kalori')
+            <span>{{ $message }}</span>
+        @enderror
+        @error('baseQuantity')
+            <span>{{ $message }}</span>
+        @enderror
+        @error('unit')
+            <span>{{ $message }}</span>
+        @enderror
         <table class="table w-full table-zebra">
             <thead>
                 <tr>
@@ -34,19 +46,84 @@
                             </label>
                         </th>
                         <td>{{ $bahan->nama }}</td>
-                        <td>3</td>
-                        <td>{{ $bahan->unit . $bahan->baseQuantitiy }}</td>
-                        <td>{{ $bahan->kalori }} Kalori</td>
+                        <td>{{ $bahan->baseQuantity }}</td>
+                        <td>{{ $bahan->unit }}</td>
+                        <td>{{ $bahan->kalori }}</td>
                         <td class="flex gap-4">
-                            <button><i class='bx bxs-message-square-edit text-xl'></i></button>
-                            <button><i class='bx bxs-trash-alt text-xl'></i></button>
+                            <a href="#edit">
+                                <button wire:click="showForm({{ $bahan->id }})"><i class='bx bxs-message-square-edit text-xl'></i></button>
+                            </a>
+                            <button wire:click="deleteBahan({{ $bahan->id }})"><i class='bx bxs-trash-alt text-xl'></i></button>
                         </td>
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="6" class="btn-plus-wrapper"><button class="w-full btn btn-outline"><i
-                                class='bx bx-plus'></i>Tambah Bahan Makanan</button></td>
+                    <td colspan="6" class="btn-plus-wrapper">
+                        <a href="#tambah">
+                            <button class="w-full btn btn-outline">
+                                <iclass='bx bx-plus'></i> Tambah Bahan Makanan
+                            </button>
+                        </a>
+                    </td>
                 </tr>
+
+                <div id="tambah" class="modal">
+                    <div class="modal-box">
+                        <form>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Nama Bahan</span>
+                                </label>
+                                <input wire:model="nama" name="nama" type="text" placeholder="Nama Bahan" class="input">
+                                <label class="label">
+                                    <span class="label-text">Kuantitas</span>
+                                </label>
+                                <input wire:model="baseQuantity" name="baseQuantity" type="number" placeholder="Kuantitas" class="input">
+                                <label class="label">
+                                    <span class="label-text">Unit</span>
+                                </label>
+                                <input wire:model="unit" name="unit" type="text" placeholder="Unit" class="input">
+                                <label class="label">
+                                    <span class="label-text">Kalori</span>
+                                </label>
+                                <input wire:model="kalori" name="kalori" type="number" placeholder="Kalori" class="input">
+                            </div>
+                        </form>
+                        <div class="modal-action">
+                            <a wire:click="createBahan()" href="#" class="btn btn-primary">Simpan</a>
+                            <a href="#" class="btn">Batal</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="edit" class="modal">
+                    <div class="modal-box">
+                        <form>
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Nama Bahan</span>
+                                </label>
+                                <input wire:model="namaEdit" name="namaEdit" type="text" placeholder="Nama Bahan" class="input">
+                                <label class="label">
+                                    <span class="label-text">Kuantitas</span>
+                                </label>
+                                <input wire:model="baseQuantityEdit" name="baseQuantityEdit" type="number" placeholder="Kuantitas" class="input">
+                                <label class="label">
+                                    <span class="label-text">Unit</span>
+                                </label>
+                                <input wire:model="unitEdit" name="unitEdit" type="text" placeholder="Unit" class="input">
+                                <label class="label">
+                                    <span class="label-text">Kalori</span>
+                                </label>
+                                <input wire:model="kaloriEdit" name="kaloriEdit" type="number" placeholder="Kalori" class="input">
+                            </div>
+                        </form>
+                        <div class="modal-action">
+                            <a wire:click="editBahan({{ $openModalEdit }})" href="#" class="btn btn-primary">Simpan</a>
+                            <a href="#" class="btn">Batal</a>
+                        </div>
+                    </div>
+                </div>
             </tbody>
         </table>
     </div>
