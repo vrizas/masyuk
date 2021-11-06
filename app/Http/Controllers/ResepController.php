@@ -44,9 +44,9 @@ class ResepController extends Controller
      * @param  \App\Models\Resep  $resep
      * @return \Illuminate\Http\Response
      */
-    public function show(Resep $resep)
+    public function show($id)
     {
-        //
+        return view('resep.detail-resep', ['resep' => Resep::find($id)]);
     }
 
     /**
@@ -83,8 +83,8 @@ class ResepController extends Controller
         //
     }
 
-    public function getResepHome() {
-        $resep = Resep::all();
-        return view('home.home', ['reseps' => $resep]);
-    }
+    // public function getResepHome() {
+    //     $resep = Resep::with('user')->get();
+    //     return view('home.home', ['reseps' => $resep]);
+    // }
 }

@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\User;
+use App\Models\Resep;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResepsTable extends Migration
+class CreateResepStepsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class CreateResepsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reseps', function (Blueprint $table) {
+        Schema::create('resep_steps', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->onDelete('cascade');
-            $table->string('title');
+            $table->foreignIdFor(Resep::class);
+            $table->integer('nomor_step');
             $table->text('description');
-            $table->integer('duration');
-            $table->string('imageUrl');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateResepsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reseps');
+        Schema::dropIfExists('resep_steps');
     }
 }

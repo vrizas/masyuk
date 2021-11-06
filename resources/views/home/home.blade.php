@@ -121,10 +121,7 @@
                 <h2 class="font-bold text-2xl">Aneka Resep</h2>
                 <a class="text-sm" href="#">Lihat Semua</a>
             </section>
-            <section class="resep-card flex mt-4 flex-wrap gap-8">
-                @foreach ($reseps as $resep)
-                    <x-resep-card :resep="$resep" />
-                @endforeach
+            <section class="resep-card mt-4 grid grid-cols-4 gap-4">
                 @foreach ($reseps as $resep)
                     <x-resep-card :resep="$resep" />
                 @endforeach
