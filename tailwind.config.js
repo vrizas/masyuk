@@ -25,11 +25,11 @@ module.exports = {
         themes: [
           {
             'mytheme': { 
-              'primary' : '#fcc915',
-              'primary-focus' : '#f4a304',
-              'primary-content' : '#2a2e37',
-              'secondary': '#f000b8',
-               'secondary-focus': '#bd0091',
+                'primary' : '#fcc915',
+                'primary-focus' : '#f4a304',
+                'primary-content' : '#2a2e37',
+                'secondary': '#f000b8',
+                'secondary-focus': '#bd0091',
                 'secondary-content': '#ffffff',
                 'accent': '#37cdbe',
                 'accent-focus': '#2aa79b',
