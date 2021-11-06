@@ -24,7 +24,11 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-// http://127.0.0.1:8000/dennis
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/jasmine', function() {
+    return view('resep.detail-resep');
+
 Route::get('/dennis', function () {
     return view('member.profile');
 });
