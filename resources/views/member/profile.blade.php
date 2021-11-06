@@ -48,29 +48,65 @@
         {{-- Bawah --}}
         <section class="py-4">
             <div class="flex mt-4 items-center gap-2">
-                <button class="btn flex-1 btn-outline btn-primary btn-wide">Buku Resep</button>
+                <button class="btn flex-1 btn-primary btn-wide">Buku Resep</button>
                 <button class="btn flex-1 btn-outline btn-primary btn-wide">Bookmark</button>
             </div>
         </section>
 
-        <section class=" bg-gray-200 rounded-2xl py-2">
+        <section class="bg-gray-200 rounded-2xl px-4 py-4">
             <div id="BukuResep" class="grid grid-cols-3 gap-4">
-                <div class="card shadow-xl image-full">
-                    <figure>
-                        <img src="https://picsum.photos/id/1005/400/250">
-                    </figure>
-                    <div class="justify-end card-body">
-                        <h2 class="card-title">Image overlay</h2>
-                        <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p>
-                        <div class="card-actions">
-                            <button class="btn btn-primary">Get Started</button>
+                <a href="#">
+                    <div class="relative">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
+                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
+                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                            <h3 class="font-bold text-xl">Tanduk Crispy</h3>
+                            <p class="font-medium">Ekooooo</p>
                         </div>
                     </div>
-                </div>
+                </a>
+                <a href="#">
+                    <div class="relative">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
+                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
+                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                            <h3 class="font-bold text-xl">Tanduk Crispy</h3>
+                            <p class="font-medium">Ekooooo</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="relative">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
+                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
+                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                            <h3 class="font-bold text-xl">Tanduk Crispy</h3>
+                            <p class="font-medium">Ekooooo</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="relative">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
+                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
+                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                            <h3 class="font-bold text-xl">Tanduk Crispy</h3>
+                            <p class="font-medium">Ekooooo</p>
+                        </div>
+                    </div>
+                </a><a href="#">
+                    <div class="relative">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
+                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
+                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                            <h3 class="font-bold text-xl">Tanduk Crispy</h3>
+                            <p class="font-medium">Ekooooo</p>
+                        </div>
+                    </div>
+                </a>
             </div>
 
             <div id="Bookmark" class="container">
-                //
             </div>
         </section>
 
