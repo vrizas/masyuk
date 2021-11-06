@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ResepController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ResepController::class, 'getResepHome']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/admin', function () {
     return view('admin');
 });
@@ -27,4 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
+
+Route::get('/dennis', function () {
+    return view('member.profile');
 });

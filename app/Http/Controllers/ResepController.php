@@ -83,8 +83,8 @@ class ResepController extends Controller
         //
     }
 
-    public function getResepHome() {
-        $resep = Resep::all();
-        return view('home.home', ['reseps' => $resep]);
-    }
+    // public function getResepHome() {
+    //     $resep = Resep::with('user')->get();
+    //     return view('home.home', ['reseps' => $resep]);
+    // }
 }

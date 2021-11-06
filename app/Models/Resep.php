@@ -13,4 +13,14 @@ class Resep extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function steps()
+    {
+        return $this->hasMany(ResepStep::class);
+    }
+
+    public function bahans()
+    {
+        return $this->belongsToMany(Bahan::class, 'bahans_reseps');
+    }
 }
