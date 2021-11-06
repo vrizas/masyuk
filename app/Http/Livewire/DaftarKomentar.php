@@ -30,7 +30,7 @@ class DaftarKomentar extends Component
 
         Komentar::create([
             'text' => $this->inputKomentar,
-            'user_id' => Auth::id() ?? 1,
+            'user_id' => Auth::id(),
             'resep_id' => $this->resep_id,
         ]);
 

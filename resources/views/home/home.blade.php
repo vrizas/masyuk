@@ -35,14 +35,16 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email"
+                            <label for="username"
                                 class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="input w-full bg-gray-50" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="text"
+                                    class="input w-full bg-gray-50 form-control @error('username') is-invalid @enderror"
+                                    name="username" value="{{ old('username') }}" required autocomplete="username"
+                                    autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
