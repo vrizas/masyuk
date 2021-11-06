@@ -32,8 +32,8 @@
 @endsection
 @section('main')
     <main class="py-4 grid grid-cols-4 gap-4">
-        <div class="content w-full col-span-3 bg-base-200 py-8 px-10 rounded-xl">
-            <article>
+        <div class="content w-full col-span-3">
+            <article class="bg-base-200 py-8 px-10 rounded-2xl">
                 <section class="flex gap-4 h-1/2">
                     {{-- Video --}}
                     <iframe class="h-full w-3/4 rounded-2xl" src="https://www.youtube.com/embed/QwG1Jj23Zts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -77,6 +77,50 @@
                         <button class="btn btn-outline btn-primary w-1/4"><i class='bx bx-plus'></i> Ikuti</button>
                     </div> 
                 </section>
+            </article>
+            <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4">
+                <h3 class="font-bold text-2xl mb-4">Bahan Masakan</h3>
+                <ul class="list-disc px-6">
+                    <li>1/2 ekor ayam</li>
+                    <li>1 lembar daun salam</li>
+                    <li>1 batang serai memarkan</li>
+                    <li>2 sendok makan penyedap rasa</li>
+                    <li>400 ml air</li>
+                    <li>2 sendok makan garam</li>
+                    <li>1/2 sendok teh gula pasir</li>
+                    <li>350 ml Minyak Goreng</li>
+                </ul>
+            </article>
+            <article class="collapse w-full collapse-arrow bg-base-200 rounded-2xl mt-4">
+                <input type="checkbox"> 
+                <div class="collapse-title text-xl font-medium pt-8 px-10 flex justify-between">
+                    <h3 class="font-bold text-2xl mb-4">Total Kalori</h3>
+                    <p class="font-bold text-2xl mb-4">408 Kkal</p>
+                </div> 
+                <div class="collapse-content px-10"> 
+                    <table class="w-full">
+                        <tr>
+                            <td>Tomat</td>
+                            <td class="text-right">120 Kkal / 50 gram</td>
+                        </tr>
+                        <tr>
+                            <td>Tomat</td>
+                            <td class="text-right">120 Kkal / 50 gram</td>
+                        </tr>
+                        <tr>
+                            <td>Tomat</td>
+                            <td class="text-right">120 Kkal / 50 gram</td>
+                        </tr>
+                    </table>
+                </div>
+            </article> 
+            <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4">
+                <h3 class="font-bold text-2xl mb-4">Langkah-langkah</h3>
+                <p class="mb-4"><b>Step 1: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
+                <p class="mb-4"><b>Step 2: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
+                <p class="mb-4"><b>Step 3: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
+                <p class="mb-4"><b>Step 4: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
+                <p class="mb-4"><b>Step 5: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
             </article>
         </div>
         <aside class="col-span-1 flex flex-col gap-4">
