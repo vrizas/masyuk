@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -47,19 +48,28 @@ class LoginController extends Controller
     public function login(Request $request)
     {   
         $input = $request->all();
-  
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required',
+        
+        // $validate = $this->validate($request, [
+        //     'username' => 'required|string',
+        //     'password' => 'required|min:8|string',
+        // ]);
+
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string',
+            'password' => 'required|min:8|string',
         ]);
-  
+
+        if($validator->fails())
+            return redirect()->route('home',['#login'])
+                ->with('error','Email atau password Anda tidak valid.');
+        
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
         {
             return redirect()->route('home');
         }else{
-            return redirect()->route('home')
-                ->with('error','Email-Address And Password Are Wrong.');
+            return redirect()->route('home',['#login' ])
+                ->with('error','Email atau password Anda salah.');
         }
           
     }

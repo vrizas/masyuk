@@ -29,3 +29,17 @@ html {
     height: 0.01rem;
     background-color: #c1c1c1;
 }
+
+.pop-up {
+    animation: popUp 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes popUp {
+    10% {transform: translateX(0);}
+    30% {transform: translateX(0);}
+    70% {transform: translateX(2px);}
+    80% {transform: translateX(0px);}
+    85% {transform: translateX(5px);}
+    100% {transform: translateX(400px);}
+}
