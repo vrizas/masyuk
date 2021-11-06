@@ -69,7 +69,7 @@
                     {{-- Foto --}}
                     <div class="h-full w-1/4 flex flex-col gap-4">
                         <div class="h-1/2 w-full bg-no-repeat bg-cover bg-center rounded-2xl"
-                            style='background-image: url("https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg")'>
+                            style='background-image: url("{{ $resep->imageUrl }}")'>
                         </div>
                         <div class="h-1/2 w-full bg-no-repeat bg-cover bg-center rounded-2xl"
                             style='background-image: url("https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg")'>
@@ -78,13 +78,13 @@
                 </section>
                 <section class="mt-6">
                     <div class="flex justify-between items-center">
-                        <h2 class="font-bold text-3xl w-3/4">Ayam Goreng</h2>
+                        <h2 class="font-bold text-3xl w-3/4">{{ $resep->title }}</h2>
                         <button class="btn btn-outline btn-primary w-1/4">Simpan</button>
                     </div>
                     <div class="flex gap-6 mt-2">
                         <button class="flex gap-2 justify-center items-center cursor-default">
                             <i class='bx bxs-timer text-3xl'></i>
-                            <span class="text-sm">60 Menit</span>
+                            <span class="text-sm">{{ $resep->duration }}</span>
                         </button>
                         <button class="flex gap-2 justify-center items-center likeButton">
                             <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
@@ -113,17 +113,14 @@
                         </button>
                     </div>
                     <div class="w-full mt-2">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio similique recusandae eveniet
-                            ad explicabo natus, ipsum exercitationem magnam est provident omnis inventore numquam voluptates
-                            quaerat dolorem deserunt tempore consequuntur corrupti ut, nisi, velit atque iste ducimus
-                            aspernatur. Alias quia vero corporis iste rem ut sint! Repellat est iste qui repudiandae.</p>
+                        <p>{{ $resep->description }}</p>
                     </div>
                     <div class="divider"></div>
                     <div class="flex justify-between items-center mt-2">
                         <a href="#" class="flex gap-2 items-center w-3/4">
                             <img src="https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp"
                                 class="mask mask-circle w-16">
-                            <p class="font-bold text-lg">John Donald</p>
+                            <p class="font-bold text-lg">{{ $resep->user->name }}</p>
                         </a>
                         <button class="btn btn-outline btn-primary w-1/4"><i class='bx bx-plus'></i> Ikuti</button>
                     </div>
@@ -132,14 +129,9 @@
             <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4">
                 <h3 class="font-bold text-2xl mb-4">Bahan Masakan</h3>
                 <ul class="list-disc px-6">
-                    <li>1/2 ekor ayam</li>
-                    <li>1 lembar daun salam</li>
-                    <li>1 batang serai memarkan</li>
-                    <li>2 sendok makan penyedap rasa</li>
-                    <li>400 ml air</li>
-                    <li>2 sendok makan garam</li>
-                    <li>1/2 sendok teh gula pasir</li>
-                    <li>350 ml Minyak Goreng</li>
+                    @foreach ($resep->bahans as $bahan)
+                        <li>{{ $bahan->baseQuantity . " " . $bahan->unit }}<b> {{ $bahan->nama }}</b></li>
+                    @endforeach
                 </ul>
             </article>
             <article class="collapse w-full collapse-arrow bg-base-200 rounded-2xl mt-4">
@@ -147,7 +139,7 @@
                 <div class="collapse-title text-xl font-medium px-10 pt-8 pb-8 flex justify-between items-center">
                     <h3 class="font-bold text-2xl">Total Kalori</h3>
                     <div class="flex gap-2">
-                        <p class="font-bold text-2xl">408 Kkal</p>
+                        <p class="font-bold text-2xl">{{ $resep->bahans->sum('kalori') }} Kkal</p>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 chevron" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fill-rule="evenodd"
@@ -158,33 +150,21 @@
                 </div>
                 <div class="collapse-content px-10">
                     <table class="w-full">
-                        <tr class="h-8 align-top">
-                            <td>Tomat</td>
-                            <td class="text-right">120 Kkal / 50 gram</td>
-                        </tr>
-                        <tr class="h-8 align-top">
-                            <td>Tomat</td>
-                            <td class="text-right">120 Kkal / 50 gram</td>
-                        </tr>
-                        <tr class="h-8 align-top">
-                            <td>Tomat</td>
-                            <td class="text-right">120 Kkal / 50 gram</td>
-                        </tr>
+                        @foreach ($resep->bahans as $bahan)
+                            <tr class="h-8 align-top">
+                                <td>{{ $bahan->nama }}</td>
+                                <td class="text-right">{{ $bahan->kalori }} Kkal / {{ $bahan->baseQuantity }}
+                                    {{ $bahan->unit }}</td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
             </article>
             <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4">
                 <h3 class="font-bold text-2xl mb-4">Langkah-langkah</h3>
-                <p class="mb-4"><b>Step 1: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                    cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
-                <p class="mb-4"><b>Step 2: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                    cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
-                <p class="mb-4"><b>Step 3: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                    cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
-                <p class="mb-4"><b>Step 4: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                    cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
-                <p class="mb-4"><b>Step 5: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                    cupiditate nulla, cumque hic ratione aliquam? Blanditiis optio doloremque quibusdam nam.</p>
+                @foreach ($resep->steps as $step)
+                    <p class="mb-4"><b>Step {{ $step->nomor_step }}: </b>{{ $step->description }}</p>
+                @endforeach
             </article>
             <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4" id="comment">
                 <h3 class="font-bold text-2xl mb-4">Komentar</h3>

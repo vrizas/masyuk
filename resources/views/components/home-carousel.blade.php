@@ -7,7 +7,7 @@
         <p>Resep of the day</p>
         <h2 class="font-bold text-4xl my-3">{{$resep->title}}</h2>
         <p>{{$resep->description}}</p>
-        <button class="btn btn-primary mt-3">Lihat Selengkapnya</button>
+        <a href="/reseps/{{ $resep->id }}" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
       </div>
     </div>  
     <div class="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 top-1/2">

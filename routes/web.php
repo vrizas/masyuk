@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/reseps/{id}', [ResepController::class, 'show']);
 Route::get('/admin', function () {
     return view('admin');
 });
@@ -24,7 +25,6 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
