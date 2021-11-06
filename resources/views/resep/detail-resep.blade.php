@@ -159,7 +159,7 @@
                 </ul>
             </article>
             <article class="collapse w-full collapse-arrow bg-base-200 rounded-2xl mt-4">
-                <input type="checkbox" id="menu-toggle" checked="checked"> 
+                <input type="checkbox" id="menu-toggle"> 
                 <div class="collapse-title text-xl font-medium px-10 pt-8 pb-8 flex justify-between items-center">
                     <h3 class="font-bold text-2xl">Total Kalori</h3>
                     <div class="flex gap-2">

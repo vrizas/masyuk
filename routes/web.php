@@ -28,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
+});
 
 Route::get('/dennis', function () {
     return view('member.profile');
