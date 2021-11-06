@@ -37,6 +37,7 @@
         }
 
     </style>
+    @livewireStyles
 @endsection
 @section('header')
     <header class="py-2 flex top-0 items-center justify-between">
@@ -166,35 +167,8 @@
                     <p class="mb-4"><b>Step {{ $step->nomor_step }}: </b>{{ $step->description }}</p>
                 @endforeach
             </article>
-            <article class="bg-base-200 py-8 px-10 rounded-2xl mt-4" id="comment">
-                <h3 class="font-bold text-2xl mb-4">Komentar</h3>
-                @for ($i = 0; $i <= 2; $i++)
-                    <section class="flex gap-2 items-center">
-                        <a href="#" class="flex-1/2">
-                            <img src="https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp"
-                                class="mask mask-circle w-16">
-                        </a>
-                        <div class="flex flex-col flex-1">
-                            <div class="flex justify-between">
-                                <a href="">
-                                    <p class="font-bold text-lg">John Donald</p>
-                                </a>
-                                <p class="text-sm">Just Now</p>
-                            </div>
-                            <p>Aku udah buat dan rasanya enak banget!</p>
-                        </div>
-                    </section>
-                    <div class="divider"></div>
-                @endfor
-                <section>
-                    <div class="form-control">
-                        <textarea class="textarea h-24 resize-none" placeholder="Tulis komentar disini..."></textarea>
-                    </div>
-                    <div class="flex justify-end w-full mt-4">
-                        <button class="btn btn-primary w-1/4">Kirim</button>
-                    </div>
-                </section>
-            </article>
+            {{-- LIVEWIRE DAFTAR KOMENTAR --}}
+            @livewire('daftar-komentar', ['resep_id' => $resep->id])
         </div>
         <aside class="col-span-1 flex flex-col gap-4">
             @for ($i = 0; $i <= 3; $i++)
@@ -217,6 +191,7 @@
 
 @section('script')
     <script src="{{ asset('js/detail-resep.js') }}"></script>
+    @livewireScripts
 @endsection
 </body>
 

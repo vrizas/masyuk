@@ -55,4 +55,9 @@ class User extends Authenticatable
     public function reseps() {
         return $this->hasMany(Resep::class);
     }
+
+    public function komentars()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 }
