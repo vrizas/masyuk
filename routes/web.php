@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
 Route::get('/admin', function () {
     return view('admin');
-});
+})->middleware('can:admin');
 
 
 Auth::routes();

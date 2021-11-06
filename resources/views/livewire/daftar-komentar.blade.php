@@ -13,17 +13,25 @@
                     </a>
                     <p class="text-sm">{{ $komentar->created_at->diffForHumans() }}</p>
                 </div>
-                <p>{{ $komentar->text }}</p>
+                <div class="flex justify-between">
+                    <p>{{ $komentar->text }}</p>
+                    @can('admin')
+                        <a href="">Delete</a>
+                    @endcan
+                </div>
             </div>
         </section>
         <div class="divider"></div>
     @endforeach
-    <section>
-        <div class="form-control">
-            <textarea wire:model="inputKomentar" name="inputKomentar" class="textarea h-24 resize-none" placeholder="Tulis komentar disini..."></textarea>
-        </div>
-        <div class="flex justify-end w-full mt-4">
-            <button wire:click="createKomentar" class="btn btn-primary w-1/4">Kirim</button>
-        </div>
-    </section>
+    @auth
+        <section>
+            <div class="form-control">
+                <textarea wire:model="inputKomentar" name="inputKomentar" class="textarea h-24 resize-none"
+                    placeholder="Tulis komentar disini..."></textarea>
+            </div>
+            <div class="flex justify-end w-full mt-4">
+                <button wire:click="createKomentar" class="btn btn-primary w-1/4">Kirim</button>
+            </div>
+        </section>
+    @endauth
 </article>
