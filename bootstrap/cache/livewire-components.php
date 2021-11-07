@@ -4,4 +4,5 @@
   'admin.edit-profile' => 'App\\Http\\Livewire\\Admin\\EditProfile',
   'admin.index' => 'App\\Http\\Livewire\\Admin\\Index',
   'daftar-komentar' => 'App\\Http\\Livewire\\DaftarKomentar',
+  'search-dropdown' => 'App\\Http\\Livewire\\SearchDropdown',
 );

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    @livewireStyles
 @endsection
 @section('main')
     <main class="py-4">
@@ -16,9 +17,7 @@
                 </div>
             </section>
         </article>
-        <article class="mt-4 mb-4">
-            <input class="input w-full bg-gray-50" type="search" placeholder="Mau cari siapa kita hari ini?">
-        </article>
+        <livewire:search-dropdown />
         <x-home-carousel :reseps="$reseps" />
         <article>
             <section class="flex mt-4 items-center justify-between">
@@ -48,6 +47,7 @@
         }
     </script>
 @endsection
+@livewireScripts
 </body>
 
 </html>
