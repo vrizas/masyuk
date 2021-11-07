@@ -1,7 +1,7 @@
 <div class="relative mt-4 mb-4 z-50">
     <input wire:model.debounce.500ms="keyword" class="input w-full bg-gray-50" type="search"
         placeholder="Mau cari siapa kita hari ini?">
-    @if (!count($results) == 0)
+    @if (strlen($this->keyword > 2))
     <div class="absolute rounded-xl mt-2 px-4 py-6 bg-gray-50 w-full">
         <ul>
             @if (count($results) == 0)
@@ -28,7 +28,6 @@
                 @endforeach
             @endif
         </ul>
-    </div>
-        
+    </div>     
     @endif
 </div>

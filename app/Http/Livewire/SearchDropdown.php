@@ -12,9 +12,10 @@ class SearchDropdown extends Component
     public function render()
     {
         $results = [];
-        if(!empty($this->keyword)) {
+        if(strlen($this->keyword > 2)) {
             $results = Resep::where('title', 'like', '%' . $this->keyword . '%')->take(5)->get();
             return view('livewire.search-dropdown', ['results' => $results]);
+            $this->keyword = "";
         }
         return view('livewire.search-dropdown', ['results' => $results]);
     }
