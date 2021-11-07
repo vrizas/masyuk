@@ -7,7 +7,7 @@
     <main class="py-4">
         <article>
             <section>
-                <h2 class="text-5xl font-bold">Selamat Datang!</h2>
+                <h2 class="text-4xl font-bold">Halo, @auth {{ Auth::user()->name }} @endauth</h2>
                 <p class="text-gray-700">Mau masak apa kita hari ini?</p>
             </section>
             <section class="signup-form-container fixed inset-0 flex items-center justify-center hidden">
@@ -37,17 +37,14 @@
     <script src="{{ asset('js/home.js') }}"></script>
     <script language="JavaScript" type="text/javascript">
         function keepLocation(oldOffset) {
-          if (window.pageYOffset!= null){
-            st=oldOffset;
-          }
-          if (document.body.scrollWidth!= null){
-            st=oldOffset;
-          }
-          setTimeout('window.scrollTo(0,st)',10);
+            if (window.pageYOffset != null) {
+                st = oldOffset;
+            }
+            if (document.body.scrollWidth != null) {
+                st = oldOffset;
+            }
+            setTimeout('window.scrollTo(0,st)', 10);
         }
     </script>
+    @livewireScripts
 @endsection
-@livewireScripts
-</body>
-
-</html>

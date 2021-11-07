@@ -25,7 +25,8 @@ html {
     background: #fabe46;
 }
 
-.divider::after, .divider::before {
+.divider::after,
+.divider::before {
     height: 0.01rem;
     background-color: #c1c1c1;
 }
@@ -41,10 +42,48 @@ html {
 }
 
 @keyframes popUp {
-    10% {transform: translateX(0);}
-    30% {transform: translateX(0);}
-    70% {transform: translateX(2px);}
-    80% {transform: translateX(0px);}
-    85% {transform: translateX(5px);}
-    100% {transform: translateX(400px);}
+    10% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(0);
+    }
+    70% {
+        transform: translateX(2px);
+    }
+    80% {
+        transform: translateX(0px);
+    }
+    85% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+.loader {
+    border-top-color: #3498db;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/reseps/create', function (){
+    return view('resep.create-resep');
+});
+
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
