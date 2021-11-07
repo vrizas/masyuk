@@ -23,6 +23,7 @@ class ResepSeeder extends Seeder
         $recipes->each(function(Resep $resep) use ($bahans, $steps) {
             $resep->bahans()->attach(
                 $bahans->random(rand(1, 20))->pluck('id')->toArray(),
+                ['quantity' => 1]
             );
         });
     }

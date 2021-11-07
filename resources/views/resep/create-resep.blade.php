@@ -121,7 +121,7 @@
                     </section>
                 </div>
 
-                <div class="action w-full text-center mt-6">
+                <div class="action w-full text-right mt-6">
                     <button type="submit" class="btn btn-primary w-1/4">Simpan</button>
                 </div>
             </form>

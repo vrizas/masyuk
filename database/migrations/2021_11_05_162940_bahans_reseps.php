@@ -17,6 +17,7 @@ class BahansReseps extends Migration
     {
         Schema::create('bahans_reseps', function (Blueprint $table) {
             $table->id();
+            $table->integer('quantity');
             $table->foreignIdFor(Resep::class);
             $table->foreignIdFor(Bahan::class);
             $table->foreign('bahan_id')
