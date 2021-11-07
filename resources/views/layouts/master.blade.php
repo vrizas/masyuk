@@ -22,10 +22,34 @@
                 <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20 capitalize">Login</a>
                 <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20 capitalize">Signup</a>
             @else
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-error btn-rh py-2.5 w-20 capitalize">Logout</button>
-                </form>
+                <div class="dropdown dropdown-hover">
+                    <div tabindex="0">
+                        <div class="avatar">
+                            <div class="rounded-full w-14 h-14">
+                              <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                            </div>
+                          </div> 
+                    </div>
+                    <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                        <li>
+                            <a href="/profile/{{ Auth::user()->username }}">Profile</a>
+                        </li>
+                        <li>
+                            <a>Item 2</a>
+                        </li>
+                        <li>
+                            <a>Item 3</a>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-error btn-rh py-2.5 w-20 capitalize">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                    
+                </div>
+                
             @endif
         </nav>
     </header>
