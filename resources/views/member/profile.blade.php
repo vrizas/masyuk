@@ -80,7 +80,7 @@
                 @endforeach
                 @if (Auth::check())
                     @if (Auth::user()->id === $user->id)
-                        <a href="#" class="h-auto card-masyuk">
+                        <a href="#create-resep" class="h-auto card-masyuk">
                             <div
                                 class="border-dotted border-2 border-black w-full h-full rounded-2xl flex items-center justify-center">
                                 <h3>Tambah Resep</h3>
@@ -93,7 +93,7 @@
             <div id="Bookmark" class="container">
             </div>
         </section>
-
+        <x-form-resep/>
     </main>
 @endsection
 
