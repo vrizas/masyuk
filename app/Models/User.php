@@ -52,6 +52,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function path()
+    {
+        return route('profile', $this->username);
+    }
+
     public function reseps() {
         return $this->hasMany(Resep::class);
     }

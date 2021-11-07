@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResepController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,21 +16,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
+
+Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
+
 Route::get('/admin', function () {
     return view('admin');
 })->middleware('can:admin');
 
 
-Auth::routes();
-
-
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
 });
-
-Route::get('/profile', function () {
-    return view('member.profile');
-})->middleware('auth');

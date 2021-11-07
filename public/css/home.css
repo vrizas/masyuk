@@ -16,11 +16,6 @@ a.btn-signup {
     --tw-ring-shadow: none;
 }
 
-.btn-rh {
-    min-height: 0;
-    height: fit-content;
-}
-
 .resep-card .item {
     width: 23%;
 }

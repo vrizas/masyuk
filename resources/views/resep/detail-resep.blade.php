@@ -39,24 +39,7 @@
     </style>
     @livewireStyles
 @endsection
-@section('header')
-    <header class="py-2 flex top-0 items-center justify-between">
-        <a href="#" class="flex items-center gap-2">
-            <h1 class="text-xl font-bold">Masyuk</h1>
-        </a>
-        <nav class="flex gap-4">
-            @if (!Auth::check())
-                <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20">Login</a>
-                <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20">Signup</a>
-            @else
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-warning btn-rh py-2.5 w-20">Logout</button>
-                </form>
-            @endif
-        </nav>
-    </header>
-@endsection
+
 @section('main')
     <main class="py-4 grid grid-cols-4 gap-4">
         <div class="content w-full col-span-3">
@@ -118,7 +101,7 @@
                     </div>
                     <div class="divider"></div>
                     <div class="flex justify-between items-center mt-2">
-                        <a href="#" class="flex gap-2 items-center w-3/4">
+                        <a href="/profile/{{ $resep->user->username }}" class="flex gap-2 items-center w-3/4">
                             <img src="https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp"
                                 class="mask mask-circle w-16">
                             <p class="font-bold text-lg">{{ $resep->user->name }}</p>

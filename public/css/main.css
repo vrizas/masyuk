@@ -35,6 +35,11 @@ html {
     animation-fill-mode: forwards;
 }
 
+.btn-rh {
+    min-height: 0;
+    height: fit-content;
+}
+
 @keyframes popUp {
     10% {transform: translateX(0);}
     30% {transform: translateX(0);}

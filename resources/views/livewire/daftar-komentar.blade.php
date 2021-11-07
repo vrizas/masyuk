@@ -26,7 +26,7 @@
     @auth
         <section>
             <div class="form-control">
-                <textarea wire:model="inputKomentar" name="inputKomentar" class="textarea h-24 resize-none"
+                <textarea wire:model.debounce.500s="inputKomentar" name="inputKomentar" class="textarea h-24 resize-none"
                     placeholder="Tulis komentar disini..."></textarea>
             </div>
             <div class="flex justify-end w-full mt-4">
