@@ -2,24 +2,6 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endsection
-@section('header')
-    <header class="py-2 flex top-0 items-center justify-between">
-        <a href="#" class="flex items-center gap-2">
-            <h1 class="text-xl font-bold">Masyuk</h1>
-        </a>
-        <nav class="flex gap-4">
-            @if (!Auth::check())
-                <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20 capitalize">Login</a>
-                <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20 capitalize">Signup</a>
-            @else
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-error btn-rh py-2.5 w-20 capitalize">Logout</button>
-                </form>
-            @endif
-        </nav>
-    </header>
-@endsection
 @section('main')
     <main class="py-4">
         <article>
@@ -54,6 +36,17 @@
 
 @section('script')
     <script src="{{ asset('js/home.js') }}"></script>
+    <script language="JavaScript" type="text/javascript">
+        function keepLocation(oldOffset) {
+          if (window.pageYOffset!= null){
+            st=oldOffset;
+          }
+          if (document.body.scrollWidth!= null){
+            st=oldOffset;
+          }
+          setTimeout('window.scrollTo(0,st)',10);
+        }
+    </script>
 @endsection
 </body>
 

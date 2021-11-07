@@ -40,11 +40,6 @@
         <table class="table w-full table-zebra">
             <thead>
                 <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" class="checkbox">
-                        </label>
-                    </th>
                     <th>Bahan</th>
                     <th>Kuantitas</th>
                     <th>Unit</th>
@@ -54,59 +49,35 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" class="checkbox">
-                        </label>
-                    </th>
                     <td>Kucing</td>
                     <td>100</td>
                     <td>gram</td>
                     <td>1000</td>
-                    <td class="flex gap-4">
-                        <a href="#">
-                            <button><i class='bx bxs-message-square-edit text-xl'></i></button>
-                        </a>
+                    <td>
                         <button><i class='bx bxs-trash-alt text-xl'></i></button>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" class="checkbox">
-                        </label>
-                    </th>
                     <td>Kucing</td>
                     <td>100</td>
                     <td>gram</td>
                     <td>1000</td>
-                    <td class="flex gap-4">
-                        <a href="#">
-                            <button><i class='bx bxs-message-square-edit text-xl'></i></button>
-                        </a>
+                    <td>
                         <button><i class='bx bxs-trash-alt text-xl'></i></button>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        <label>
-                            <input type="checkbox" class="checkbox">
-                        </label>
-                    </th>
                     <td>Kucing</td>
                     <td>100</td>
                     <td>gram</td>
                     <td>1000</td>
-                    <td class="flex gap-4">
-                        <a href="#">
-                            <button><i class='bx bxs-message-square-edit text-xl'></i></button>
-                        </a>
+                    <td>
                         <button><i class='bx bxs-trash-alt text-xl'></i></button>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6" class="btn-plus-wrapper">
-                        <a href="#tambah">
+                        <a href="#">
                             <button class="w-full btn btn-outline">
                                 <iclass='bx bx-plus'></i> Tambah Bahan Makanan
                             </button>
@@ -120,7 +91,7 @@
                 <textarea name="inputLangkah" class="textarea h-24 resize-none"
                     placeholder="Langkah-langkah untuk memasak"></textarea>
             </div>
-            <a href="#tambah">
+            <a href="#">
                 <button class="w-full btn btn-outline">
                     <iclass='bx bx-plus'></i> Tambah Langkah Memasak
                 </button>
@@ -128,8 +99,8 @@
         </section>
         <h2 class="mb-4 text-lg font-bold">Gambar atau Video</h2>
         <div class="modal-action">
-            <a href="/components/modal#" class="btn btn-primary">Accept</a>
-            <a href="/components/modal#" class="btn">Close</a>
+            <a href="l#" class="btn btn-primary">Accept</a>
+            <a href="#" class="btn">Close</a>
         </div>
     </div>
 </div>
