@@ -1,7 +1,7 @@
 <article class="w-full carousel">
   @foreach ($reseps as $key => $resep)
   <div id="slide{{$key+1}}" class="relative w-full carousel-item">
-    <div class="mx-20 flex gap-8">
+    <div class="mx-20 flex gap-8 z-50">
       <img src="{{$resep->imageUrl}}" class="rounded-2xl w-7/12 h-80 object-cover">
       <div class="text">
         <p>Resep of the day</p>
