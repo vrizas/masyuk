@@ -118,7 +118,7 @@
                     </div>
                     <div class="divider"></div>
                     <div class="flex justify-between items-center mt-2">
-                        <a href="#" class="flex gap-2 items-center w-3/4">
+                        <a href="/profile/{{ $resep->user->username }}" class="flex gap-2 items-center w-3/4">
                             <img src="https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp"
                                 class="mask mask-circle w-16">
                             <p class="font-bold text-lg">{{ $resep->user->name }}</p>
