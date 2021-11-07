@@ -30,6 +30,6 @@ Route::get('/jasmine', function() {
     return view('resep.detail-resep');
 });
 
-Route::get('/dennis', function () {
+Route::get('/profile', function () {
     return view('member.profile');
-});
+})->middleware('auth');

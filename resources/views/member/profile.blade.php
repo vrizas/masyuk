@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="bumblebee">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <title>Document</title>
-</head>
+@section('header')
+    <header class="py-2 flex top-0 items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+        <h1 class="text-xl font-bold">Masyuk</h1>
+    </a>
+    <nav class="flex gap-4">
+        @if (!Auth::check())
+            <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20">Login</a>
+            <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20">Signup</a>
+        @else
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-warning btn-rh py-2.5 w-20">Logout</button>
+            </form>
+        @endif
+    </nav>
+    </header>
+@endsection
 
-
-<body class="container mx-auto">
+@section('main')
     <main class="py-8">
         {{-- Atas --}}
         <section>
@@ -57,9 +65,13 @@
             <div id="BukuResep" class="grid grid-cols-3 gap-4">
                 <a href="#">
                     <div class="relative">
-                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
-                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
-                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"
+                            alt="Image 1" class="rounded-2xl">
+                        <div
+                            class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
+                        </div>
+                        <div
+                            class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
                             <h3 class="font-bold text-xl">Tanduk Crispy</h3>
                             <p class="font-medium">Ekooooo</p>
                         </div>
@@ -67,9 +79,13 @@
                 </a>
                 <a href="#">
                     <div class="relative">
-                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
-                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
-                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"
+                            alt="Image 1" class="rounded-2xl">
+                        <div
+                            class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
+                        </div>
+                        <div
+                            class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
                             <h3 class="font-bold text-xl">Tanduk Crispy</h3>
                             <p class="font-medium">Ekooooo</p>
                         </div>
@@ -77,9 +93,13 @@
                 </a>
                 <a href="#">
                     <div class="relative">
-                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
-                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
-                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"
+                            alt="Image 1" class="rounded-2xl">
+                        <div
+                            class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
+                        </div>
+                        <div
+                            class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
                             <h3 class="font-bold text-xl">Tanduk Crispy</h3>
                             <p class="font-medium">Ekooooo</p>
                         </div>
@@ -87,18 +107,26 @@
                 </a>
                 <a href="#">
                     <div class="relative">
-                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
-                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
-                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"
+                            alt="Image 1" class="rounded-2xl">
+                        <div
+                            class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
+                        </div>
+                        <div
+                            class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
                             <h3 class="font-bold text-xl">Tanduk Crispy</h3>
                             <p class="font-medium">Ekooooo</p>
                         </div>
                     </div>
                 </a><a href="#">
                     <div class="relative">
-                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg" alt="Image 1" class="rounded-2xl">
-                        <div class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50"></div>
-                        <div class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
+                        <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"
+                            alt="Image 1" class="rounded-2xl">
+                        <div
+                            class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
+                        </div>
+                        <div
+                            class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
                             <h3 class="font-bold text-xl">Tanduk Crispy</h3>
                             <p class="font-medium">Ekooooo</p>
                         </div>
@@ -111,6 +139,7 @@
         </section>
 
     </main>
-</body>
+@endsection
+
 
 </html>

@@ -193,6 +193,5 @@
     <script src="{{ asset('js/detail-resep.js') }}"></script>
     @livewireScripts
 @endsection
-</body>
 
 </html>
