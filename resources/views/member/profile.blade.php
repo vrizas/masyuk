@@ -74,7 +74,6 @@
             <div id="Bookmark" class="container">
             </div>
         </section>
-        <x-form-resep/>
     </main>
 @endsection
 

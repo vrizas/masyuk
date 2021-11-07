@@ -8,6 +8,7 @@
     <title>@yield('title', 'Masyuk')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     @yield('css')
 </head>
@@ -25,12 +26,13 @@
                 <div class="dropdown dropdown-hover">
                     <div tabindex="0">
                         <div class="avatar">
-                            <div class="rounded-full w-14 h-14">
-                              <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                            <div class="rounded-full w-9 h-9">
+                                <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                             </div>
-                          </div> 
+                        </div>
                     </div>
-                    <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                    <ul tabindex="0"
+                        class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 right-0 text-sm">
                         <li>
                             <a href="/profile/{{ Auth::user()->username }}">Profile</a>
                         </li>
@@ -43,13 +45,14 @@
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="btn btn-error btn-rh py-2.5 w-20 capitalize">Logout</button>
+                                <button type="submit"
+                                    class="btn btn-error btn-rh py-2.5 w-20 capitalize w-full mt-2">Logout</button>
                             </form>
                         </li>
                     </ul>
-                    
+
                 </div>
-                
+
             @endif
         </nav>
     </header>
