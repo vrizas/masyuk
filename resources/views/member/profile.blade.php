@@ -47,7 +47,7 @@
                 @foreach ($user->reseps as $resep)
                     <a href="/reseps/{{ $resep->id }}">
                         <div class="relative">
-                            <img src="{{ $resep->imageUrl }}" alt="Image 1" class="rounded-2xl">
+                            <img src="{{ asset('/storage/photos/'.$resep->photos()->first()->filename) }}" alt="Image 1" class="rounded-2xl">
                             <div
                                 class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                             </div>
@@ -61,7 +61,7 @@
                 @endforeach
                 @if (Auth::check())
                     @if (Auth::user()->id === $user->id)
-                        <a href="#create-resep" class="h-auto card-masyuk">
+                        <a href="{{ route('resep.create') }}" class="h-auto card-masyuk">
                             <div
                                 class="border-dotted border-2 border-black w-full h-full rounded-2xl flex items-center justify-center">
                                 <h3>Tambah Resep</h3>

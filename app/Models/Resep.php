@@ -9,6 +9,8 @@ class Resep extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -27,5 +29,10 @@ class Resep extends Model
     public function komentars()
     {
         return $this->hasMany(Komentar::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 }

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ResepStep extends Model
+class Photo extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function resep() 
+    public function resep()
     {
-        $this->belongsTo(Resep::class);
+        return $this->belongsTo(Resep::class);
     }
 }

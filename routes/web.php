@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/reseps/create', function (){
-    return view('resep.create-resep');
-});
+Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
+Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
 
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
 

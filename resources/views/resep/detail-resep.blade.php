@@ -52,12 +52,15 @@
                         allowfullscreen></iframe>
                     {{-- Foto --}}
                     <div class="h-full w-1/4 flex flex-col gap-4">
-                        <div class="h-1/2 w-full bg-no-repeat bg-cover bg-center rounded-2xl"
-                            style='background-image: url("{{ $resep->imageUrl }}")'>
+                        @foreach ($resep->photos as $photo)
+                            @if ($loop->last)
+                                @break
+                            @endif
+                        <div class="h-1/2 w-full bg-no-repeat bg-cover bg-center rounded-2xl">
+                            <img class="rounded-2xl w-full h-full object-cover"
+                                src="{{ asset('/storage/photos/' . $photo->filename) }}" alt="{{ $resep->title }}">
                         </div>
-                        <div class="h-1/2 w-full bg-no-repeat bg-cover bg-center rounded-2xl"
-                            style='background-image: url("https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg")'>
-                        </div>
+                        @endforeach
                     </div>
                 </section>
                 <section class="mt-6">
@@ -114,7 +117,7 @@
                 <h3 class="font-bold text-2xl mb-4">Bahan Masakan</h3>
                 <ul class="list-disc px-6">
                     @foreach ($resep->bahans as $bahan)
-                        <li>{{ $bahan->baseQuantity . " " . $bahan->unit }}<b> {{ $bahan->nama }}</b></li>
+                        <li>{{ $bahan->baseQuantity . ' ' . $bahan->unit }}<b> {{ $bahan->nama }}</b></li>
                     @endforeach
                 </ul>
             </article>

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bahan;
+use App\Models\Photo;
 use App\Models\Resep;
+use App\Models\ResepStep;
+use Auth;
 use Illuminate\Http\Request;
 
 class ResepController extends Controller
@@ -24,7 +28,7 @@ class ResepController extends Controller
      */
     public function create()
     {
-        //
+        return view('resep.create-resep');
     }
 
     /**
@@ -35,7 +39,47 @@ class ResepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $resep = Resep::create([
+            'title' => $request->judul,
+            'user_id' => Auth::user()->id,
+            'description' => $request->deskripsi,
+            'duration' => 200,
+        ]);
+
+        foreach ($request->listBahans as $bahan) {
+            $resep->bahans()->attach(
+                $bahan['bahan_id'],
+                [
+                    'quantity' => $bahan['quantity'],
+                ]
+            );
+        }
+
+        foreach ($request->listLangkah as $index => $step) {
+            $resepStep = ResepStep::create(
+                [
+                    'resep_id' => $resep->id,
+                    'nomor_step' => $index + 1,
+                    'description' => $step['text'] ?? ' ',
+                ]
+            );
+
+            $resep->steps()->save($resepStep);
+        }
+
+        foreach ($request->images as $index => $imageUrl) {
+            $filename = explode("/", $imageUrl['path']);
+            $photo = Photo::create(
+                [
+                    'resep_id' => $resep->id,
+                    'filename' => $filename[1],
+                ]
+            );
+            $resep->photos()->save($photo);
+        }
+
+        return redirect('/profile/ekotyoo');
     }
 
     /**
@@ -57,7 +101,6 @@ class ResepController extends Controller
      */
     public function edit(Resep $resep)
     {
-        
     }
 
     /**

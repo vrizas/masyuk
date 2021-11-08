@@ -19,7 +19,6 @@ class ResepFactory extends Factory
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'duration' => 600,
-            'imageUrl' => $this->faker->imageUrl(),
         ];
     }
 }
