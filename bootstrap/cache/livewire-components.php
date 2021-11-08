@@ -5,6 +5,7 @@
   'admin.index' => 'App\\Http\\Livewire\\Admin\\Index',
   'daftar-komentar' => 'App\\Http\\Livewire\\DaftarKomentar',
   'input-bahan-masakan' => 'App\\Http\\Livewire\\InputBahanMasakan',
+  'input-gambar-resep' => 'App\\Http\\Livewire\\InputGambarResep',
   'input-langkah-memasak' => 'App\\Http\\Livewire\\InputLangkahMemasak',
   'search-dropdown' => 'App\\Http\\Livewire\\SearchDropdown',
 );

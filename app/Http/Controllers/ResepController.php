@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bahan;
+use App\Models\Photo;
 use App\Models\Resep;
 use App\Models\ResepStep;
 use Auth;
@@ -38,13 +39,12 @@ class ResepController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->listLangkah);
+        // dd($request);
         $resep = Resep::create([
             'title' => $request->judul,
             'user_id' => Auth::user()->id,
             'description' => $request->deskripsi,
             'duration' => 200,
-            'imageUrl' => "https://via.placeholder.com/640x480.png/005544?text=omnis",
         ]);
 
         foreach ($request->listBahans as $bahan) {
@@ -64,8 +64,19 @@ class ResepController extends Controller
                     'description' => $step['text'] ?? ' ',
                 ]
             );
-            
+
             $resep->steps()->save($resepStep);
+        }
+
+        foreach ($request->images as $index => $imageUrl) {
+            $filename = explode("/", $imageUrl['path']);
+            $photo = Photo::create(
+                [
+                    'resep_id' => $resep->id,
+                    'filename' => $filename[1],
+                ]
+            );
+            $resep->photos()->save($photo);
         }
 
         return redirect('/profile/ekotyoo');

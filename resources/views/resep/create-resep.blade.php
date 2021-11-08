@@ -6,7 +6,7 @@
     <main class="py-4">
         <article class="w-full">
             <h1 class="mb-6  text-xl font-bold">Tambah Resep</h1>
-            <form method="POST" action="{{ route('resep.store') }}">
+            <form method="POST" action="{{ route('resep.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex gap-10">
                     <section class="flex-1">
@@ -44,20 +44,15 @@
                         </div>
                         <h2 class="text-lg font-bold mt-6 mb-4">Bahan Masakan</h2>
                         {{-- LIVEWIRE INPUT BAHAN MASAKAN --}}
-                        <livewire:input-bahan-masakan />
+                        <livewire:input-bahan-masakan/>
                     </section>
                     <section class="flex-1">
                         <h2 class="mb-4 text-lg font-bold">Langkah-langkah</h2>
-                        <livewire:input-langkah-memasak />
+                        {{-- LIVEWIRE INPUT LANGKAH MEMASAK --}}
+                        <livewire:input-langkah-memasak/>
                         <h2 class="mb-4 text-lg font-bold mt-6">Gambar atau Video</h2>
-                        <section class="flex flex-wrap gap-4 ">
-                            <div class="w-40 h-40 rounded-2xl bg-cover bg-no-repeat bg-center"
-                                style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Sate_Ponorogo.jpg');">
-                            </div>
-                            <button class="w-40 h-40 border-dashed border-2 border-base-300 rounded-2xl text-sm p-2"
-                                onclick="event.preventDefault()">Tambah
-                                Gambar/Video</button>
-                        </section>
+                        {{-- LIVEWIRE INPUT GAMBAR RESEP --}}
+                        <livewire:input-gambar-resep/>
                     </section>
                 </div>
 
