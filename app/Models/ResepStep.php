@@ -9,6 +9,8 @@ class ResepStep extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function resep() 
     {
         $this->belongsTo(Resep::class);
