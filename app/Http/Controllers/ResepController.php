@@ -61,7 +61,7 @@ class ResepController extends Controller
                 [
                     'resep_id' => $resep->id,
                     'nomor_step' => $index + 1,
-                    'description' => $step['text'],
+                    'description' => $step['text'] ?? ' ',
                 ]
             );
             
