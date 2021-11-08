@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResepController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -14,15 +16,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [ResepController::class, 'getResepHome']);
-Route::get('/admin', function () {
-    return view('admin');
-});
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
+Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
+
+Route::get('/reseps/{id}', [ResepController::class, 'show']);
+
+Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
+
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware('can:admin');
 
 Route::get('/bimo', [ResepController::class, 'index']);
+
+Route::get('/jasmine', function() {
+    return view('resep.detail-resep');
+});

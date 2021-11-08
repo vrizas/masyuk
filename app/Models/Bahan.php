@@ -10,4 +10,9 @@ class Bahan extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function reseps()
+    {
+        return $this->belongsToMany(Resep::class, 'bahans_reseps');
+    }
 }

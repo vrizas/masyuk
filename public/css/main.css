@@ -1,5 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
-body, html {
-    font-family: 'Inter', sans-serif;
+body,
+html {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #f8d967;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fabe46;
+}
+
+.divider::after,
+.divider::before {
+    height: 0.01rem;
+    background-color: #c1c1c1;
+}
+
+.pop-up {
+    animation: popUp 5s;
+    animation-fill-mode: forwards;
+}
+
+.btn-rh {
+    min-height: 0;
+    height: fit-content;
+}
+
+@keyframes popUp {
+    10% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(0);
+    }
+    70% {
+        transform: translateX(2px);
+    }
+    80% {
+        transform: translateX(0px);
+    }
+    85% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+.loader {
+    border-top-color: #3498db;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

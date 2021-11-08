@@ -14,7 +14,10 @@ class BahanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nama' => $this->faker->word(),
+            'kalori' => 100,
+            'baseQuantity' => 100,
+            'unit' => $this->faker->word(),
         ];
     }
 }

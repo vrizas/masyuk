@@ -16,11 +16,10 @@ class CreateResepsTable extends Migration
     {
         Schema::create('reseps', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->onDelete('cascade');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->integer('duration');
-            $table->string('imageUrl');
             $table->timestamps();
         });
     }
