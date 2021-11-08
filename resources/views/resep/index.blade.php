@@ -28,10 +28,6 @@
     </header>
     <main class="py-4">
         <article>
-            <section>
-                <h2 class="text-5xl font-bold">Selamat Datang!</h2>
-                <p class="text-gray-700">Mau masak apa kita hari ini?</p>
-            </section>
             {{-- Form Login --}}
             <section id="login" class="modal">
                 <div class="modal-box w-1/2 bg-gray-100 relative">
@@ -245,10 +241,9 @@
         <article class="mt-4 mb-4">
             <input class="input w-full bg-gray-50" type="search" placeholder="Mau cari siapa kita hari ini?">
         </article>
-        <x-home-carousel :reseps="$reseps"/>
         <article>
             <section class="flex mt-4 items-center justify-between">
-                <h2 class="font-bold text-2xl">Aneka Resep</h2>
+                <h2 class="font-bold text-2xl">Daftar Resep</h2>
                 <a class="text-sm" href="#">Lihat Semua</a>
             </section>
             <section class="resep-card flex mt-4 flex-wrap gap-8">
