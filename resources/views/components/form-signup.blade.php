@@ -1,11 +1,11 @@
-<section id="signup" class="modal z-40">
-    <div class="modal-box w-1/2 bg-gray-100">
-        <h2 class="font-bold text-2xl text-center mb-6">Signup</h2>
+<section id="signup" class="modal z-40 items-center w-screen">
+    <div class="modal-box rounded-xl bg-gray-100 relative w-11/12 overflow-auto lg:w-1/2">
+        <h2 class="font-bold text-xl text-center mb-2 lg:mb-6 lg:text-2xl">Signup</h2>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="form-group row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-sm lg:text-base">{{ __('Nama') }}</label>
 
                 <div class="col-md-6">
                     <input id="name" type="text"
@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group row mb-3">
-                <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                <label for="username" class="col-md-4 col-form-label text-sm lg:text-base">{{ __('Username') }}</label>
 
                 <div class="col-md-6">
                     <input id="username" type="username"
@@ -39,7 +39,7 @@
 
 
             <div class="form-group row mb-3">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                <label for="email" class="col-md-4 col-form-label text-sm lg:text-base">{{ __('Email') }}</label>
 
                 <div class="col-md-6">
                     <input id="email" type="email"
@@ -55,7 +55,8 @@
             </div>
 
             <div class="form-group row mb-3">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                <label for="password"
+                    class="col-md-4 col-form-label text-sm lg:text-base">{{ __('Password') }}</label>
 
                 <div class="col-md-6">
                     <input id="password" type="password"
@@ -72,7 +73,7 @@
 
             <div class="form-group row mb-4">
                 <label for="password-confirm"
-                    class="col-md-4 col-form-label text-md-right">{{ __('Konfirmasi Password') }}</label>
+                    class="col-md-4 col-form-label text-sm lg:text-base">{{ __('Konfirmasi Password') }}</label>
 
                 <div class="col-md-6">
                     <input id="password-confirm" type="password" class="input w-full bg-gray-50 form-control"
@@ -83,10 +84,10 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4 flex flex-col items-center gap-3">
-                    <button type="submit" class="btn btn-primary w-1/2 capitalize">
+                    <button type="submit" class="btn btn-primary w-full capitalize lg:w-1/2">
                         {{ __('Register') }}
                     </button>
-                    <p class="text-sm mt-3">Sudah punya akun? <a href="#login" class="text-info">Login
+                    <p class="text-sm lg:mt-3">Sudah punya akun? <a href="#login" class="text-info">Login
                             sekarang!</a></p>
                 </div>
             </div>

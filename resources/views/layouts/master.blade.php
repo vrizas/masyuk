@@ -13,21 +13,34 @@
     @yield('css')
 </head>
 
-<body class="container mx-auto">
+<body class="w-full px-4 lg:container lg:mx-auto lg:px-0">
     <header class="py-2 flex top-0 items-center justify-between">
         <a href="/" class="flex items-center gap-2">
-            <h1 class="text-xl font-bold">Masyuk</h1>
+            <h1 class="text-lg font-bold lg:text-xl">Masyuk</h1>
         </a>
         @if (!Auth::check())
             <nav class="flex items-center gap-4">
-                <a href="#login" class="btn btn-primary btn-rh py-2.5 w-20 capitalize">Login</a>
-                <a href="#signup" class="btn btn-outline btn-primary btn-rh py-2.5 w-20 capitalize">Signup</a>
+                <button id="hamburger" aria-label="buka navigasi">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+                <ul class="flex flex-col">
+                    <li> <a href="#login"
+                            class="text-sm font-md lg:btn lg:btn-primary btn-rh capitalize py-1.5 w-15 lg:py-2.5 lg:w-20">Login</a>
+                    </li>
+                    <li> <a href="#signup"
+                            class="text-sm font-md lg:btn lg:btn-primary lg:btn-rh lg:btn-outline capitalize py-1.5 w-15 lg:py-2.5 lg:w-20">Signup</a>
+                    </li>
+                </ul>
             @else
                 <nav class="flex items-center gap-8">
+                    <button id="hamburger" aria-label="buka navigasi">
+                        <i class="bi bi-list"></i>
+                    </button>
                     <div class="dropdown dropdown-end">
                         <button tabindex="0">
                             <i class='bx bxs-bell text-2xl indicator'>
-                                <div class="indicator-item badge text-xs px-2 bg-primary-focus border-none rounded-full">
+                                <div
+                                    class="indicator-item badge text-xs px-2 bg-primary-focus border-none rounded-full">
                                     3
                                 </div>
                             </i>

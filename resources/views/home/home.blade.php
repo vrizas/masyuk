@@ -7,8 +7,12 @@
     <main class="py-4">
         <article>
             <section>
-                <h2 class="text-4xl font-bold">Halo, @auth {{ Auth::user()->name }} @endauth</h2>
-                <p class="text-gray-700">Mau masak apa kita hari ini?</p>
+                @if (Auth::check())
+                    <h2 class="font-bold text-2xl lg:text-4xl">Halo, @auth {{ Auth::user()->name }} @endauth!</h2>
+                @else
+                    <h2 class="font-bold text-2xl lg:text-4xl">Selamat Datang!</h2>
+                @endif
+                <p class="text-gray-700 text-sm lg:text-base">Mau masak apa kita hari ini?</p>
             </section>
             <section class="signup-form-container fixed inset-0 flex items-center justify-center hidden">
                 <div class="signup-form-wrapper bg-white rounded-lg py-6 px-8 w-1/2 relative">
@@ -18,13 +22,13 @@
             </section>
         </article>
         <livewire:search-dropdown />
-        <x-home-carousel :reseps="$reseps" />
+        {{-- <x-home-carousel :reseps="$reseps" /> --}}
         <article>
             <section class="flex mt-4 items-center justify-between">
                 <h2 class="font-bold text-2xl">Aneka Resep</h2>
                 <a class="text-sm" href="#">Lihat Semua</a>
             </section>
-            <section class="resep-card mt-4 grid grid-cols-4 gap-4">
+            <section class="resep-card mt-4 grid grid-cols-1 lg:grid-cols-4 gap-4">
                 @foreach ($reseps as $resep)
                     <x-resep-card :resep="$resep" />
                 @endforeach
