@@ -12,12 +12,16 @@ class FollowButton extends Component
 
     public function toggleFollow()
     {
-        // dd($this->user);
         return $this->authUser->following($this->user) ? $this->authUser->unfollow($this->user) : $this->authUser->follow($this->user);
+    }
+
+    public function checkFollow()
+    {
+        return $this->authUser->following($this->user);
     }
 
     public function render()
     {
-        return view('livewire.follow-button');
+        return view('livewire.follow-button', ['isFollowing' => $this->checkFollow()]);
     }
 }
