@@ -31,6 +31,12 @@ html {
     background-color: #c1c1c1;
 }
 
+.hamburger-list-wrapper .divider::after,
+.divider::before {
+    height: 1rem;
+    width: 0.1rem;
+}
+
 .pop-up {
     animation: popUp 5s;
     animation-fill-mode: forwards;
@@ -39,6 +45,19 @@ html {
 .btn-rh {
     min-height: 0;
     height: fit-content;
+}
+
+.hamburger-list-wrapper {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hamburger-list-wrapper.open {
+    display: inherit;
+}
+
+.hamburger-list.open {
+    transform: translateX(0);
 }
 
 @keyframes popUp {

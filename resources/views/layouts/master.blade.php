@@ -23,14 +23,26 @@
                 <button id="hamburger" aria-label="buka navigasi">
                     <i class="bi bi-list text-2xl"></i>
                 </button>
-                <ul class="flex flex-col">
-                    <li> <a href="#login"
-                            class="text-sm font-md lg:btn lg:btn-primary btn-rh capitalize py-1.5 w-15 lg:py-2.5 lg:w-20">Login</a>
-                    </li>
-                    <li> <a href="#signup"
-                            class="text-sm font-md lg:btn lg:btn-primary lg:btn-rh lg:btn-outline capitalize py-1.5 w-15 lg:py-2.5 lg:w-20">Signup</a>
-                    </li>
-                </ul>
+                <div class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-screen flex justify-end">
+                    <ul
+                        class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transform translate-x-80 transition duration-300 ease-in-out">
+                        <li class="w-full"><a href="#"
+                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat
+                                Resep</a></li>
+                        <li class="w-full"><a href="#"
+                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat Resep</a>
+                        </li>
+                        <li
+                            class="w-3/4 flex flex-row items-center absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                            <a href="#login"
+                                class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
+                            <div class="divider divider-vertical"></div>
+                            <a href="#signup"
+                                class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
+                        </li>
+                    </ul>
+                </div>
+
             @else
                 <nav class="flex items-center gap-8">
                     <button id="hamburger" aria-label="buka navigasi">
@@ -136,6 +148,7 @@
     @endif
     @yield('footer')
     @yield('script')
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

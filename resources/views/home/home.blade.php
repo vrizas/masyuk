@@ -38,7 +38,6 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/home.js') }}"></script>
     <script language="JavaScript" type="text/javascript">
         function keepLocation(oldOffset) {
             if (window.pageYOffset != null) {
