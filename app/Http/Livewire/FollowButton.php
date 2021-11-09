@@ -8,15 +8,12 @@ use Livewire\Component;
 class FollowButton extends Component
 {
     public $user;
+    public $authUser;
 
-    public function mount($user)
+    public function toggleFollow()
     {
-        $this->user = $user;
-    }
-
-    public function toggleFollow(User $otherUser)
-    {
-        return $this->user->following($otherUser) ? $this->user->unfollow($otherUser) : $this->user->follow($otherUser);
+        // dd($this->user);
+        return $this->authUser->following($this->user) ? $this->authUser->unfollow($this->user) : $this->authUser->follow($this->user);
     }
 
     public function render()

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('css')
+    @livewireStyles()
+@endsection
 
 @section('main')
     <main class="py-8">
@@ -17,7 +20,7 @@
                             <button class="btn btn-outline btn-primary">Edit Profile</button>
                             <button class="btn btn-outline btn-primary">Log Out</button>
                         @else
-                            @livewire('follow-button', ['user' => $user])
+                            @livewire('follow-button', ['user' => $user, 'authUser' => Auth::user()])
                         @endif
 
                     </div>
@@ -86,6 +89,8 @@
         </section>
     </main>
 @endsection
-
+@section('script')
+    @livewireScripts()
+@endsection
 
 </html>
