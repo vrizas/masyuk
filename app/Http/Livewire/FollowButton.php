@@ -12,7 +12,11 @@ class FollowButton extends Component
 
     public function toggleFollow()
     {
-        return $this->authUser->following($this->user) ? $this->authUser->unfollow($this->user) : $this->authUser->follow($this->user);
+        $isSuccess =  $this->authUser->following($this->user) ? $this->authUser->unfollow($this->user) : $this->authUser->follow($this->user);
+        if ($isSuccess)
+        {
+            $this->emit('followUpdated');
+        }
     }
 
     public function checkFollow()
