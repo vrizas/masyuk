@@ -1,7 +1,7 @@
 <a class="h-auto card-masyuk" href="/reseps/{{ $resep->id }}">
     <div class="relative h-full w-full">
-        @if ($resep->photos()->first() != null)
-            <img src="{{ asset('/storage/photos/' . $resep->photos()->first()->filename) }}" alt="Image 1"
+        @if (!$resep->photos->isEmpty())
+            <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}" alt="Image 1"
                 class="rounded-2xl object-cover w-full h-full">
         @else
             <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg" alt="Image 1"

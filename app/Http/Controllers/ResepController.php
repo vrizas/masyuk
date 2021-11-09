@@ -91,7 +91,9 @@ class ResepController extends Controller
      */
     public function show($id)
     {
-        return view('resep.detail-resep', ['resep' => Resep::find($id)]);
+        $resep = Resep::with('user', 'bahans', 'photos', 'steps')->where('id', $id)->first();
+        // dd($resep);
+        return view('resep.detail-resep', ['resep' => $resep]);
     }
 
     /**
