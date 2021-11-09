@@ -30,6 +30,7 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware('can:admin');
 
+Route::get('/bimo', [ResepController::class, 'index']);
 
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
