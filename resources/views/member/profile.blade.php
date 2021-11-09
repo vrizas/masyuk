@@ -14,7 +14,11 @@
                     <div class="px-16">
                         <h2 class="text-5xl pb-4 font-bold">{{ $user->name }}</h2>
                         <button class="btn btn-outline btn-primary">Edit Profile</button>
-                        <button class="btn btn-outline btn-primary">Log Out</button>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="btn btn-error btn-rh py-2.5 w-20 capitalize w-full mt-2">Logout</button>
+                        </form>
                     </div>
                 </div>
                 <div class="flex">
@@ -47,7 +51,8 @@
                 @foreach ($user->reseps as $resep)
                     <a href="/reseps/{{ $resep->id }}">
                         <div class="relative">
-                            <img src="{{ asset('/storage/photos/'.$resep->photos()->first()->filename) }}" alt="Image 1" class="rounded-2xl">
+                            <img src="{{ asset('/storage/photos/' . $resep->photos()->first()->filename) }}" alt="Image 1"
+                                class="rounded-2xl">
                             <div
                                 class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                             </div>
