@@ -26,7 +26,13 @@
                                 <div class="flex gap-4 h-20">
                                     <div class="avatar">
                                         <div class="mb-8 rounded-btn w-30 h-20">
-                                            <img src="{{ $resep->imageUrl }}">
+                                            @if ($resep->photos()->first() != null)
+                                                <img
+                                                    src="{{ asset('/storage/photos/' . $resep->photos()->first()->filename) }}">
+                                            @else
+                                                <img
+                                                    src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg">
+                                            @endif
                                         </div>
                                     </div>
                                     <div>
