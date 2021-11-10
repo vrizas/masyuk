@@ -17,12 +17,15 @@
 
 <!-- Card -->
 <a href="/reseps/{{ $resep->id }}" class="shadow-md rounded-2xl overflow-hidden w-full">
-    @if (!$resep->photos->isEmpty())
-        <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}" alt="Gambar {{ $resep->title }}">
-    @else
-        <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
-            alt="Gambar {{ $resep->title }}">
-    @endif
+    <div class="w-full h-60">
+        @if (!$resep->photos->isEmpty())
+            <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}"
+                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
+        @else
+            <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
+                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
+        @endif
+    </div>
     <div class="p-4">
         <div class="flex gap-4 mt-2">
             <div class="flex gap-1 justify-center items-center cursor-default">
@@ -45,15 +48,15 @@
                         clip-path="url(#insideHeartOnly)" />
                 </svg>
 
-                <span class="text-xs">102 Suka</span>
+                <span class="text-xs">102</span>
             </div>
             <div class="flex gap-1 justify-center items-center">
-                <i class="bi bi-chat-dots-fill text-sm"></i>
-                <span class="text-xs">10 Komentar</span>
+                <i class="bi bi-chat-dots-fill text-bases"></i>
+                <span class="text-xs">10</span>
             </div>
             <div class="flex gap-1 justify-center items-center">
                 <i class='bx bxs-bookmark text-lg'></i>
-                <span class="text-xs">20 Simpan</span>
+                <span class="text-xs">20</span>
             </div>
         </div>
         <h5 class="text-lg font-semibold mb-2 mt-1">{{ $resep->title }}</h5>

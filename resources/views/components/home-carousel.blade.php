@@ -12,8 +12,8 @@
                 </div>
                 <div
                     class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-2/3">
-                    <p class="text-base font-md">Resep of the day</p>
-                    <h3 class="font-bold text-xl">{{ $reseps[0]->title }}</h3>
+                    <p class="text-base font-md md:text-lg">Resep of the day</p>
+                    <h3 class="font-bold text-xl md:text-xl">{{ $reseps[0]->title }}</h3>
                     <p class="text-base">Dari {{ $reseps[0]->user->name }}</p>
                 </div>
 
