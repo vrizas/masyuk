@@ -16,6 +16,11 @@ class Resep extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function bookmark()
+    {
+        return $this->belongsTo(Bookmark::class);
+    }
+
     public function steps()
     {
         return $this->hasMany(ResepStep::class);

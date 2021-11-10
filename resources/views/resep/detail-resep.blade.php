@@ -66,13 +66,17 @@
                 <section class="mt-6">
                     <div class="flex justify-between items-center">
                         <h2 class="font-bold text-3xl w-3/4">{{ $resep->title }}</h2>
-                        <button class="btn btn-outline btn-primary w-1/4">Simpan</button>
+                        {{-- LIVEWIRE BOOKMARK BUTTON --}}
+                        @if (Auth::check())    
+                            @livewire('bookmark-button', ['resep' => $resep, 'authUser' => Auth::user()])
+                        @endif
                     </div>
                     <div class="flex gap-6 mt-2">
                         <button class="flex gap-2 justify-center items-center cursor-default">
                             <i class='bx bxs-timer text-3xl'></i>
                             <span class="text-sm">{{ $resep->duration }}</span>
                         </button>
+                        {{-- LIVEWIRE LIKE BUTTON --}}
                         @livewire('like-button', ['resep' => $resep, 'authUser' => Auth::user()])
                         <a href="#comment" class="flex gap-2 justify-center items-center">
                             <i class="bi bi-chat-dots-fill text-xl"></i>
