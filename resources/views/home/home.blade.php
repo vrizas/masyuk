@@ -37,6 +37,11 @@
             /*Set to match the Tailwind colour you want the active one to be */
         }
 
+        .like svg path {
+            fill: #1f2937;
+            stroke-width: 0;
+        }
+
     </style>
     @livewireStyles
 @endsection
