@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('css')
+    @livewireStyles()
+@endsection
 
 @section('main')
     <main class="py-8">
@@ -34,7 +37,9 @@
                         <h3 class="text-3xl text-center pb-2 font-bold">{{ $user->reseps->count() }}</h2>
                             <h3 class="text-xl text-center font-bold">Resep</h2>
                     </div>
+
                 </div>
+                @livewire('following-follower-counter', ['user' => $user])
             </div>
         </section>
 
@@ -51,8 +56,13 @@
                 @foreach ($user->reseps as $resep)
                     <a href="/reseps/{{ $resep->id }}">
                         <div class="relative">
-                            <img src="{{ asset('/storage/photos/' . $resep->photos()->first()->filename) }}" alt="Image 1"
-                                class="rounded-2xl">
+                            @if (!$resep->photos->isEmpty())
+                                <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}" alt="Image 1"
+                                    class="rounded-2xl">
+                            @else
+                                <img src="https://www.helpguide.org/wp-content/uploads/calories-counting-diet-food-control-and-weight-loss-concept-calorie.jpg"
+                                    alt="Image 1" class="rounded-2xl">
+                            @endif
                             <div
                                 class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                             </div>
@@ -64,15 +74,13 @@
                         </div>
                     </a>
                 @endforeach
-                @if (Auth::check())
-                    @if (Auth::user()->id === $user->id)
-                        <a href="{{ route('resep.create') }}" class="h-auto card-masyuk">
-                            <div
-                                class="border-dotted border-2 border-black w-full h-full rounded-2xl flex items-center justify-center">
-                                <h3>Tambah Resep</h3>
-                            </div>
-                        </a>
-                    @endif
+                @if (auth()->check() && auth()->user()->is($user))
+                    <a href="{{ route('resep.create') }}" class="h-auto card-masyuk">
+                        <div
+                            class="border-dotted border-2 border-black w-full h-full rounded-2xl flex items-center justify-center">
+                            <h3>Tambah Resep</h3>
+                        </div>
+                    </a>
                 @endif
             </div>
 
@@ -81,6 +89,8 @@
         </section>
     </main>
 @endsection
-
+@section('script')
+    @livewireScripts()
+@endsection
 
 </html>
