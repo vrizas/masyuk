@@ -35,4 +35,9 @@ class Resep extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
