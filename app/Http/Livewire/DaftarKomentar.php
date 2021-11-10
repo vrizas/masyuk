@@ -11,11 +11,6 @@ class DaftarKomentar extends Component
     public $resep_id;
     public $inputKomentar;
 
-    public function mount($resep_id) 
-    {
-        $this->resep_id = $resep_id;
-    }
-
     public function render()
     {
         $komentars = Komentar::where('resep_id', $this->resep_id)->get();
