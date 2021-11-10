@@ -3,6 +3,7 @@
   'admin.daftar-member' => 'App\\Http\\Livewire\\Admin\\DaftarMember',
   'admin.edit-profile' => 'App\\Http\\Livewire\\Admin\\EditProfile',
   'admin.index' => 'App\\Http\\Livewire\\Admin\\Index',
+  'bookmark-button' => 'App\\Http\\Livewire\\BookmarkButton',
   'daftar-komentar' => 'App\\Http\\Livewire\\DaftarKomentar',
   'follow-button' => 'App\\Http\\Livewire\\FollowButton',
   'following-follower-counter' => 'App\\Http\\Livewire\\FollowingFollowerCounter',

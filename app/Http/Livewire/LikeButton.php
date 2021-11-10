@@ -24,8 +24,13 @@ class LikeButton extends Component
     }
     public function render()
     {
-        $likeStatus = Like::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->exists();
-        $count = count(Like::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->get());
+        $likeStatus = false;
+        if($this->authUser != null)
+        {
+            $likeStatus = Like::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->exists();
+        }
+        $count = count(Like::where('resep_id', $this->resep->id)->get());
+        
         return view('livewire.like-button', ['likeStatus' => $likeStatus, 'count' => $count]);
     }
 }
