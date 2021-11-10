@@ -9,5 +9,6 @@
   'input-bahan-masakan' => 'App\\Http\\Livewire\\InputBahanMasakan',
   'input-gambar-resep' => 'App\\Http\\Livewire\\InputGambarResep',
   'input-langkah-memasak' => 'App\\Http\\Livewire\\InputLangkahMemasak',
+  'like-button' => 'App\\Http\\Livewire\\LikeButton',
   'search-dropdown' => 'App\\Http\\Livewire\\SearchDropdown',
 );
