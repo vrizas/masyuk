@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Komentar::class);
     }
+
+    public function bookmark()
+    {
+        return $this->hasOne(Bookmark::class);
+    }
 }
