@@ -31,8 +31,14 @@ html {
     background-color: #c1c1c1;
 }
 
-.hamburger-list-wrapper .divider::after,
-.divider::before {
+.hamburger-list-wrapper .profile .divider::after,
+.hamburger-list-wrapper .profile .divider::before {
+    height: 0.01rem;
+    width: 1rem;
+}
+
+.hamburger-list-wrapper .auth .divider::after,
+.hamburger-list-wrapper .auth .divider::before {
     height: 1rem;
     width: 0.1rem;
 }

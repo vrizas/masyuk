@@ -54,6 +54,7 @@
 
             @else
                 <nav class="flex items-center gap-8">
+                    <a href="#search"><i class="bi bi-search"></i></a>
                     <div class="dropdown dropdown-end">
                         <button tabindex="0" class="flex">
                             <i class='bx bxs-bell text-xl indicator'>
@@ -97,11 +98,53 @@
                             <a href="" class="text-right mt-2 mb-4 mr-4">Lihat Selengkapnya</a>
                         </ul>
                     </div>
-                    <a href="/profile/{{ Auth::user()->username }}" class="avatar">
-                        <div class="rounded-full w-7 h-7">
-                            <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                    <button id="hamburger" aria-label="buka navigasi"><i class="bi bi-list text-2xl"></i></button>
+                    <div class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-full flex justify-end">
+                        <ul
+                            class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transform translate-x-80 transition duration-300 ease-in-out">
+                            <li class="profile w-full">
+                                <a href="/profile/{{ Auth::user()->username }}"
+                                    class="avatar text-sm flex items-center py-3 rounded-lg font-md">
+                                    <div class="rounded-full w-7 h-7 mr-3">
+                                        <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                                    </div>
+                                    <p class="font-bold font-xl">{{ Auth::user()->name }}</p>
+                                </a>
+                                <div class="divider mt-0"></div>
+                            </li>
+                            <li class="w-full">
+                                <a href="#"
+                                    class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat Resep
+                                </a>
+                            </li>
+                            <li class="w-full">
+                                <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
+                                    Resep
+                                </a>
+                            </li>
+                            <li
+                                class="w-3/4 flex flex-row items-center absolute bottom-10 left-1/2 transform -translate-x-1/2 auth">
+                                <a href="#login"
+                                    class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
+                                <div class="divider divider-vertical"></div>
+                                <a href="#signup"
+                                    class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="search" class="modal">
+                        <div class="modal-box rounded-none h-full w-full top-0 left-0 py-0 overflow-auto">
+                            <div class="flex items-center gap-4">
+                                <a href="#" class="text-2xl flex-1/2"><i class="bi bi-chevron-left"></i></a>
+                                <div class="flex-1">
+                                    <livewire:search-dropdown :desktop="false" />
+                                </div>
+                            </div>
                         </div>
-                    </a>
+                    </div>
+
+
+
 
         @endif
         </nav>
