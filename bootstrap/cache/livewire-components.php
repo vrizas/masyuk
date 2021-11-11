@@ -11,5 +11,6 @@
   'input-gambar-resep' => 'App\\Http\\Livewire\\InputGambarResep',
   'input-langkah-memasak' => 'App\\Http\\Livewire\\InputLangkahMemasak',
   'like-button' => 'App\\Http\\Livewire\\LikeButton',
+  'notifaction' => 'App\\Http\\Livewire\\Notifaction',
   'search-dropdown' => 'App\\Http\\Livewire\\SearchDropdown',
 );

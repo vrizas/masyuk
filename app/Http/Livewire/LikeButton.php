@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Events\ResepLiked;
 use App\Models\Like;
 use Livewire\Component;
 
@@ -14,10 +15,11 @@ class LikeButton extends Component
     {
         $isLiked = Like::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->first();
         if ($isLiked == null) {
-            Like::create([
+            $like = Like::create([
                 'user_id' => $this->authUser->id,
                 'resep_id' => $this->resep->id,
             ]);
+            event(new ResepLiked($this->authUser->username));
         } else {
             $isLiked->delete();
         }
