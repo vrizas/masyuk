@@ -4,19 +4,24 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Notifaction extends Component
+class NotificationIndicator extends Component
 {
-    public $showNewOrderNotification = false;
+    public $count;
 
     protected $listeners = ['echo:my-channel,ResepLiked' => 'notifyResepLiked'];
 
+    public function mount()
+    {
+        $this->count = 0;
+    }
+
     public function notifyResepLiked()
     {
-        $this->showNewOrderNotification = true;
+        $this->count++;
     }
 
     public function render()
     {
-        return view('livewire.notifaction');
+        return view('livewire.notification-indicator');
     }
 }

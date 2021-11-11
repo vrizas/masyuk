@@ -56,7 +56,7 @@
                 <nav class="flex items-center gap-8">
                     <a href="#search"><i class="bi bi-search"></i></a>
                     <div class="dropdown dropdown-end">
-                        @livewire('notifaction')
+                        @livewire('notification-indicator')
                         <ul tabindex="0"
                             class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
                             <li>
