@@ -64,36 +64,18 @@
                         @livewire('notification-indicator', ['authUser' => Auth::user()])
                         <ul tabindex="0"
                             class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
-                            <li>
-                                <a>
-                                    <div class="avatar mr-2">
-                                        <div class="rounded-full w-7 h-7">
-                                            <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                            @foreach (Auth::user()->unreadNotifications as $notification)
+                                <li>
+                                    <a>
+                                        <div class="avatar mr-2">
+                                            <div class="rounded-full w-7 h-7">
+                                                <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <p>Eko Prasetyo mulai mengikuti Anda.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="avatar mr-2">
-                                        <div class="rounded-full w-7 h-7">
-                                            <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                                        </div>
-                                    </div>
-                                    <p>Vrizas Izza mulai mengikuti Anda.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="avatar mr-2">
-                                        <div class="rounded-full w-7 h-7">
-                                            <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                                        </div>
-                                    </div>
-                                    <p>Ivanna mulai mengikuti Anda.</p>
-                                </a>
-                            </li>
+                                        <p>{{ $notification->data['message'] }}</p>
+                                    </a>
+                                </li>
+                            @endforeach
                             <a href="" class="text-right mt-2 mb-4 mr-4">Lihat Selengkapnya</a>
                         </ul>
                     </div>

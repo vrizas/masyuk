@@ -68,7 +68,7 @@ class ResepLikedNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user' => $this->user,
+            'user_id' => $this->user->id,
             'message' => $this->message
         ];
     }

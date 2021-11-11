@@ -21,14 +21,14 @@ class NotificationIndicator extends Component
 
     public function mount($authUser)
     {
-        $this->count = 0;
+        $this->count = $this->count = auth()->user()->unreadNotifications->groupBy('id')->count();
         $this->authUser = $authUser;
         $this->auth_user_id = $authUser->id;
     }
 
     public function notifyResepLiked()
     {
-        $this->count = auth()->user()->unreadNotifications->groupBy('notifiable_type')->count();
+        $this->count = auth()->user()->unreadNotifications->groupBy('id')->count();
     }
 
     public function render()
