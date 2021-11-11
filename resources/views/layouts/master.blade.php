@@ -56,13 +56,7 @@
                 <nav class="flex items-center gap-8">
                     <a href="#search"><i class="bi bi-search"></i></a>
                     <div class="dropdown dropdown-end">
-                        <button tabindex="0" class="flex">
-                            <i class='bx bxs-bell text-xl indicator'>
-                                <div class="indicator-item badge text-xs p-2 bg-primary-focus border-none rounded-full">
-                                    3
-                                </div>
-                            </i>
-                        </button>
+                        @livewire('notification-indicator', ['authUser' => Auth::user()])
                         <ul tabindex="0"
                             class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
                             <li>
@@ -173,7 +167,8 @@
     @endif
     @yield('footer')
     @yield('script')
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" type="module"></script>
+    <script src="{{ asset('js/main.js') }}" type="module"></script>
 </body>
 
 </html>
