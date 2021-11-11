@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Events\ResepLiked;
 use App\Models\Like;
+use App\Notifications\ResepLikedNotification;
 use Livewire\Component;
 
 class LikeButton extends Component
@@ -19,7 +20,8 @@ class LikeButton extends Component
                 'user_id' => $this->authUser->id,
                 'resep_id' => $this->resep->id,
             ]);
-            event(new ResepLiked($this->authUser->username));
+            $this->resep->user->notify(new ResepLikedNotification($this->authUser, $this->authUser->username . ' menyukai resep anda ' . $this->resep->title));
+            event(new ResepLiked($this->resep->user, $this->resep));
         } else {
             $isLiked->delete();
         }

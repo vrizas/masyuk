@@ -44,7 +44,8 @@ class User extends Authenticatable
         return route('profile', $this->username);
     }
 
-    public function reseps() {
+    public function reseps()
+    {
         return $this->hasMany(Resep::class);
     }
 
@@ -56,5 +57,10 @@ class User extends Authenticatable
     public function bookmark()
     {
         return $this->hasOne(Bookmark::class);
+    }
+
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'users.' . $this->id;
     }
 }

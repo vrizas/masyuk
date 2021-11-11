@@ -2,25 +2,30 @@
 
 namespace App\Events;
 
+use Auth;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Queue\SerializesModels;
+use Notification;
 
 class ResepLiked implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $username;
+    public $user;
+    public $resep;
     public $message;
 
-    public function __construct($username)
+    public function __construct($user, $resep)
     {
-        $this->username = $username;
-        $this->message = "{$username} menyukai resep anda";
+        $this->user= $user;
+        $this->resep = $resep;
+        $this->message = "{$user->name} menyukai resep anda {$resep->title}";
     }
 
     /**
@@ -30,7 +35,6 @@ class ResepLiked implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['my-channel'];
+        return new Channel('ResepLiked.'.$this->user->id);
     }
-
 }
