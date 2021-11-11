@@ -13,36 +13,41 @@
     @yield('css')
 </head>
 
-<body class="w-full px-4 lg:container lg:mx-auto lg:px-0">
+<body class="w-full px-4 lg:container lg:mx-auto xl:px-0">
     <header class="py-2 flex top-0 items-center justify-between">
         <a href="/" class="flex items-center gap-2">
             <h1 class="text-lg font-bold lg:text-xl">Masyuk</h1>
         </a>
         @if (!Auth::check())
-            <nav class="flex items-center gap-6">
-                <a href="#search"><i class="bi bi-search"></i></a>
-                <button id="hamburger" aria-label="buka navigasi"><i class="bi bi-list text-2xl"></i></button>
-                <div class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-full flex justify-end">
+            <nav class="flex items-center gap-6 lg:gap-4">
+                <a href="#search"><i class="bi bi-search lg:hidden"></i></a>
+                <button id="hamburger" aria-label="buka navigasi"><i class="bi bi-list text-2xl lg:hidden"></i></button>
+                <div
+                    class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-full flex justify-end lg:static lg:z-0">
                     <ul
-                        class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transform translate-x-80 transition duration-300 ease-in-out">
-                        <li class="w-full"><a href="#"
-                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat
-                                Resep</a></li>
-                        <li class="w-full"><a href="#"
-                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat Resep</a>
+                        class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transition duration-300 ease-in-out md:w-1/2 lg:flex-row lg:shadow-none lg:p-0">
+                        <li class="w-full lg:hidden">
+                            <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat
+                                Resep
+                            </a>
+                        </li>
+                        <li class="w-full lg:hidden">
+                            <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
+                                Resep
+                            </a>
                         </li>
                         <li
-                            class="w-3/4 flex flex-row items-center absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                            class="w-3/4 flex flex-row items-center absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:static lg:translate-x-0 lg:gap-4">
                             <a href="#login"
                                 class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
-                            <div class="divider divider-vertical"></div>
+                            <div class="divider divider-vertical lg:hidden"></div>
                             <a href="#signup"
                                 class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
                         </li>
                     </ul>
                 </div>
                 <div id="search" class="modal">
-                    <div class="modal-box rounded-none h-full w-full top-0 left-0 py-0 overflow-auto">
+                    <div class="modal-box max-w-none rounded-none h-full w-full py-0 overflow-auto">
                         <div class="flex items-center gap-4">
                             <a href="#" class="text-2xl flex-1/2"><i class="bi bi-chevron-left"></i></a>
                             <div class="flex-1">
@@ -53,8 +58,8 @@
                 </div>
 
             @else
-                <nav class="flex items-center gap-8">
-                    <a href="#search"><i class="bi bi-search"></i></a>
+                <nav class="flex items-center gap-8 lg:gap-4">
+                    <a href="#search"><i class="bi bi-search lg:hidden"></i></a>
                     <div class="dropdown dropdown-end">
                         @livewire('notification-indicator', ['authUser' => Auth::user()])
                         <ul tabindex="0"
@@ -92,42 +97,37 @@
                             <a href="" class="text-right mt-2 mb-4 mr-4">Lihat Selengkapnya</a>
                         </ul>
                     </div>
-                    <button id="hamburger" aria-label="buka navigasi"><i class="bi bi-list text-2xl"></i></button>
-                    <div class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-full flex justify-end">
+                    <button id="hamburger" aria-label="buka navigasi"><i
+                            class="bi bi-list text-2xl lg:hidden"></i></button>
+                    <div
+                        class="hamburger-list-wrapper fixed top-0 left-0 z-50 w-screen h-full flex justify-end lg:static">
                         <ul
-                            class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transform translate-x-80 transition duration-300 ease-in-out">
+                            class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transition duration-300 ease-in-out md:w-1/2 lg:flex-row lg:shadow-none lg:p-0">
                             <li class="profile w-full">
                                 <a href="/profile/{{ Auth::user()->username }}"
                                     class="avatar text-sm flex items-center py-3 rounded-lg font-md">
-                                    <div class="rounded-full w-7 h-7 mr-3">
+                                    <div class="rounded-full w-7 h-7 mr-3 lg:w-8 lg:h-8">
                                         <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                                     </div>
-                                    <p class="font-bold font-xl">{{ Auth::user()->name }}</p>
+                                    <p class="font-bold font-xl"><span
+                                            class="lg:hidden">{{ Auth::user()->name }}</span></p>
                                 </a>
-                                <div class="divider mt-0"></div>
+                                <div class="divider mt-0 lg:hidden"></div>
                             </li>
-                            <li class="w-full">
+                            <li class="w-full lg:hidden">
                                 <a href="#"
                                     class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat Resep
                                 </a>
                             </li>
-                            <li class="w-full">
+                            <li class="w-full lg:hidden">
                                 <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
                                     Resep
                                 </a>
                             </li>
-                            <li
-                                class="w-3/4 flex flex-row items-center absolute bottom-10 left-1/2 transform -translate-x-1/2 auth">
-                                <a href="#login"
-                                    class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
-                                <div class="divider divider-vertical"></div>
-                                <a href="#signup"
-                                    class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
-                            </li>
                         </ul>
                     </div>
                     <div id="search" class="modal">
-                        <div class="modal-box rounded-none h-full w-full top-0 left-0 py-0 overflow-auto">
+                        <div class="modal-box max-w-none rounded-none h-full w-full py-0 overflow-auto">
                             <div class="flex items-center gap-4">
                                 <a href="#" class="text-2xl flex-1/2"><i class="bi bi-chevron-left"></i></a>
                                 <div class="flex-1">
@@ -136,10 +136,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
         @endif
         </nav>
     </header>

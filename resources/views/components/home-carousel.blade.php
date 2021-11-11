@@ -11,10 +11,10 @@
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
                 <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-2/3">
-                    <p class="text-base font-md md:text-lg">Resep of the day</p>
-                    <h3 class="font-bold text-xl md:text-xl">{{ $reseps[0]->title }}</h3>
-                    <p class="text-base">Dari {{ $reseps[0]->user->name }}</p>
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-7/12">
+                    <p class="font-md text-lg mb-1 md:text-xl lg:text-2xl">Resep of the day</p>
+                    <h3 class="font-bold text-xl md:text-2xl lg:text-3xl">{{ $reseps[0]->title }}</h3>
+                    <p class="text-base lg:text-lg">Dari {{ $reseps[0]->user->name }}</p>
                 </div>
 
             </div>
@@ -34,10 +34,10 @@
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
                 <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-2/3">
-                    <p class="text-base font-md">Resep of the day</p>
-                    <h3 class="font-bold text-xl">{{ $reseps[1]->title }}</h3>
-                    <p class="text-base">Dari {{ $reseps[1]->user->name }}</p>
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-7/12">
+                    <p class="font-md text-lg mb-1 md:text-xl lg:text-2xl">Resep of the day</p>
+                    <h3 class="font-bold text-xl md:text-2xl lg:text-3xl">{{ $reseps[1]->title }}</h3>
+                    <p class="text-base lg:text-lg">Dari {{ $reseps[1]->user->name }}</p>
                 </div>
 
             </div>
@@ -57,10 +57,10 @@
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
                 <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-2/3">
-                    <p class="text-base font-md">Resep of the day</p>
-                    <h3 class="font-bold text-xl">{{ $reseps[2]->title }}</h3>
-                    <p class="text-base">Dari {{ $reseps[2]->user->name }}</p>
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left text-base-200 w-7/12">
+                    <p class="font-md text-lg mb-1 md:text-xl lg:text-2xl">Resep of the day</p>
+                    <h3 class="font-bold text-xl md:text-2xl lg:text-3xl">{{ $reseps[2]->title }}</h3>
+                    <p class="text-base lg:text-lg">Dari {{ $reseps[2]->user->name }}</p>
                 </div>
 
             </div>

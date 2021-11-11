@@ -58,6 +58,10 @@ html {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.hamburger-list {
+    transform: translateX(600px);
+}
+
 .hamburger-list-wrapper.open {
     display: inherit;
 }
@@ -110,5 +114,19 @@ html {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .hamburger-list-wrapper {
+        display: inherit;
+        background-color: transparent;
+        width: fit-content;
+        height: fit-content;
+    }
+    .hamburger-list {
+        transform: translateX(0);
+        width: fit-content;
+        height: fit-content;
     }
 }

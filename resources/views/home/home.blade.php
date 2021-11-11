@@ -65,7 +65,7 @@
                 <h2 class="font-bold text-xl lg:2xl">Aneka Resep</h2>
                 <a class="text-sm" href="#">Lihat Semua</a>
             </section>
-            <section class="resep-card mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <section class="resep-card mt-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($reseps as $resep)
                     <x-resep-card :resep="$resep" />
                 @endforeach

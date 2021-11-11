@@ -4,7 +4,7 @@
         <div class="relative mt-4 mb-4 z-40">
 @endif
 <div class="relative">
-    <input wire:model.debounce.500ms="keyword" class="input w-full bg-gray-50 px-11" type="search"
+    <input wire:model.debounce.500ms="keyword" class="input w-full bg-gray-50 pl-11" type="search"
         placeholder="Masukkan nama resep">
     <div class="absolute top-1/2 transform -translate-y-1/2 left-4">
         <div wire:loading.remove>
