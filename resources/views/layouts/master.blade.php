@@ -67,7 +67,7 @@
                             @foreach (Auth::user()->unreadNotifications as $notification)
                                 <li>
                                     <a>
-                                        <div class="avatar mr-2">
+                                        <div class="avatar mr-3">
                                             <div class="rounded-full w-7 h-7">
                                                 <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                                             </div>
