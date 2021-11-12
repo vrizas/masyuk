@@ -60,25 +60,7 @@
             @else
                 <nav class="flex items-center gap-8 lg:gap-4">
                     <a href="#search"><i class="bi bi-search lg:hidden"></i></a>
-                    <div class="dropdown dropdown-end">
-                        @livewire('notification-indicator', ['authUser' => Auth::user()])
-                        <ul tabindex="0"
-                            class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
-                            @foreach (Auth::user()->unreadNotifications as $notification)
-                                <li>
-                                    <a>
-                                        <div class="avatar mr-2">
-                                            <div class="rounded-full w-7 h-7">
-                                                <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
-                                            </div>
-                                        </div>
-                                        <p>{{ $notification->data['message'] }}</p>
-                                    </a>
-                                </li>
-                            @endforeach
-                            <a href="" class="text-right mt-2 mb-4 mr-4">Lihat Selengkapnya</a>
-                        </ul>
-                    </div>
+                    @livewire('notification-indicator', ['authUser' => Auth::user()])
                     <button id="hamburger" aria-label="buka navigasi"><i
                             class="bi bi-list text-2xl lg:hidden"></i></button>
                     <div
