@@ -43,9 +43,9 @@
 @section('main')
     <main class="lg:grid lg:gap-4 lg:grid-cols-4 lg:py-4">
         <div class="content w-full mb-4 lg:mb-0 lg:col-span-3">
-            <article class="rounded-2xl h-screen py-1 px-0 lg:py-8 lg:px-10 lg:bg-base-200">
+            <article class="rounded-2xl py-1 px-0 lg:py-8 lg:px-10 lg:bg-base-200">
                 @if ((new \Jenssegers\Agent\Agent())->isDesktop())
-                    <section class="flex gap-4 flex-col h-full lg:h-1/2 lg:flex-row">
+                    <section class="flex gap-4 flex-col h-full lg:flex-row lg:h-1/5">
                         {{-- Video --}}
                         <iframe class="h-full rounded-2xl w-full lg:w-3/4" src="https://www.youtube.com/embed/QwG1Jj23Zts"
                             title="YouTube video player" frameborder="0"
@@ -66,7 +66,7 @@
         </section>
         @endif
         @if ((new \Jenssegers\Agent\Agent())->isMobile() || (new \Jenssegers\Agent\Agent())->isTablet())
-            <article class="carousel relative shadow bg-white mt-2 rounded-2xl">
+            <section class="carousel relative shadow bg-white mt-2 rounded-2xl lg:h-auto">
                 <div class="carousel-inner relative overflow-hidden w-full">
                     <!--Slide 1-->
                     <input class="carousel-open hidden" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
@@ -135,7 +135,7 @@
                     </ol>
 
                 </div>
-            </article>
+            </section>
         @endif
         <section class="mt-6">
             <div class="flex justify-between items-center">
@@ -148,16 +148,16 @@
             <div class="flex items-center mt-2 gap-4 lg:gap-6">
                 <button class="flex justify-center items-center cursor-default gap-1 lg:gap-2">
                     <i class='bx bxs-timer text-2xl lg:text-3xl'></i>
-                    <span class="text-sm">{{ $resep->duration }}</span>
+                    <span>{{ $resep->duration }}</span>
                 </button>
                 {{-- LIVEWIRE LIKE BUTTON --}}
                 @livewire('like-button', ['resep' => $resep, 'authUser' => Auth::user()])
                 <a href="#comment" class="flex justify-center items-center gap-1 lg:gap-2">
                     <i class="bi bi-chat-dots-fill text-lg lg:text-xl"></i>
-                    <span class="text-sm">10 Komentar</span></a>
+                    <span class="text-sm">10 <span class="hidden md:inline lg:inline">Komentar</span></span></a>
                 <button class="flex justify-center items-center cursor-default gap-1 lg:gap-2">
                     <i class='bx bxs-bookmark text-xl lg:text-2xl'></i>
-                    <span class="text-sm">20 Simpan</span>
+                    <span class="text-sm">20 <span class="hidden md:inline lg:inline">Simpan</span></span>
                 </button>
             </div>
             <div class="w-full mt-2">
@@ -171,11 +171,12 @@
                     </div>
                     <p class="font-bold text-base lg:text-lg">{{ $resep->user->name }}</p>
                 </a>
-                <button class="btn btn-outline btn-primary w-1/4 capitalize"><i class='bx bx-plus'></i> Ikuti</button>
+                <button class="btn btn-outline btn-primary w-1/4 capitalize btn-sm lg:btn-md"><i class='bx bx-plus'></i>
+                    Ikuti</button>
             </div>
         </section>
         </article>
-        <article class="bg-base-200 rounded-2xl mt-4 py-6 px-8 lg:py-8 lg:px-10">
+        <article class="bg-base-200 rounded-2xl mt-4 py-4 px-6 lg:py-8 lg:px-10">
             <h3 class="font-bold mb-4 text-lg lg:text-xl">Bahan Masakan</h3>
             <ul class="list-disc px-6">
                 @foreach ($resep->bahans as $bahan)
@@ -186,7 +187,7 @@
         </article>
         <article class="collapse w-full collapse-arrow bg-base-200 rounded-2xl mt-4">
             <input type="checkbox" id="menu-toggle">
-            <div class="collapse-title text-xl font-medium flex justify-between items-center py-6 px-8 lg:py-8 lg:px-10">
+            <div class="collapse-title text-xl font-medium flex justify-between items-center py-4 px-6 lg:py-8 lg:px-10">
                 <h3 class="font-bold text-lg lg:text-xl">Total Kalori</h3>
                 <div class="flex gap-2">
                     <p class="font-bold text-lg lg:text-xl">{{ $resep->bahans->sum('kalori') }} Kkal</p>
@@ -210,7 +211,7 @@
                 </table>
             </div>
         </article>
-        <article class="bg-base-200 rounded-2xl mt-4 py-6 px-8 lg:py-8 lg:px-10">
+        <article class="bg-base-200 rounded-2xl mt-4 py-4 px-6 lg:py-8 lg:px-10">
             <h3 class="font-bold mb-4 text-lg lg:text-xl">Langkah-langkah</h3>
             @foreach ($resep->steps as $step)
                 <p class="mb-4"><b>Step {{ $step->nomor_step }}: </b>{{ $step->description }}</p>
@@ -221,7 +222,7 @@
         </div>
         <aside class="lg:col-span-1">
             <h3 class="font-bold mb-2 text-lg lg:text-xl">Disarankan untuk kamu</h3>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-5">
                 @for ($i = 0; $i <= 3; $i++)
                     <a href="#" class="relative">
                         <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-ayam-goreng-kuning-tabur-serundeng.jpg"

@@ -1,22 +1,22 @@
-<div class="dropdown dropdown-end wire:click="getNotifications">
+<div class="dropdown dropdown-end wire:click=" getNotifications">
     <div>
         @if ((new \Jenssegers\Agent\Agent())->isDesktop())
-          <a tabindex="0" class="flex cursor-pointer">
+            <a tabindex="0" class="flex cursor-pointer">
         @endif
         @if ((new \Jenssegers\Agent\Agent())->isMobile() || (new \Jenssegers\Agent\Agent())->isTablet())
-          <a href="#" tabindex="0" class="flex cursor-pointer">
+            <a href="#" tabindex="0" class="flex cursor-pointer">
         @endif
         <i class='bx bxs-bell text-xl indicator lg:text-2xl'>
-          @if (!$count == 0)
-            <div class="indicator-item badge text-xs p-2 bg-primary-focus border-none rounded-full">
-                {{ $count }}
-            </div>
-          @endif
+            @if (!$count == 0)
+                <div class="indicator-item badge text-xs p-2 bg-primary-focus border-none rounded-full">
+                    {{ $count }}
+                </div>
+            @endif
         </i>
-      </a>
+        </a>
     </div>
     <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
-        <a wire:click="markAsRead">Tandai sudah terbaca</a>
+        <button wire:click="markAsRead" class="text-left px-4 pt-2">Tandai sudah terbaca</button>
         @foreach ($unreadNotifications as $notification)
             <li>
                 <a>
@@ -29,6 +29,6 @@
                 </a>
             </li>
         @endforeach
-        <a href="" class="text-right mt-2 mb-4 mr-4">Lihat Selengkapnya</a>
+        <a href="" class="text-right py-4 mr-4">Lihat Selengkapnya</a>
     </ul>
 </div>
