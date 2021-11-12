@@ -3,7 +3,7 @@
         @foreach ($images as $index => $image)
             @if (!empty($image))
                 <div class="w-40 h-40 rounded-2xl relative">
-                    <button class="absolute top-2 right-2 bg-base-100 w-5 h-5 rounded-full shadow-md"><i
+                    <button wire:click.prevent="deleteItem({{ $index }})" class="absolute top-2 right-2 bg-base-100 w-5 h-5 rounded-full shadow-md"><i
                             class='bx bx-x text-xl'></i></button>
                     <img class="object-cover h-full w-full rounded-2xl" src="{{ asset('/storage/' . $image) }}"
                         alt="gambar-resep">

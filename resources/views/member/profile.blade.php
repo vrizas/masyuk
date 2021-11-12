@@ -65,8 +65,12 @@
                                             Resep</a>
                                     </li>
                                     <li>
-                                        <a class="text-sm inline-flex gap-2"><i class='bx bxs-trash-alt text-lg'></i> Hapus
-                                            Resep</a>
+                                        <form action="{{ route('resep.delete', ['id' => $resep->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="text-sm inline-flex gap-2"><i
+                                                    class='bx bxs-trash-alt text-lg'></i> Hapus
+                                                Resep</button>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

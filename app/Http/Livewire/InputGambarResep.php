@@ -25,6 +25,10 @@ class InputGambarResep extends Component
         $this->images[] = [''];
     }
 
+    public function deleteItem($index)
+    {
+        unset($this->images[$index]);
+    }
 
     public function updatedTempImage()
     {

@@ -54,6 +54,31 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- INPUT KATEGORI --}}
+                        <div class="form-group flex flex-col lg:flex-row">
+                            <label for="deskripsi"
+                                class="col-md-4 col-form-label text-md-right w-full mb-1 lg:mb-0 lg:w-1/5">Pilih
+                                Kategori</label>
+
+                            <div class="col-md-6 w-full lg:w-4/5">
+                                <div class="p-6 card bordered">
+                                    <div class="form-control">
+                                        @foreach ($categories as $category)
+                                            <label class="cursor-pointer label">
+                                                <span class="label-text">{{ $category->name }}</span>
+                                                <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="checkbox checkbox-accent">
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                @error('deskripsi')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <h2 class="text-lg font-bold mt-6 mb-4">Bahan Masakan</h2>
                         {{-- LIVEWIRE INPUT BAHAN MASAKAN --}}
                         <livewire:input-bahan-masakan />
@@ -66,23 +91,7 @@
                         {{-- LIVEWIRE INPUT GAMBAR RESEP --}}
                         <section>
                             {{-- LIVEWIRE INPUT YOUTUBE --}}
-                            <div class="w-full mb-4">
-                                <label for="youtube" class="text-sm">Link Youtube <span
-                                        class="font-bold text-xs text-primary-sfocus">(Opsional)</span></label>
-                                <div class="mt-1">
-                                    <input id="youtube" type="text"
-                                        class="input w-full bg-gray-50 form-control @error('youtube') is-invalid @enderror"
-                                        name="youtube" value="{{ old('youtube') }}" required autofocus
-                                        placeholder="masukkan link youtube">
-
-                                    @error('youtube')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <livewire:input-gambar-resep />
+                            <livewire:input-link-youtube />
                         </section>
                     </section>
                 </div>

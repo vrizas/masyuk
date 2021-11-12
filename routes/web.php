@@ -24,6 +24,7 @@ Route::get('/reseps/list', [ResepController::class, 'index']);
 Route::get('/search', [ResepController::class, 'search']);
 Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
 Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
+Route::post('/reseps/delete/{id}', [ResepController::class, 'destroy'])->middleware('auth')->name('resep.delete');
 
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
 

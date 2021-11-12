@@ -19,10 +19,10 @@ class InputLangkahMemasak extends Component
         $this->listLangkah[] =  [''];
     }
 
+
     public function deleteItem($index)
     {
         unset($this->listLangkah[$index]);
-        $this->listLangkah = array_values($this->listLangkah);
     }
 
     public function render()

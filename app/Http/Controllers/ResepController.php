@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bahan;
+use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Resep;
 use App\Models\ResepStep;
@@ -27,16 +28,20 @@ class ResepController extends Controller
 
     public function create()
     {
-        return view('resep.create-resep');
+        $categories = Category::all();
+        return view('resep.create-resep', ['categories' => $categories]);
     }
 
     public function store(Request $request)
-    {
+    {   
+        // dd($request);
         $resep = Resep::create([
             'title' => $request->judul,
             'user_id' => Auth::user()->id,
             'description' => $request->deskripsi,
             'duration' => 200,
+            'youtube_id' => $request->youtubeId,
+            'youtube_url' => $request->youtubeUrl
         ]);
 
         foreach ($request->listBahans as $bahan) {
@@ -46,6 +51,10 @@ class ResepController extends Controller
                     'quantity' => $bahan['quantity'],
                 ]
             );
+        }
+
+        foreach ($request->categories as $category) {
+            $resep->categories()->attach($category);
         }
 
         foreach ($request->listLangkah as $index => $step) {
@@ -71,12 +80,12 @@ class ResepController extends Controller
             $resep->photos()->save($photo);
         }
 
-        return redirect('/profile/'. auth()->user->username);
+        return redirect('/profile/'. auth()->user()->username);
     }
 
     public function show($id)
     {
-        $resep = Resep::with('user', 'bahans', 'photos', 'steps')->where('id', $id)->first();
+        $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->where('id', $id)->first();
         return view('resep.detail-resep', ['resep' => $resep]);
     }
 
@@ -91,9 +100,15 @@ class ResepController extends Controller
     }
 
 
-    public function destroy(Resep $resep)
+    public function destroy($id)
     {
-        //
+        $result = Resep::find($id)->delete();
+        if($result == null)
+        {
+            return redirect()->back()->with('error', 'Terdapat kesalahan sistem.'); 
+        }
+        return redirect()->back()->with('success', 'Resep berhasil dihapus.'); 
+        
     }
 
 }
