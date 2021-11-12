@@ -139,13 +139,13 @@
         @endif
         <section class="mt-6">
             <div class="flex justify-between items-center">
-                <h2 class="font-bold w-3/4 text-xl lg:text-3xl">{{ $resep->title }}</h2>
+                <h2 class="font-bold w-3/4 text-xl lg:text-2xl">{{ $resep->title }}</h2>
                 {{-- LIVEWIRE BOOKMARK BUTTON --}}
                 @if (Auth::check())
                     @livewire('bookmark-button', ['resep' => $resep, 'authUser' => Auth::user()])
                 @endif
             </div>
-            <div class="flex mt-2 gap-4 lg:gap-6">
+            <div class="flex items-center mt-2 gap-4 lg:gap-6">
                 <button class="flex justify-center items-center cursor-default gap-1 lg:gap-2">
                     <i class='bx bxs-timer text-2xl lg:text-3xl'></i>
                     <span class="text-sm">{{ $resep->duration }}</span>
@@ -176,7 +176,7 @@
         </section>
         </article>
         <article class="bg-base-200 rounded-2xl mt-4 py-6 px-8 lg:py-8 lg:px-10">
-            <h3 class="font-bold mb-4 text-lg lg:text-2xl">Bahan Masakan</h3>
+            <h3 class="font-bold mb-4 text-lg lg:text-xl">Bahan Masakan</h3>
             <ul class="list-disc px-6">
                 @foreach ($resep->bahans as $bahan)
                     <li class="text-sm lg:text-base">{{ $bahan->baseQuantity . ' ' . $bahan->unit }}<b>
@@ -187,10 +187,10 @@
         <article class="collapse w-full collapse-arrow bg-base-200 rounded-2xl mt-4">
             <input type="checkbox" id="menu-toggle">
             <div class="collapse-title text-xl font-medium flex justify-between items-center py-6 px-8 lg:py-8 lg:px-10">
-                <h3 class="font-bold text-lg lg:text-2xl">Total Kalori</h3>
+                <h3 class="font-bold text-lg lg:text-xl">Total Kalori</h3>
                 <div class="flex gap-2">
-                    <p class="font-bold text-lg lg:text-2xl">{{ $resep->bahans->sum('kalori') }} Kkal</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron w-6 h-6 lg:w-9 lg:h-9" viewBox="0 0 20 20"
+                    <p class="font-bold text-lg lg:text-xl">{{ $resep->bahans->sum('kalori') }} Kkal</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron w-6 h-6 lg:w-8 lg:h-8" viewBox="0 0 20 20"
                         fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -211,7 +211,7 @@
             </div>
         </article>
         <article class="bg-base-200 rounded-2xl mt-4 py-6 px-8 lg:py-8 lg:px-10">
-            <h3 class="font-bold mb-4 text-lg lg:text-2xl">Langkah-langkah</h3>
+            <h3 class="font-bold mb-4 text-lg lg:text-xl">Langkah-langkah</h3>
             @foreach ($resep->steps as $step)
                 <p class="mb-4"><b>Step {{ $step->nomor_step }}: </b>{{ $step->description }}</p>
             @endforeach
@@ -220,7 +220,7 @@
         @livewire('daftar-komentar', ['resep_id' => $resep->id])
         </div>
         <aside class="lg:col-span-1">
-            <h3 class="font-bold mb-2 text-lg lg:text-2xl">Disarankan untuk kamu</h3>
+            <h3 class="font-bold mb-2 text-lg lg:text-xl">Disarankan untuk kamu</h3>
             <div class="flex flex-col gap-4">
                 @for ($i = 0; $i <= 3; $i++)
                     <a href="#" class="relative">
