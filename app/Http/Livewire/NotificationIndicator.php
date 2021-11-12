@@ -20,6 +20,7 @@ class NotificationIndicator extends Component
         return [
             "echo:ResepLiked.{$this->auth_user_id},ResepLiked" => 'refreshNotification',
             "echo:ResepCommented.{$this->auth_user_id},ResepCommented" => 'refreshNotification',
+            "echo:MemberFollowed.{$this->auth_user_id},MemberFollowed" => 'refreshNotification',
             'markedAsRead' => 'refreshNotification'
         ];
     }
