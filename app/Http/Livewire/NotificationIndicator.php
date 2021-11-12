@@ -17,7 +17,11 @@ class NotificationIndicator extends Component
 
     public function getListeners()
     {
-        return ["echo:ResepLiked.{$this->auth_user_id},ResepLiked" => 'notifyResepLiked', 'markedAsRead' => 'notifyResepLiked'];
+        return [
+            "echo:ResepLiked.{$this->auth_user_id},ResepLiked" => 'refreshNotification',
+            "echo:ResepCommented.{$this->auth_user_id},ResepCommented" => 'refreshNotification',
+            'markedAsRead' => 'refreshNotification'
+        ];
     }
 
     public function markAsRead()
@@ -36,7 +40,7 @@ class NotificationIndicator extends Component
         $this->unreadNotifications = $authUser->unreadNotifications;
     }
 
-    public function notifyResepLiked()
+    public function refreshNotification()
     {
         $this->count = $this->authUser->unreadNotifications->where('notifiable_id', $this->authUser->id)->count();
         $this->unreadNotifications = $this->authUser->unreadNotifications;
