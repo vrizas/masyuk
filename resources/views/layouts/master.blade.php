@@ -42,7 +42,7 @@
                                 class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
                             <div class="divider divider-vertical lg:hidden"></div>
                             <a href="#signup"
-                                class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
+                                class="text-sm flex flex-1 justify-center font-md btn btn-outline btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
                         </li>
                     </ul>
                 </div>

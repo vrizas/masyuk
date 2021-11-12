@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/reseps/list', [ResepController::class, 'index']);
 Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
 Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
 
@@ -30,7 +31,7 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware('can:admin');
 
-Route::get('/bimo', [ResepController::class, 'index']);
+
 
 Route::get('/jasmine', function() {
     return view('resep.detail-resep');
