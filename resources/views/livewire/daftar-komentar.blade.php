@@ -1,5 +1,5 @@
-<article class="bg-base-200 py-8 px-10 rounded-2xl mt-4" id="comment">
-    <h3 class="font-bold text-2xl mb-4">Komentar</h3>
+<article class="bg-base-200 rounded-2xl mt-4 py-6 px-8 lg:py-8 lg:px-10" id="comment">
+    <h3 class="font-bold mb-4 text-lg lg:text-2xl">Komentar</h3>
     @foreach ($komentars as $komentar)
         <section class="flex gap-2 items-center">
             <a href="#" class="flex-1/2">
@@ -30,7 +30,7 @@
                     placeholder="Tulis komentar disini..."></textarea>
             </div>
             <div class="flex justify-end w-full mt-4">
-                <button wire:click="createKomentar" class="btn btn-primary w-1/4">Kirim</button>
+                <button wire:click="createKomentar" class="btn btn-primary w-1/4 capitalize">Kirim</button>
             </div>
         </section>
     @endauth
