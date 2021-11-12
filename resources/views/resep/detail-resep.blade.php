@@ -218,7 +218,7 @@
             @endforeach
         </article>
         {{-- LIVEWIRE DAFTAR KOMENTAR --}}
-        @livewire('daftar-komentar', ['resep_id' => $resep->id])
+        @livewire('daftar-komentar', ['resep' => $resep])
         </div>
         <aside class="lg:col-span-1">
             <h3 class="font-bold mb-2 text-lg lg:text-xl">Disarankan untuk kamu</h3>

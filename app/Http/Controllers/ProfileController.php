@@ -12,8 +12,4 @@ class ProfileController extends Controller
     {
         return view('member.profile', compact('user'));
     }
-
-    public function getBahans() {
-        $bahans = Bahan::all();
-    }
 }

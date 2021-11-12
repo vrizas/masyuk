@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/reseps/list', [ResepController::class, 'index']);
+Route::get('/search', [ResepController::class, 'search']);
 Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
 Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
 
