@@ -16,6 +16,9 @@
         </a>
     </div>
     <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-96 text-sm hidden lg:flex">
+        @if ($unreadNotifications->count() == 0)
+            <p class="text-left py-4 mr-4">Kamu belum memiliki notifikasi.</p>
+        @else
         <button wire:click="markAsRead" class="text-left px-4 pt-2">Tandai sudah terbaca</button>
         @foreach ($unreadNotifications as $notification)
             <li>
@@ -29,6 +32,7 @@
                 </a>
             </li>
         @endforeach
+        @endif
         <a href="" class="text-right py-4 mr-4">Lihat Selengkapnya</a>
     </ul>
 </div>

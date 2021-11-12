@@ -10,7 +10,6 @@ class HomeController extends Controller
     public function index()
     {
         $reseps = Resep::with('user', 'photos')->get();
-        // dd($reseps);
         return view('home.home', ['reseps' => $reseps]);
     }
 }
