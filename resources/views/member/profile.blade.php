@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     <p class="font-bold mb-3 lg:text-xl">{{ $user->name }}</p>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 mb-2">
                         @if (auth()->check() &&
         auth()->user()->is($user))
                             <button class="btn btn-outline btn-primary capitalize btn-rh flex-1 py-1.5 lg:py-2.5">Edit
@@ -33,7 +33,7 @@
 
             @livewire('following-follower-counter', ['user' => $user])
         </section>
-        <section class="py-4">
+        <section class="mb-4">
             <div class="flex mt-4 items-center gap-2">
                 <button class="btn flex-1 btn-primary capitalize btn-rh py-2 lg:py-3">Buku Resep</button>
                 <button class="btn flex-1 btn-outline btn-primary capitalize btn-rh py-2 lg:py-3">Bookmark</button>
