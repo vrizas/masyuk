@@ -31,6 +31,11 @@ class Resep extends Model
         return $this->belongsToMany(Bahan::class, 'bahans_reseps');
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'categories_reseps');
+    }
+
     public function komentars()
     {
         return $this->hasMany(Komentar::class);
