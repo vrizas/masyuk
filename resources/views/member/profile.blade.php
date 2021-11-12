@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('css')
+    <style>
+        .menu li:nth-last-child(1)>a:focus,
+        .menu li:nth-last-child(1)>a:hover {
+            background-color: #E4565E;
+        }
+
+    </style>
     @livewireStyles()
 @endsection
 
@@ -40,10 +47,29 @@
             </div>
         </section>
         <section class="bg-gray-200 rounded-2xl px-5 py-4">
+
             <div id="BukuResep" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($user->reseps as $resep)
-                    <a href="/reseps/{{ $resep->id }}" class="relative card-masyuk">
-                        <div>
+                    <div class="relative card-masyuk">
+                        <div class="relative">
+                            <div class="dropdown dropdown-left absolute top-2 right-2 z-40">
+                                <button tabindex="0" class="bg-white w-6 h-6 rounded-full"><i
+                                        class='bx bx-dots-vertical-rounded text-lg'></i></button>
+                                <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a href="/reseps/{{ $resep->id }}" class="text-sm inline-flex gap-2"><i
+                                                class="bi bi-eye-fill"></i> Lihat Resep</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-sm inline-flex gap-2"><i class='bx bxs-edit text-lg'></i> Edit
+                                            Resep</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-sm inline-flex gap-2"><i class='bx bxs-trash-alt text-lg'></i> Hapus
+                                            Resep</a>
+                                    </li>
+                                </ul>
+                            </div>
                             @if (!$resep->photos->isEmpty())
                                 <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}" alt="Image 1"
                                     class="rounded-2xl w-full h-full object-cover">
@@ -60,7 +86,7 @@
                                 <p class="font-medium text-sm lg:text-base">{{ $resep->user->name }}</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 @endforeach
                 @if (auth()->check() &&
         auth()->user()->is($user))
