@@ -14,7 +14,7 @@
                     <td>
                         <select wire:click="setIndex({{ $index }})"
                             wire:model="listBahans.{{ $index }}.bahan_id"
-                            name="listBahans[{{ $index }}][bahan_id]">
+                            name="listBahans[{{ $index }}][bahan_id]" class="rounded-lg">
                             @foreach ($allBahans as $bahan)
                                 <option value="{{ $bahan->id }}">
                                     {{ $bahan->nama . ' / ' . $bahan->baseQuantity . ' ' . $bahan->unit }}</option>
@@ -23,7 +23,7 @@
                     </td>
                     <td wire:click="setIndex({{ $index }})">
                         <input wire:model="listBahans.{{ $index }}.quantity" type="number" min="0"
-                            name="listBahans[{{ $index }}][quantity]">
+                            name="listBahans[{{ $index }}][quantity]" class="rounded-lg">
                     </td>
                     <td>{{ $item['kalori'] }}</td>
                     <td>
