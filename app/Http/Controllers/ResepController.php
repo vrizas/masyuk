@@ -19,6 +19,12 @@ class ResepController extends Controller
         return view('resep.index', ['reseps' => $resep]);
     }
 
+     public function search()
+    {
+        $resep = Resep::all();
+        return view('resep.search-list', ['reseps' => $resep]);
+    }
+
     public function create()
     {
         return view('resep.create-resep');
