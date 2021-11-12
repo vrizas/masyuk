@@ -231,8 +231,8 @@
                         </div>
                         <div
                             class="text-white rounded-2xl absolute w-full h-full top-0 left-0 z-30 p-4 flex flex-col justify-end">
-                            <h3 class="font-bold text-xl">Ayam Goreng Jawa</h3>
-                            <p class="font-medium">Eko Prasetyo</p>
+                            <h3 class="font-bold text-lg lg:text-xl">Ayam Goreng Jawa</h3>
+                            <p class="font-medium text-sm lg:text-base">Eko Prasetyo</p>
                         </div>
                     </a>
                 @endfor
