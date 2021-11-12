@@ -1,5 +1,5 @@
 <div>
-    <button @if(Auth::check()) wire:click="toggleLike" @endif class="flex gap-2 justify-center items-center likeButton">
+    <button @if (Auth::check()) wire:click="toggleLike" @endif class="likeButton flex justify-center items-center gap-1 lg:gap-2">
         <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>

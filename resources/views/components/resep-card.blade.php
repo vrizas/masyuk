@@ -51,7 +51,7 @@
                 <span class="text-xs">102</span>
             </div>
             <div class="flex gap-1 justify-center items-center">
-                <i class="bi bi-chat-dots-fill text-bases"></i>
+                <i class="bi bi-chat-dots-fill text-base"></i>
                 <span class="text-xs">10</span>
             </div>
             <div class="flex gap-1 justify-center items-center">

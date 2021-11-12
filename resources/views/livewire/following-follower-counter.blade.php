@@ -1,14 +1,14 @@
-<div class="flex">
-    <div class="px-4">
-        <h3 class="text-3xl text-center pb-2 font-bold">{{ $followers }}</h2>
-            <h3 class="text-xl text-center font-bold">Pengikut</h2>
+<div class="flex justify-around text-center font-bold lg:justify-start lg:gap-8 text-sm lg:text-base">
+    <div>
+        <p>{{ $followers }}</p>
+        <p>Pengikut</p>
     </div>
-    <div class="px-4">
-        <h3 class="text-3xl text-center pb-2 font-bold">{{ $followings }}</h2>
-            <h3 class="text-xl text-center font-bold">Mengikuti</h2>
+    <div>
+        <p>{{ $followings }}</p>
+        <p>Mengikuti</p>
     </div>
-    <div class="px-4">
-        <h3 class="text-3xl text-center pb-2 font-bold">{{ $user->reseps->count() }}</h2>
-            <h3 class="text-xl text-center font-bold">Resep</h2>
+    <div>
+        <p>{{ $user->reseps->count() }}</p>
+        <p>Resep</p>
     </div>
 </div>

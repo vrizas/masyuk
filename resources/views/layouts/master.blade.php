@@ -42,7 +42,7 @@
                                 class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Login</a>
                             <div class="divider divider-vertical lg:hidden"></div>
                             <a href="#signup"
-                                class="text-sm flex flex-1 justify-center font-md btn btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
+                                class="text-sm flex flex-1 justify-center font-md btn btn-outline btn-primary btn-rh capitalize py-1.5 lg:w-20 lg:py-2.5">Signup</a>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +60,9 @@
             @else
                 <nav class="flex items-center gap-8 lg:gap-4">
                     <a href="#search"><i class="bi bi-search lg:hidden"></i></a>
+
                     @livewire('notification-indicator', ['authUser' => Auth::user()])
+
                     <button id="hamburger" aria-label="buka navigasi"><i
                             class="bi bi-list text-2xl lg:hidden"></i></button>
                     <div
