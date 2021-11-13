@@ -15,7 +15,7 @@
 @endsection
 @section('main')
     <livewire:search-dropdown :desktop="true" />
-    <livewire:daftar-resep/>
+    <livewire:daftar-resep />
 
 @endsection
 

@@ -13,7 +13,7 @@
     </div>
 
     @if (count($bahans) > 0)
-        <div class="absolute top-20 rounded-xl mt-2 px-4 py-6 bg-gray-50 w-full">
+        <div class="absolute top-20 rounded-xl mt-2 px-4 py-6 bg-gray-50 w-full shadow-md">
             <ul>
                 @foreach ($bahans as $bahan)
                     <li wire:click="addItem({{ $bahan }})" class="my-2 py-2 px-4 rounded-xl hover:bg-gray-100">

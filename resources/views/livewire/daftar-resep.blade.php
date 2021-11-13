@@ -32,7 +32,7 @@
                                             Malam</button>
                                     </div>
                                 </div>
-                                <livewire:filter-bahan/>
+                                <livewire:filter-bahan />
                                 <button
                                     class="btn btn-primary capitalize absolute bottom-8 left-1/2 transform -translate-x-1/2 w-4/5">Terapkan</button>
                             </div>
@@ -58,22 +58,35 @@
         </article>
     </main>
     @if ((new \Jenssegers\Agent\Agent())->isDesktop())
-        <aside class="w-1/4 bg-base-200 rounded-2xl px-5 py-3 hidden lg:flex lg:flex-col lg:order-1">
+        <aside class="w-1/4 bg-base-200 rounded-2xl px-8 py-6 hidden lg:flex lg:flex-col lg:order-1">
             <h2 class="text-center font-bold text-lg">Filter</h2>
             <div class="mt-3 flex flex-col gap-2">
                 <label class="font-bold text-base">Kategori</label>
-                <div class="flex gap-2 flex-wrap">
-                    <button class="btn btn-outline btn-sm capitalize"><i class='bx bxs-purchase-tag text-lg'></i> Menu
-                        Sarapan</button>
-                    <button class="btn btn-outline btn-sm capitalize"><i class='bx bxs-purchase-tag text-lg'></i> Menu
-                        Makan
-                        Siang</button>
-                    <button class="btn btn-outline btn-sm capitalize"><i class='bx bxs-purchase-tag text-lg'></i> Menu
-                        Makan
-                        Malam</button>
+                <div class="kategori-wrapper flex gap-2 flex-wrap">
+                    <div class="h-full w-full flex place-items-center">
+                        <input type="radio" name="kategori" id="menu_sarapan" class="peer hidden" />
+                        <label for="menu_sarapan"
+                            class="max-w-max h-full bg-transparent border border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white cursor-pointer rounded-lg py-1 px-2 flex items-center text-sm"><i
+                                class='bx bxs-purchase-tag text-lg mr-1'></i> Menu
+                            Sarapan</label>
+                    </div>
+                    <div class="h-full w-full flex place-items-center">
+                        <input type="radio" name="kategori" id="menu_makan_siang" class="peer hidden" />
+                        <label for="menu_makan_siang"
+                            class="max-w-max h-full bg-transparent border border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white cursor-pointer rounded-lg py-1 px-2 flex items-center text-sm"><i
+                                class='bx bxs-purchase-tag text-lg mr-1'></i> Menu
+                            Makan Siang</label>
+                    </div>
+                    <div class="h-full w-full flex place-items-center">
+                        <input type="radio" name="kategori" id="menu_makan_malam" class="peer hidden" />
+                        <label for="menu_makan_malam"
+                            class="max-w-max h-full bg-transparent border border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white cursor-pointer rounded-lg py-1 px-2 flex items-center text-sm"><i
+                                class='bx bxs-purchase-tag text-lg mr-1'></i> Menu
+                            Makan Malam</label>
+                    </div>
                 </div>
             </div>
-            <livewire:filter-bahan/>
+            <livewire:filter-bahan />
             <button class="btn btn-primary capitalize mt-6">Terapkan</button>
         </aside>
     @endif
