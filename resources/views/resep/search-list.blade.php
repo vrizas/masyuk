@@ -14,9 +14,7 @@
     @livewireStyles
 @endsection
 @section('main')
-    <livewire:search-dropdown :desktop="true" />
     <livewire:daftar-resep />
-
 @endsection
 
 @section('script')

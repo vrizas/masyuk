@@ -48,11 +48,11 @@
                         clip-path="url(#insideHeartOnly)" />
                 </svg>
 
-                <span class="text-xs">102</span>
+                <span class="text-xs">{{ $resep->likes->count() }}</span>
             </div>
             <div class="flex gap-1 justify-center items-center">
                 <i class="bi bi-chat-dots-fill text-base"></i>
-                <span class="text-xs">10</span>
+                <span class="text-xs">{{ $resep->komentars->count() }}</span>
             </div>
             <div class="flex gap-1 justify-center items-center">
                 <i class='bx bxs-bookmark text-lg'></i>

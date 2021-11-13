@@ -10,7 +10,14 @@ class FilterBahan extends Component
     public $keyword;
     public $selectedBahan;
 
+    protected $listeners = ['searchRequested' => 'resetBahans'];
+
     public function mount()
+    {
+        $this->selectedBahan = [];
+    }
+
+    public function resetBahans()
     {
         $this->selectedBahan = [];
     }
@@ -22,12 +29,15 @@ class FilterBahan extends Component
             array_push($this->selectedBahan, $bahan);
             $this->keyword = "";
         }
+
+        $this->emit('selectedBahansUpdated', $this->selectedBahan);
     }
 
     public function deleteItem($index)
     {
         unset($this->selectedBahan[$index]);
         $this->selectedBahan = array_values($this->selectedBahan );
+        $this->emit('selectedBahansUpdated', $this->selectedBahan);
     }
 
     public function render()
