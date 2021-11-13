@@ -20,4 +20,9 @@ class SearchDropdown extends Component
         }
         return view('livewire.search-dropdown', ['results' => $results]);
     }
+
+    public function redirectToSearch()
+    {
+        redirect('/search?keyword='. $this->keyword);
+    }
 }

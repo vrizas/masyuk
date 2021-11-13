@@ -6,10 +6,12 @@ use App\Models\Bahan;
 use App\Models\Category;
 use App\Models\Resep;
 use Livewire\Component;
+use Request;
+use Symfony\Component\Console\Input\Input;
 
 class DaftarResep extends Component
 {
-    public $keyword = null;
+    public $keyword;
     public $category_id = null;
     public $selectedCategory = null;
     public $selectedBahansId = [];
@@ -44,11 +46,16 @@ class DaftarResep extends Component
 
     public function mount()
     {
-        $this->reseps = Resep::with('likes')
-            ->get()
-            ->sortByDesc(function ($resep) {
-                return $resep->likes->count();
-            }, true);
+        $this->keyword = Request::get('keyword');
+        if ($this->keyword != null) {
+            $this->reseps = Resep::where('title', 'like', '%' . $this->keyword . '%')->get();
+        } else {
+            $this->reseps = Resep::with('likes')
+                ->get()
+                ->sortByDesc(function ($resep) {
+                    return $resep->likes->count();
+                }, true);
+        }
     }
 
     public function search()
