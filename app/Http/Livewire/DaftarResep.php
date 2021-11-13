@@ -16,7 +16,7 @@ class DaftarResep extends Component
     public $selectedCategory = null;
     public $selectedBahansId = [];
     public $selectedBahans = null;
-    public $isDesc = 0;
+    public $isDesc;
     public $reseps;
 
     protected $listeners = [
@@ -39,28 +39,20 @@ class DaftarResep extends Component
         $this->refreshResult();
     }
 
-    public function updatedIsDesc()
-    {
-        $this->refreshResult();
-    }
-
     public function mount()
     {
         $this->keyword = Request::get('keyword');
         if ($this->keyword != null) {
-            $this->reseps = Resep::where('title', 'like', '%' . $this->keyword . '%')->get();
+            $this->reseps = Resep::withCount('likes')->orderBy('likes_count', 'desc')->where('title', 'like', '%' . $this->keyword . '%')->get();
         } else {
-            $this->reseps = Resep::with('likes')
-                ->get()
-                ->sortByDesc(function ($resep) {
-                    return $resep->likes->count();
-                }, true);
+            $this->reseps = Resep::withCount('likes')->orderBy('likes_count', 'desc')->get();
         }
     }
 
     public function search()
     {
-        $this->reseps = Resep::where('title', 'like', '%' . $this->keyword . '%')->get();
+        $this->reseps = Resep::withCount('likes')->orderBy('likes_count', 'desc')
+            ->where('title', 'like', '%' . $this->keyword . '%')->get();
         $this->category_id = null;
         $this->emit('searchRequested');
     }
@@ -76,9 +68,15 @@ class DaftarResep extends Component
         $this->category_id = $value;
     }
 
+    public function updatedIsDesc()
+    {
+        $this->refreshResult();
+    }
+
     public function refreshResult()
     {
-        $this->reseps = Resep::where('title', 'like', '%' . $this->keyword . '%')
+        $this->reseps = Resep::withCount('likes')->orderBy('likes_count', $this->isDesc == 0 ? 'desc' : 'asc')
+            ->where('title', 'like', '%' . $this->keyword . '%')
             ->whereHas('bahans', function ($query) {
                 $query->when($this->selectedBahansId, function ($query) {
                     $query->whereIn('bahan_id', array_map(function ($item) {
@@ -86,7 +84,7 @@ class DaftarResep extends Component
                     }, $this->selectedBahansId));
                 });
             })
-            ->when($this->selectedCategory, function ($query) {
+            ->when($this->category_id, function ($query) {
                 $query->whereHas('categories', function ($query) {
                     $query->where('category_id', $this->category_id);
                 });
