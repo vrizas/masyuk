@@ -30,6 +30,10 @@ Route::get('/reseps/{id}', [ResepController::class, 'show']);
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
 
+Route::get('/notification', function () {
+    return view('member.notification');
+})->middleware('auth');
+
 Route::get('/admin', function () {
     return view('admin');
 })->middleware('can:admin');
