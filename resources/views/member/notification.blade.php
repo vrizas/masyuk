@@ -16,7 +16,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Vrizas Izza</b> menyukai resep Anda.</p>
                         <p class="text-xs font-medium text-gray-700">10 menit yang lalu</p>
                     </div>
@@ -33,7 +33,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Bambang</b> mengomentari resep Anda.</p>
                         <p class="text-xs text-gray-700">Udah coba bikin, enak bangett</p>
                         <p class="text-xs font-medium text-gray-700">17 November 2021</p>
@@ -49,7 +49,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Basri</b> mengomentari resep Anda.</p>
                         <p class="text-xs text-gray-700">enak bangett</p>
                         <p class="text-xs font-medium text-gray-700">17 November 2021</p>
@@ -68,7 +68,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Vrizas Izza</b> menyukai resep Anda.</p>
                         <p class="text-xs font-medium text-gray-700">10 menit yang lalu</p>
                     </div>
@@ -85,7 +85,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Bambang</b> mengomentari resep Anda.</p>
                         <p class="text-xs text-gray-700">Udah coba bikin, enak bangett</p>
                         <p class="text-xs font-medium text-gray-700">17 November 2021</p>
@@ -101,7 +101,7 @@
                             <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                         </div>
                     </a>
-                    <div class="flex flex-col gap-0.5">
+                    <div class="flex flex-col gap-0.5 pr-6">
                         <p><b>Basri</b> mengomentari resep Anda.</p>
                         <p class="text-xs text-gray-700">enak bangett</p>
                         <p class="text-xs font-medium text-gray-700">17 November 2021</p>
