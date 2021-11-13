@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,6 +29,10 @@ Route::post('/reseps/delete/{id}', [ResepController::class, 'destroy'])->middlew
 Route::get('/reseps/{id}', [ResepController::class, 'show']);
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
+
+Route::get('/notifications', function () {
+    return view('member.notification');
+})->middleware('auth');
 
 Route::get('/admin', function () {
     return view('admin');

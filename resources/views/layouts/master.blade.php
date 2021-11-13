@@ -27,12 +27,14 @@
                     <ul
                         class="hamburger-list relative flex flex-col items-center gap-4 bg-base-100 shadow w-1/2 h-full p-5 w-3/4 h-screen transition duration-300 ease-in-out md:w-1/2 lg:flex-row lg:shadow-none lg:p-0">
                         <li class="w-full lg:hidden">
-                            <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat
-                                Resep
+                            <a href="{{ url('/reseps/list') }}"
+                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Resep
+                                Pilihan Kami
                             </a>
                         </li>
                         <li class="w-full lg:hidden">
-                            <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
+                            <a href="{{ url('/reseps/create') }}"
+                                class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
                                 Resep
                             </a>
                         </li>
@@ -81,12 +83,14 @@
                                 <div class="divider mt-0 lg:hidden"></div>
                             </li>
                             <li class="w-full lg:hidden">
-                                <a href="#"
-                                    class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Lihat Resep
+                                <a href="{{ url('/reseps/list') }}"
+                                    class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Resep
+                                    Pilihan Kami
                                 </a>
                             </li>
                             <li class="w-full lg:hidden">
-                                <a href="#" class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
+                                <a href="{{ url('/reseps/create') }}"
+                                    class="text-sm flex justify-center bg-gray-100 py-3 rounded-lg font-md">Buat
                                     Resep
                                 </a>
                             </li>
@@ -127,7 +131,8 @@
             </div>
         </div>
     @elseif(session()->has('success'))
-        <div class="pop-up flex items-center bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md mb-2 fixed bottom-10 right-10 z-50">
+        <div
+            class="pop-up flex items-center bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md mb-2 fixed bottom-10 right-10 z-50">
             <!-- icons -->
             <div class="text-green-500 rounded-full bg-white mr-3">
                 <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor"
