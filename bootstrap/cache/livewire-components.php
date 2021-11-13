@@ -5,6 +5,8 @@
   'admin.index' => 'App\\Http\\Livewire\\Admin\\Index',
   'bookmark-button' => 'App\\Http\\Livewire\\BookmarkButton',
   'daftar-komentar' => 'App\\Http\\Livewire\\DaftarKomentar',
+  'daftar-resep' => 'App\\Http\\Livewire\\DaftarResep',
+  'filter-bahan' => 'App\\Http\\Livewire\\FilterBahan',
   'follow-button' => 'App\\Http\\Livewire\\FollowButton',
   'following-follower-counter' => 'App\\Http\\Livewire\\FollowingFollowerCounter',
   'input-bahan-masakan' => 'App\\Http\\Livewire\\InputBahanMasakan',
