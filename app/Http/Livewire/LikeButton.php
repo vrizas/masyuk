@@ -20,7 +20,7 @@ class LikeButton extends Component
                 'user_id' => $this->authUser->id,
                 'resep_id' => $this->resep->id,
             ]);
-            $this->resep->user->notify(new ResepLikedNotification($this->authUser, $this->authUser->username . ' menyukai resep anda ' . $this->resep->title));
+            $this->resep->user->notify(new ResepLikedNotification($this->authUser, 'menyukai resep anda ' . $this->resep->title));
             event(new ResepLiked($this->resep->user, $this->resep));
         } else {
             $isLiked->delete();

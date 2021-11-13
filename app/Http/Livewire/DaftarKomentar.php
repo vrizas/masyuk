@@ -33,7 +33,7 @@ class DaftarKomentar extends Component
 
 
         if ($komentar != null) {
-            $this->resep->user->notify(new ResepCommentedNotification(Auth::user(), Auth::user()->username . ' mengomentari resep anda ' . $this->resep->title));
+            $this->resep->user->notify(new ResepCommentedNotification(Auth::user(), 'mengomentari resep anda ' . $this->resep->title));
             event(new ResepCommented($this->resep->user, $this->resep));
         }
 

@@ -18,7 +18,7 @@ class FollowButton extends Component
         $isSuccess =  $this->authUser->following($this->user) ? $this->authUser->unfollow($this->user) : $this->authUser->follow($this->user);
         if ($isSuccess) {
             $this->emit('followUpdated');
-            $this->user->notify(new MemberFollowedNotification($this->user, $this->user->username . ' mulai mengikuti anda.'));
+            $this->user->notify(new MemberFollowedNotification($this->user, 'mulai mengikuti anda.'));
             event(new MemberFollowed($this->user));
         }
     }

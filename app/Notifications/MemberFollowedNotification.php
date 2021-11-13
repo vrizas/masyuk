@@ -68,7 +68,7 @@ class MemberFollowedNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user_id' => $this->user->id,
+            'user_id' => $this->user,
             'message' => $this->message
         ];
     }
