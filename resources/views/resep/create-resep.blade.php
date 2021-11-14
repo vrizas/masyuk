@@ -38,7 +38,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group flex flex-col lg:flex-row">
+                        <div class="form-group mb-3 flex flex-col lg:flex-row">
                             <label for="deskripsi"
                                 class="col-md-4 col-form-label text-md-right w-full mb-1 lg:mb-0 lg:w-1/5">Deskripsi</label>
 
@@ -56,8 +56,7 @@
                         </div>
                         {{-- INPUT KATEGORI --}}
                         <div class="form-group flex flex-col lg:flex-row">
-                            <label for="deskripsi"
-                                class="col-md-4 col-form-label text-md-right w-full mb-1 lg:mb-0 lg:w-1/5">Pilih
+                            <label class="col-md-4 col-form-label text-md-right w-full mb-1 lg:mb-0 lg:w-1/5">Pilih
                                 Kategori</label>
 
                             <div class="col-md-6 w-full lg:w-4/5">
@@ -66,7 +65,8 @@
                                         @foreach ($categories as $category)
                                             <label class="cursor-pointer label">
                                                 <span class="label-text">{{ $category->name }}</span>
-                                                <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="checkbox checkbox-accent">
+                                                <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                                                    class="checkbox checkbox-accent">
                                             </label>
                                         @endforeach
                                     </div>
@@ -89,10 +89,8 @@
                         <livewire:input-langkah-memasak />
                         <h2 class="mb-4 text-lg font-bold mt-6">Gambar atau Video</h2>
                         {{-- LIVEWIRE INPUT GAMBAR RESEP --}}
-                        <section>
-                            {{-- LIVEWIRE INPUT YOUTUBE --}}
-                            <livewire:input-link-youtube />
-                        </section>
+                        {{-- LIVEWIRE INPUT YOUTUBE --}}
+                        <livewire:input-link-youtube />
                     </section>
                 </div>
 
