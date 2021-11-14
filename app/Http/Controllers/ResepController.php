@@ -35,6 +35,14 @@ class ResepController extends Controller
 
     public function createResep(Request $request)
     {   
+        $request->validate([
+            'judul' => 'required|max:255',
+            'deskripsi' => 'required',
+            'listBahans' => 'required',
+            'listLangkah' => 'required',
+            'categories' => 'required'
+        ]);
+
         $resep = Resep::create([
             'title' => $request->judul,
             'user_id' => Auth::user()->id,

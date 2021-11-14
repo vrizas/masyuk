@@ -20,8 +20,8 @@ class CreateResepsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('duration');
-            $table->string('youtube_id');
-            $table->string('youtube_url');
+            $table->string('youtube_id')->nullable();
+            $table->string('youtube_url')->nullable();
             $table->timestamps();
         });
     }
