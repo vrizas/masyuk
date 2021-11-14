@@ -18,8 +18,13 @@
     <main class="py-4">
         <section class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
             <div class="flex gap-5 items-center">
-                <div class="content-center avatar">
+                <div class="content-center avatar relative">
                     <div class="mb-8 rounded-full w-10 h-10 lg:w-12 lg:h-12">
+                        <label for="changePhoto"
+                            class="w-6 h-6 rounded-full absolute -top-2 -right-2 bg-white cursor-pointer flex justify-center items-center">
+                            <i class='bx bx-image-add text-lg'></i>
+                            <input type="file" id="changePhoto" class="hidden">
+                        </label>
                         <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                     </div>
                 </div>

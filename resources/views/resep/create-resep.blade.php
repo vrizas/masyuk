@@ -32,7 +32,7 @@
                                     placeholder="Judul masakannmu">
 
                                 @error('judul')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback text-error text-xs" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -48,7 +48,7 @@
                                     value="{{ old('deskripsi') }}" required placeholder="Tentang masakannmu"></textarea>
 
                                 @error('deskripsi')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback text-error text-xs" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -72,8 +72,8 @@
                                     </div>
                                 </div>
 
-                                @error('deskripsi')
-                                    <span class="invalid-feedback" role="alert">
+                                @error('categories')
+                                    <span class="invalid-feedback text-error text-xs" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -81,12 +81,30 @@
                         </div>
                         <h2 class="text-lg font-bold mt-6 mb-4">Bahan Masakan</h2>
                         {{-- LIVEWIRE INPUT BAHAN MASAKAN --}}
+<<<<<<< HEAD
                         @livewire('input-bahan-masakan', ['resep' => null])
+=======
+                        <livewire:input-bahan-masakan />
+                        @error('listBahans')
+                            <span class="invalid-feedback text-error text-xs" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+>>>>>>> 8a8f60137cd37ccf823814cb2a317844d9b354ae
                     </section>
                     <section class="flex-1">
                         <h2 class="mb-4 text-lg font-bold">Langkah-langkah</h2>
                         {{-- LIVEWIRE INPUT LANGKAH MEMASAK --}}
+<<<<<<< HEAD
                         @livewire('input-langkah-memasak', ['resep' => null])
+=======
+                        <livewire:input-langkah-memasak />
+                        @error('listLangkah')
+                            <span class="invalid-feedback text-error text-xs" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+>>>>>>> 8a8f60137cd37ccf823814cb2a317844d9b354ae
                         <h2 class="mb-4 text-lg font-bold mt-6">Gambar atau Video</h2>
                         {{-- LIVEWIRE INPUT GAMBAR RESEP --}}
                         {{-- LIVEWIRE INPUT YOUTUBE --}}

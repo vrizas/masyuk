@@ -5,8 +5,13 @@
             checked="checked">
         <a href="/reseps/{{ $reseps[0]->id }}" class="carousel-item absolute opacity-0" style="height:50vh;">
             <div class="block h-full w-full">
-                <img src="{{ asset('/storage/photos/' . $reseps[0]->photos[0]->filename) }}"
-                    class="rounded-2xl w-full h-full object-cover">
+                @if (count($reseps[0]->photos) == 0)
+                    <img src="https://mahadumar.id/wp-content/uploads/2019/04/placeholder-image-1.jpg"
+                        class="rounded-2xl w-full h-full object-cover">
+                @else
+                    <img src="{{ asset('/storage/photos/' . $reseps[0]->photos[0]->filename) }}"
+                        class="rounded-2xl w-full h-full object-cover">
+                @endif
                 <div
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
@@ -28,8 +33,13 @@
         <input class="carousel-open hidden" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden>
         <a href="/reseps/{{ $reseps[1]->id }}" class="carousel-item absolute opacity-0" style="height:50vh;">
             <div class="block h-full w-full">
-                <img src="{{ asset('/storage/photos/' . $reseps[1]->photos[0]->filename) }}"
-                    class="rounded-2xl w-full h-full object-cover">
+                @if (count($reseps[1]->photos) == 0)
+                    <img src="https://mahadumar.id/wp-content/uploads/2019/04/placeholder-image-1.jpg"
+                        class="rounded-2xl w-full h-full object-cover">
+                @else
+                    <img src="{{ asset('/storage/photos/' . $reseps[1]->photos[0]->filename) }}"
+                        class="rounded-2xl w-full h-full object-cover">
+                @endif
                 <div
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
@@ -51,8 +61,13 @@
         <input class="carousel-open hidden" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden>
         <a href="/reseps/{{ $reseps[2]->id }}" class="carousel-item absolute opacity-0" style="height:50vh;">
             <div class="block h-full w-full">
-                <img src="{{ asset('/storage/photos/' . $reseps[2]->photos[0]->filename) }}"
-                    class="rounded-2xl w-full h-full object-cover">
+                @if (count($reseps[2]->photos) == 0)
+                    <img src="https://mahadumar.id/wp-content/uploads/2019/04/placeholder-image-1.jpg"
+                        class="rounded-2xl w-full h-full object-cover">
+                @else
+                    <img src="{{ asset('/storage/photos/' . $reseps[2]->photos[0]->filename) }}"
+                        class="rounded-2xl w-full h-full object-cover">
+                @endif
                 <div
                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                 </div>
