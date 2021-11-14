@@ -1,4 +1,4 @@
-<div class="flex justify-around text-center font-bold lg:justify-start lg:gap-8 text-sm lg:text-base">
+<div class="flex justify-around text-center font-medium lg:justify-start lg:gap-8 text-sm lg:text-base">
     <div>
         <p>{{ $followers }}</p>
         <p>Pengikut</p>
