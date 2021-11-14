@@ -53,6 +53,6 @@ class Resep extends Model
 
     static function recommended()
     {
-        return self::withCount('likes')->orderBy('likes_count', 'desc')->get();
+        return self::with('likes', 'komentars', 'photos')->withCount('likes')->orderBy('likes_count', 'desc')->take(6)->get();
     }
 }
