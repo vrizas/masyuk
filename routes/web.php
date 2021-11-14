@@ -20,13 +20,13 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/reseps/list', [ResepController::class, 'index']);
-Route::get('/search', [ResepController::class, 'search']);
+Route::get('/reseps/list', [ResepController::class, 'showAllResep']);
+Route::get('/search', [ResepController::class, 'searchResep']);
 Route::get('/reseps/create', [ResepController::class, 'create'])->middleware('auth')->name('resep.create');
-Route::post('/reseps/store', [ResepController::class, 'store'])->middleware('auth')->name('resep.store');
-Route::post('/reseps/delete/{id}', [ResepController::class, 'destroy'])->middleware('auth')->name('resep.delete');
+Route::post('/reseps/store', [ResepController::class, 'createResep'])->middleware('auth')->name('resep.store');
+Route::post('/reseps/delete/{id}', [ResepController::class, 'deleteResep'])->middleware('auth')->name('resep.delete');
 
-Route::get('/reseps/{id}', [ResepController::class, 'show']);
+Route::get('/reseps/{id}', [ResepController::class, 'showResep']);
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile');
 

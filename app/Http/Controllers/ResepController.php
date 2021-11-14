@@ -15,13 +15,13 @@ class ResepController extends Controller
 {
     
     // GET SEMUA RESEP
-    public function index()
+    public function showAllResep()
     {
         $resep = Resep::all();
         return view('resep.index', ['reseps' => $resep]);
     }
 
-     public function search()
+     public function searchResep()
     {
         $resep = Resep::all();
         return view('resep.search-list', ['reseps' => $resep]);
@@ -33,7 +33,7 @@ class ResepController extends Controller
         return view('resep.create-resep', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function createResep(Request $request)
     {   
         $resep = Resep::create([
             'title' => $request->judul,
@@ -83,7 +83,7 @@ class ResepController extends Controller
         return redirect('/profile/'. auth()->user()->username);
     }
 
-    public function show($id)
+    public function showResep($id)
     {
         $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->withCount('komentars')->where('id', $id)->first();
         $bookmarkCount = Bookmark::where('resep_id', $resep->id)->count();
@@ -101,7 +101,7 @@ class ResepController extends Controller
     }
 
 
-    public function destroy($id)
+    public function deleteResep($id)
     {
         $result = Resep::find($id)->delete();
         if($result == null)
