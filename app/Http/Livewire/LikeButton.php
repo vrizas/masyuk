@@ -11,6 +11,7 @@ class LikeButton extends Component
 {
     public $resep;
     public $authUser;
+    public $liked = false;
 
     public function toggleLike()
     {
@@ -22,19 +23,20 @@ class LikeButton extends Component
             ]);
             $this->resep->user->notify(new ResepLikedNotification($this->authUser, 'menyukai resep anda ' . $this->resep->title));
             event(new ResepLiked($this->resep->user, $this->resep));
+            $this->liked = true;
         } else {
             $isLiked->delete();
+            $this->liked = false;
         }
     }
     public function render()
     {
         $likeStatus = false;
-        if($this->authUser != null)
-        {
+        if ($this->authUser != null) {
             $likeStatus = Like::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->exists();
         }
         $count = count(Like::where('resep_id', $this->resep->id)->get());
-        
+
         return view('livewire.like-button', ['likeStatus' => $likeStatus, 'count' => $count]);
     }
 }
