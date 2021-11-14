@@ -12,6 +12,7 @@ class FollowButton extends Component
 {
     public $user;
     public $authUser;
+    public $isProfile;
 
     public function toggleFollow()
     {

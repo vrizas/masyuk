@@ -1,9 +1,12 @@
 <div class="w-1/4">
-    <button wire:click="toggleBookmark" class="btn btn-outline btn-primary w-full capitalize btn-sm lg:btn-md">
-        @if ($isBookmarked)
+    @if ($isBookmarked)
+        <button wire:click="toggleBookmark" class="btn btn-primary w-full capitalize btn-sm lg:btn-md">
             Tersimpan
-        @else
+        </button>
+    @else
+        <button wire:click="toggleBookmark" class="btn btn-outline hover:btn-primary w-full capitalize btn-sm lg:btn-md">
             Simpan
-        @endif
-    </button>
+        </button>
+    @endif
+
 </div>
