@@ -26,7 +26,11 @@ class FollowButton extends Component
 
     public function checkFollow()
     {
-        return $this->authUser->following($this->user);
+        if(Auth::check())
+        {
+            return $this->authUser->following($this->user);
+        }
+        return false;
     }
 
     public function render()

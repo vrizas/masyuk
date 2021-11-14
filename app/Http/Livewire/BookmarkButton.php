@@ -3,13 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Bookmark;
+use Auth;
 use Livewire\Component;
 
 class BookmarkButton extends Component
 {
     public $resep;
     public $authUser;
-    public $isBookmarked;
 
     public function toggleBookmark()
     {
@@ -19,15 +19,22 @@ class BookmarkButton extends Component
                 'user_id' => $this->authUser->id,
                 'resep_id' => $this->resep->id,
             ]);
-            $this->isBookmarked = true;
         } else {
             $bookmark->delete();
-            $this->isBookmarked = false;
         }
+    }
+
+    public function checkBookmarked()
+    {
+        if(Bookmark::where('user_id', $this->authUser->id)->where('resep_id', $this->resep->id)->exists())
+        {
+            return true;
+        }
+        return false;
     }
 
     public function render()
     {
-        return view('livewire.bookmark-button');
+        return view('livewire.bookmark-button', ['isBookmarked' => $this->checkBookmarked()]);
     }
 }

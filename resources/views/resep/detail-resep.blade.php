@@ -131,9 +131,11 @@
                     <div class="flex justify-between items-center">
                         <h2 class="font-bold w-3/4 text-xl lg:text-2xl">{{ $resep->title }}</h2>
                         {{-- LIVEWIRE BOOKMARK BUTTON --}}
-                        @if (Auth::check())
-                            @livewire('bookmark-button', ['resep' => $resep, 'authUser' => Auth::user()])
-                        @endif
+                        @auth
+                            @if (!auth()->user()->is($resep->user))
+                                @livewire('bookmark-button', ['resep' => $resep, 'authUser' => Auth::user()])
+                            @endif
+                        @endauth
                     </div>
                     <div class="flex gap-1 flex-wrap">
                         @foreach ($resep->categories as $category)
@@ -150,11 +152,12 @@
                         @livewire('like-button', ['resep' => $resep, 'authUser' => Auth::user()])
                         <a href="#comment" class="flex justify-center items-center gap-1 lg:gap-2">
                             <i class="bi bi-chat-dots-fill text-lg lg:text-xl"></i>
-                            <span class="text-sm">10 <span
+                            <span class="text-sm">{{ $resep->komentars_count }} <span
                                     class="hidden md:inline lg:inline">Komentar</span></span></a>
                         <button class="flex justify-center items-center cursor-default gap-1 lg:gap-2">
                             <i class='bx bxs-bookmark text-xl lg:text-2xl'></i>
-                            <span class="text-sm">20 <span class="hidden md:inline lg:inline">Simpan</span></span>
+                            <span class="text-sm">{{ $bookmarkCount }} <span
+                                    class="hidden md:inline lg:inline">Simpan</span></span>
                         </button>
                     </div>
                     <div class="w-full mt-2">
@@ -168,8 +171,12 @@
                             </div>
                             <p class="font-bold text-base lg:text-lg">{{ $resep->user->name }}</p>
                         </a>
-                        @livewire('follow-button', ['user' => $resep->user, 'authUser' => Auth::user(), 'isProfile' =>
-                        false])
+                        @auth
+                            @if (!auth()->user()->is($resep->user))
+                                @livewire('follow-button', ['user' => $resep->user, 'authUser' => Auth::user(), 'isProfile' =>
+                                false])
+                            @endif
+                        @endauth
                     </div>
                 </section>
             </article>

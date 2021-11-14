@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bahan;
+use App\Models\Bookmark;
 use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Resep;
@@ -34,7 +35,6 @@ class ResepController extends Controller
 
     public function store(Request $request)
     {   
-        // dd($request);
         $resep = Resep::create([
             'title' => $request->judul,
             'user_id' => Auth::user()->id,
@@ -85,8 +85,9 @@ class ResepController extends Controller
 
     public function show($id)
     {
-        $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->where('id', $id)->first();
-        return view('resep.detail-resep', ['resep' => $resep]);
+        $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->withCount('komentars')->where('id', $id)->first();
+        $bookmarkCount = Bookmark::where('resep_id', $resep->id)->count();
+        return view('resep.detail-resep', ['resep' => $resep, 'bookmarkCount' => $bookmarkCount]);
     }
 
     public function edit(Resep $resep)

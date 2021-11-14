@@ -23,6 +23,9 @@
             <li class="text-left px-4 py-2">Kamu belum memiliki notifikasi.</li>
         @else
             @foreach ($unreadNotifications as $notification)
+                @if ($loop->iteration == 6)
+                    @break
+                @endif
                 <li>
                     <a>
                         <div class="avatar mr-2">
@@ -30,7 +33,7 @@
                                 <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png">
                             </div>
                         </div>
-                        <p>{{ $notification->data['message'] }}</p>
+                        <p><b>{{ $notification->data['user']['username'] }} </b> {{ $notification->data['message'] }}</p>
                     </a>
                 </li>
             @endforeach

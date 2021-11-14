@@ -50,4 +50,9 @@ class Resep extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    static function recommended()
+    {
+        return self::withCount('likes')->orderBy('likes_count', 'desc')->get();
+    }
 }
