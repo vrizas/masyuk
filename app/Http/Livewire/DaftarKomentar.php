@@ -15,8 +15,14 @@ class DaftarKomentar extends Component
 
     public function render()
     {
-        $komentars = Komentar::where('resep_id', $this->resep->id)->get();
+        $komentars = Komentar::with('user')->where('resep_id', $this->resep->id)->get();
         return view('livewire.daftar-komentar', ['komentars' => $komentars]);
+    }
+
+    public function deleteKomentar($komentar)
+    {
+        Komentar::find($komentar['id'])->delete();
+        $this->render();
     }
 
     public function createKomentar()

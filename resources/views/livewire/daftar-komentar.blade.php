@@ -16,9 +16,9 @@
                 </div>
                 <div class="flex justify-between">
                     <p class="text-sm">{{ $komentar->text }}</p>
-                    @can('admin')
-                        <a href="">Delete</a>
-                    @endcan
+                    @if (Auth::user()->id == $komentar->user->id || Auth::user()->role == 'admin')
+                        <button wire:click="deleteKomentar({{ $komentar }})">Delete</button>
+                    @endif
                 </div>
             </div>
         </section>
