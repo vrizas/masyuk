@@ -9,9 +9,17 @@ class InputLangkahMemasak extends Component
     public $listLangkah;
     public $text;
 
-    public function mount()
+    public function mount($resep)
     {
-        $this->listLangkah = [''];
+        if($resep)
+        {
+            foreach($resep->steps as $step)
+            {
+                $this->listLangkah[] = [$step->description];
+            }
+        } else {
+            $this->listLangkah = [''];
+        }
     }
 
     public function addItem()

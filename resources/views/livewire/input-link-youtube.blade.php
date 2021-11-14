@@ -23,5 +23,5 @@
             <input hidden value="{{ $youtubeId }}" type="text" name="youtubeId">
         </div>
     @endif
-    <livewire:input-gambar-resep />
+    @livewire('input-gambar-resep', ['resep' => $tempResep])
 </section>

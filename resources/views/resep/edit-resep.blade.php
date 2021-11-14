@@ -16,7 +16,7 @@
     <main class="py-4">
         <article class="w-full">
             <h1 class="mb-6 text-xl font-bold">Tambah Resep</h1>
-            <form method="POST" action="{{ route('resep.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('resep.update', ['id' => $resep->id]) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex gap-10 flex-col lg:flex-row">
                     <section class="flex-1">
@@ -28,6 +28,7 @@
                             <div class="col-md-6 w-full lg:w-4/5">
                                 <input id="judul" type="text"
                                     class="input w-full bg-gray-50 form-control @error('judul') is-invalid @enderror"
+                                    value="{{ $resep->title }}"
                                     name="judul" value="{{ old('judul') }}" required autofocus
                                     placeholder="Judul masakannmu">
 
@@ -45,7 +46,7 @@
                             <div class="col-md-6 w-full lg:w-4/5">
                                 <textarea name="deskripsi" id="deskripsi"
                                     class="input w-full bg-gray-50 form-control resize-none h-24 @error('deskripsi') is-invalid @enderror"
-                                    value="{{ old('deskripsi') }}" required placeholder="Tentang masakannmu"></textarea>
+                                    required placeholder="Tentang masakannmu">{{ $resep->description }}</textarea>
 
                                 @error('deskripsi')
                                     <span class="invalid-feedback" role="alert">
@@ -66,6 +67,9 @@
                                             <label class="cursor-pointer label">
                                                 <span class="label-text">{{ $category->name }}</span>
                                                 <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                                                @if ($resep->categories->contains($category))
+                                                    checked
+                                                @endif
                                                     class="checkbox checkbox-accent">
                                             </label>
                                         @endforeach
@@ -81,16 +85,15 @@
                         </div>
                         <h2 class="text-lg font-bold mt-6 mb-4">Bahan Masakan</h2>
                         {{-- LIVEWIRE INPUT BAHAN MASAKAN --}}
-                        @livewire('input-bahan-masakan', ['resep' => null])
+                        @livewire('input-bahan-masakan', ['resep' => $resep])
                     </section>
                     <section class="flex-1">
                         <h2 class="mb-4 text-lg font-bold">Langkah-langkah</h2>
                         {{-- LIVEWIRE INPUT LANGKAH MEMASAK --}}
-                        @livewire('input-langkah-memasak', ['resep' => null])
+                        @livewire('input-langkah-memasak', ['resep' => $resep])
                         <h2 class="mb-4 text-lg font-bold mt-6">Gambar atau Video</h2>
-                        {{-- LIVEWIRE INPUT GAMBAR RESEP --}}
                         {{-- LIVEWIRE INPUT YOUTUBE --}}
-                        @livewire('input-link-youtube', ['resep' => null])
+                        @livewire('input-link-youtube', ['resep' => $resep])
                     </section>
                 </div>
 

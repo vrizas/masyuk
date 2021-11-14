@@ -8,6 +8,16 @@ class InputLinkYoutube extends Component
 {
     public $link;
     public $youtubeId;
+    public $tempResep;
+
+    public function mount($resep)
+    {
+        if($resep)
+        {
+            $this->link = $resep->youtube_url;
+            $this->tempResep = $resep;
+        } 
+    }
 
     public function getYoutubeId()
     {

@@ -66,7 +66,7 @@
                                                     class="bi bi-eye-fill"></i> Lihat Resep</a>
                                         </li>
                                         <li>
-                                            <a class="text-sm inline-flex gap-2"><i class='bx bxs-edit text-lg'></i> Edit
+                                            <a href="{{ route('resep.edit',  $resep) }}" class="text-sm inline-flex gap-2"><i class='bx bxs-edit text-lg'></i> Edit
                                                 Resep</a>
                                         </li>
                                         <li>

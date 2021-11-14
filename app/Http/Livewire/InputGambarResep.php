@@ -15,9 +15,17 @@ class InputGambarResep extends Component
     public $images = [];
     public $tempImage;
 
-    public function mount()
+    public function mount($resep)
     {
-        $this->images = [''];
+        if($resep)
+        {
+            foreach($resep->photos as $photo)
+            {
+                $this->images[] = '/photos/'.$photo->filename;
+            }
+        } else{
+            $this->images = [''];
+        }
     }
 
     public function addItem()

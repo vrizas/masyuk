@@ -28,7 +28,7 @@ class Resep extends Model
 
     public function bahans()
     {
-        return $this->belongsToMany(Bahan::class, 'bahans_reseps');
+        return $this->belongsToMany(Bahan::class, 'bahans_reseps')->withPivot('resep_id', 'quantity');
     }
 
     public function categories()

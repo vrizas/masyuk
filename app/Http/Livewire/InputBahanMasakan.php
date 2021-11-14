@@ -10,14 +10,23 @@ class InputBahanMasakan extends Component
     protected $listeners = ['itemAdded' => '$refresh'];
     public $index;
     public $allBahans = null;
-    public $listBahans;
+    public $listBahans = [];
     public $selectedBahan = null;
 
-    public function mount()
+    public function mount($resep)
     {
         $this->allBahans = Bahan::all();
-        $this->listBahans = [['bahan_id' => '', 'quantity' => 0, 'kalori' => 0]];
-        $this->index = 0;
+        if($resep)
+        {
+            foreach($resep->bahans as $bahan)
+            {
+                array_push($this->listBahans, ['bahan_id' => $bahan->bahan_id, 'quantity' => $bahan->quantity, 'kalori' => 0]);
+            }
+        } else
+        {
+            $this->listBahans = [['bahan_id' => '', 'quantity' => 0, 'kalori' => 0]];
+            $this->index = 0;
+        }
     }
 
     public function updatedListBahans($id)

@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class ResepController extends Controller
 {
-    
+
     // GET SEMUA RESEP
     public function showAllResep()
     {
@@ -21,7 +21,7 @@ class ResepController extends Controller
         return view('resep.index', ['reseps' => $resep]);
     }
 
-     public function searchResep()
+    public function searchResep()
     {
         $resep = Resep::all();
         return view('resep.search-list', ['reseps' => $resep]);
@@ -34,7 +34,7 @@ class ResepController extends Controller
     }
 
     public function createResep(Request $request)
-    {   
+    {
         $request->validate([
             'judul' => 'required|max:255',
             'deskripsi' => 'required',
@@ -88,36 +88,86 @@ class ResepController extends Controller
             $resep->photos()->save($photo);
         }
 
-        return redirect('/profile/'. auth()->user()->username);
+        return redirect('/profile/' . auth()->user()->username);
     }
 
     public function showResep($id)
     {
         $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->withCount('komentars')->where('id', $id)->first();
-        $bookmarkCount = Bookmark::where('resep_id', $resep->id)->count();
+        $bookmarkCount = Bookmark::where('resep_id', $id)->count();
         return view('resep.detail-resep', ['resep' => $resep, 'bookmarkCount' => $bookmarkCount]);
     }
 
     public function edit(Resep $resep)
     {
+        return view('resep.edit-resep', ['resep' => $resep, 'categories' => Category::all()]);
     }
 
 
-    public function update(Request $request, Resep $resep)
+    public function editResep(Request $request, $id)
     {
-        //
+        $resep = Resep::find($id);
+        $request->validate([
+            'judul' => 'required|max:255',
+            'deskripsi' => 'required',
+            'listBahans' => 'required',
+            'listLangkah' => 'required',
+            'categories' => 'required'
+        ]);
+
+        $resep->title = $request->judul;
+        $resep->description = $request->deskripsi;
+
+        foreach ($request->listBahans as $bahan) {
+            $resep->bahans()->sync(
+                [
+                    $bahan['bahan_id'] => ['quantity' => $bahan['quantity']],
+                ],
+            );
+        }
+
+        foreach ($request->categories as $category) {
+            $resep->categories()->sync($category, false);
+        }
+
+        foreach ($request->listLangkah as $index => $step) {
+            $resepStep = ResepStep::create(
+                [
+                    'resep_id' => $resep->id,
+                    'nomor_step' => $index + 1,
+                    'description' => $step['text'] ?? ' ',
+                ]
+            );
+
+            $resep->steps()->sync($resepStep, false);
+        }
+
+        foreach ($request->images as $index => $imageUrl) {
+            $filename = explode("/", $imageUrl['path']);
+            $photo = Photo::create(
+                [
+                    'resep_id' => $resep->id,
+                    'filename' => $filename[1],
+                ]
+            );
+            $resep->photos()->sync($photo, false);
+        }
+
+        $result = $resep->save();
+
+        if ($result == null) {
+            return redirect()->back()->with('error', 'Terdapat kesalahan sistem.');
+        }
+        return redirect()->back()->with('success', 'Resep berhasil dihapus.');
     }
 
 
     public function deleteResep($id)
     {
         $result = Resep::find($id)->delete();
-        if($result == null)
-        {
-            return redirect()->back()->with('error', 'Terdapat kesalahan sistem.'); 
+        if ($result == null) {
+            return redirect()->back()->with('error', 'Terdapat kesalahan sistem.');
         }
-        return redirect()->back()->with('success', 'Resep berhasil dihapus.'); 
-        
+        return redirect()->back()->with('success', 'Resep berhasil dihapus.');
     }
-
 }
