@@ -16,7 +16,9 @@
             </section>
         </article>
         <livewire:search-dropdown :desktop="true" />
-        <x-home-carousel :reseps="$reseps" />
+        @if ($reseps->count() > 3)
+            <x-home-carousel :reseps="$reseps" />
+        @endif
         <article>
             <section class="flex mt-4 items-center justify-between">
                 <h3 class="font-bold text-xl lg:2xl">Rekomendasi Resep</h3>
