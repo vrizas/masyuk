@@ -16,9 +16,12 @@
                 </div>
                 <div class="flex justify-between">
                     <p class="text-sm">{{ $komentar->text }}</p>
-                    @if (Auth::user()->id == $komentar->user->id || Auth::user()->role == 'admin')
-                        <button wire:click="deleteKomentar({{ $komentar }})">Delete</button>
+                    @if (Auth::check())
+                        @if (Auth::user()->id == $komentar->user->id || Auth::user()->role == 'admin')
+                            <button wire:click="deleteKomentar({{ $komentar }})">Delete</button>
+                        @endif
                     @endif
+
                 </div>
             </div>
         </section>
