@@ -30,7 +30,7 @@ class ProfileTab extends Component
     }
 
     public function mount() {
-        $this->selectedIndex = 1;
+        $this->selectedIndex = 0;
     }
 
     public function render()
