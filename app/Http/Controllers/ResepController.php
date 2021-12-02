@@ -95,7 +95,11 @@ class ResepController extends Controller
     {
         $resep = Resep::with('user', 'bahans', 'photos', 'steps', 'categories')->withCount('komentars')->where('id', $id)->first();
         $bookmarkCount = Bookmark::where('resep_id', $id)->count();
-        return view('resep.detail-resep', ['resep' => $resep, 'bookmarkCount' => $bookmarkCount]);
+        $totalCalory = 0;
+        foreach($resep->bahans as $bahan) {
+            $totalCalory +=  $bahan->baseQuantity * $bahan->pivot->quantity;
+        }
+        return view('resep.detail-resep', ['resep' => $resep, 'bookmarkCount' => $bookmarkCount, 'totalCalory' => $totalCalory]);
     }
 
     public function edit(Resep $resep)

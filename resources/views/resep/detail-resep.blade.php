@@ -184,7 +184,7 @@
                 <h3 class="font-bold mb-4 text-lg lg:text-xl">Bahan Masakan</h3>
                 <ul class="list-disc px-6">
                     @foreach ($resep->bahans as $bahan)
-                        <li class="text-sm lg:text-base">{{ $bahan->baseQuantity . ' ' . $bahan->unit }}<b>
+                        <li class="text-sm lg:text-base">{{ $bahan->baseQuantity * $bahan->pivot->quantity . ' ' . $bahan->unit }}<b>
                                 {{ $bahan->nama }}</b></li>
                     @endforeach
                 </ul>
@@ -195,7 +195,7 @@
                     class="collapse-title text-xl font-medium flex justify-between items-center py-4 px-6 lg:py-8 lg:px-10">
                     <h3 class="font-bold text-lg lg:text-xl">Total Kalori</h3>
                     <div class="flex gap-2">
-                        <p class="font-bold text-lg lg:text-xl">{{ $resep->bahans->sum('kalori') }} Kkal</p>
+                        <p class="font-bold text-lg lg:text-xl">{{ $totalCalory }} Kkal</p>
                         <svg xmlns="http://www.w3.org/2000/svg" class="chevron w-6 h-6 lg:w-8 lg:h-8" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fill-rule="evenodd"
@@ -209,7 +209,7 @@
                         @foreach ($resep->bahans as $bahan)
                             <tr class="h-8 align-top">
                                 <td>{{ $bahan->nama }}</td>
-                                <td class="text-right">{{ $bahan->kalori }} Kkal / {{ $bahan->baseQuantity }}
+                                <td class="text-right">{{ $bahan->kalori * $bahan->pivot->quantity }} Kkal / {{ $bahan->baseQuantity * $bahan->pivot->quantity }}
                                     {{ $bahan->unit }}</td>
                             </tr>
                         @endforeach
@@ -225,6 +225,7 @@
             {{-- LIVEWIRE DAFTAR KOMENTAR --}}
             @livewire('daftar-komentar', ['resep' => $resep])
         </div>
+        {{-- TODO: Implement --}}
         <aside class="lg:col-span-1">
             <h3 class="font-bold mb-2 text-lg lg:text-xl">Disarankan untuk kamu</h3>
             <div class="flex flex-col gap-5">
