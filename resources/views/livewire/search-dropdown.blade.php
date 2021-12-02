@@ -29,7 +29,7 @@
                             <div class="flex gap-4 h-20">
                                 <div class="avatar">
                                     <div class="mb-8 rounded-btn w-30 h-20">
-                                        @if ($resep->photos[0] != null)
+                                        @if (count($resep->photos) != 0)
                                             <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}">
                                         @else
                                             <img
