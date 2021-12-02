@@ -40,7 +40,8 @@ class ResepController extends Controller
             'deskripsi' => 'required',
             'listBahans' => 'required',
             'listLangkah' => 'required',
-            'categories' => 'required'
+            'categories' => 'required',
+            'images' => 'required',
         ]);
 
         $resep = Resep::create([
@@ -122,7 +123,8 @@ class ResepController extends Controller
             'deskripsi' => 'required',
             'listBahans' => 'required',
             'listLangkah' => 'required',
-            'categories' => 'required'
+            'categories' => 'required',
+            'images' => 'required',
         ]);
 
         $resep->title = $request->judul;
