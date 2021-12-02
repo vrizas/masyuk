@@ -8,19 +8,19 @@
                 <label class="label pt-0">
                     <span class="label-text">Nama</span>
                 </label> 
-                <input type="text" value="John Donald" class="input bg-gray-100">
+                <input type="text" value="{{  Auth::user()->name }}" class="input bg-gray-100">
             </div> 
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">Username</span>
                 </label> 
-                <input type="text" value="johndoe" class="input bg-gray-100">
+                <input type="text" value="{{  Auth::user()->username }}" class="input bg-gray-100">
             </div> 
             <div class="form-control">
                 <label class="label">
-                    <span class="label-text">Password</span>
+                    <span class="label-text">Email</span>
                 </label> 
-                <input type="text" value="username" class="input bg-gray-100">
+                <input type="text" value="{{  Auth::user()->email }}" class="input bg-gray-100">
             </div> 
         </div>
     </div> 

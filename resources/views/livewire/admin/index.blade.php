@@ -3,7 +3,7 @@
         <div class="w-full flex flex-col items-center gap-2">
             <img src="https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp"
                 class="mask mask-circle w-36">
-            <p class="font-bold text-2xl">John Donald</p>
+            <p class="font-bold text-2xl">{{ Auth::user()->name }}</p>
         </div>
         <ul class="mt-10 flex flex-col gap-6 pl-6">
             @if ($selectorBahan == true)
