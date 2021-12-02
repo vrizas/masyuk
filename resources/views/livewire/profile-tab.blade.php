@@ -1,6 +1,6 @@
-<section class="bg-gray-200 rounded-2xl px-5 py-4">
+<section class="bg-gray-200 rounded-2xl px-5 py-4 mt-4">
     <section class="mb-4">
-        <div class="flex mt-4 items-center gap-2">
+        <div class="flex items-center gap-2">
             <button wire:click="changeTabToResep()" class="btn flex-1 @if ($selectedIndex == 0) btn-primary @endif btn-outline capitalize btn-rh py-2 lg:py-3">Buku Resep</button>
             @if (auth()->check() && auth()->user()->is($user))     
             <button wire:click="changeTabToBookmark()"class="btn flex-1 @if ($selectedIndex == 1)  btn-primary @endif btn-outline capitalize btn-rh py-2 lg:py-3">Bookmark</button>
@@ -41,12 +41,11 @@
         </div>
 @else
 @if (auth()->check() && auth()->user()->is($user))        
-<div id="Bookmark" class="container">
+<div id="Bookmark" class="container grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($bookmark_reseps as $resep)
                 @if (Auth::user()->id == $user->id)
-                    <div class="relative card-masyuk">
+                    <a href="/reseps/{{ $resep->id }}" class="relative card-masyuk">
                         <div class="relative">
-                        
                             @if (!$resep->photos->isEmpty())
                                 <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}" alt="Image 1"
                                     class="rounded-2xl w-full h-full object-cover">
@@ -63,7 +62,7 @@
                                 <p class="font-medium text-sm lg:text-base">{{ $resep->user->name }}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @else
                     <a href="/reseps/{{ $resep->id }}" class="relative card-masyuk">
                         <div class="relative">

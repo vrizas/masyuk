@@ -238,7 +238,7 @@
                                 alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
                         @else
                             <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
-                                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
+                                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover rounded-2xl">
                         @endif
                         <div
                             class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
