@@ -245,7 +245,7 @@
                     <a href="/reseps/{{ $resep->id }}" class="relative">
                         @if (!$resep->photos->isEmpty())
                             <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}"
-                                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
+                                alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover rounded-2xl">
                         @else
                             <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
                                 alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover rounded-2xl">
