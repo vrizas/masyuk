@@ -15,5 +15,6 @@
   'input-link-youtube' => 'App\\Http\\Livewire\\InputLinkYoutube',
   'like-button' => 'App\\Http\\Livewire\\LikeButton',
   'notification-indicator' => 'App\\Http\\Livewire\\NotificationIndicator',
+  'profile-tab' => 'App\\Http\\Livewire\\ProfileTab',
   'search-dropdown' => 'App\\Http\\Livewire\\SearchDropdown',
 );

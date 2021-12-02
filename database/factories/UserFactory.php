@@ -33,6 +33,7 @@ class UserFactory extends Factory
             'password' => bcrypt('12345678'),
             'role' => 'member',
             'remember_token' => Str::random(10),
+            'bookmark_id' => 1
         ];
     }
 

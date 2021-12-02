@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Bookmark;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('role');
             $table->rememberToken();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->foreignIdFor(Bookmark::class)->nullable();
             $table->timestamps();
         });
     }
