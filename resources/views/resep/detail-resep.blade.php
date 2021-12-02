@@ -80,8 +80,13 @@
                             hidden>
                         <div class="carousel-item absolute opacity-0" style="height:50vh;">
                             <div class="block h-full w-full">
+                                @if ($resep->photos->count() > 0)
+                                <img src="{{  asset('/storage/photos/' . $resep->photos[0]->filename) }}"
+                                class="rounded-2xl w-full h-full object-cover">
+                                @else
                                 <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
                                     class="rounded-2xl w-full h-full object-cover">
+                                @endif
                                 <div
                                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                                 </div>
@@ -97,8 +102,13 @@
                             hidden>
                         <div class="carousel-item absolute opacity-0" style="height:50vh;">
                             <div class="block h-full w-full">
+                                @if ($resep->photos->count() > 1)
+                                <img src="{{  asset('/storage/photos/' . $resep->photos[1]->filename) }}"
+                                class="rounded-2xl w-full h-full object-cover">
+                                @else
                                 <img src="http://blog.sayurbox.com/wp-content/uploads/2021/03/edisibelajarmasak-595x375.jpg"
                                     class="rounded-2xl w-full h-full object-cover">
+                                @endif
                                 <div
                                     class="from-black bg-gradient-to-t w-full h-full rounded-2xl absolute top-0 left-0 image-filter opacity-50">
                                 </div>
@@ -232,7 +242,7 @@
             <h3 class="font-bold mb-2 text-lg lg:text-xl">Disarankan untuk kamu</h3>
             <div class="flex flex-col gap-5">
                 @foreach ($resepRecommendations as $resep)
-                    <a href="#" class="relative">
+                    <a href="/reseps/{{ $resep->id }}" class="relative">
                         @if (!$resep->photos->isEmpty())
                             <img src="{{ asset('/storage/photos/' . $resep->photos[0]->filename) }}"
                                 alt="Gambar {{ $resep->title }}" class="w-full h-full object-cover">
